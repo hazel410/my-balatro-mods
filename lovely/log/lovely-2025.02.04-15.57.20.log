@@ -1,0 +1,158 @@
+INFO - [♥] Lovely 0.7.1
+INFO - [♥] Game directory is at "Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Cleaning up dumps directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 181ms
+INFO - [♥] Applied 12 patches to 'main.lua'
+INFO - [♥] Applied 5 patches to 'engine/controller.lua'
+INFO - [♥] Applied 12 patches to 'back.lua'
+INFO - [♥] Applied 6 patches to 'tag.lua'
+INFO - [♥] Applied 1 patch to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 41 patches to 'functions/misc_functions.lua'
+INFO - [♥] Applied 24 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 3 patches to 'engine/ui.lua'
+INFO - [♥] Applied 69 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 39 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 84 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 35 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 139 patches to 'card.lua'
+INFO - [♥] Applied 6 patches to 'cardarea.lua'
+INFO - [♥] Applied 30 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [G] Failed to connect to the debug server
+INFO - [G] 2025-02-04 15:57:23 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started !
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-02-04 15:57:25 :: TRACE :: Loader :: Processing Mod file (Legacy header): GamepadStyleKeyboardControls.lua
+INFO - [G] 2025-02-04 15:57:25 :: TRACE :: Loader :: Saving Mod Info: GamepadStyleKeyboardControls
+INFO - [G] 2025-02-04 15:57:25 :: WARN  :: Loader :: Found lone Lua file Riff-Raffling.lua in Mods directory :: Please place the files for each mod in its own subdirectory.
+INFO - [G] 2025-02-04 15:57:25 :: TRACE :: Loader :: Processing Mod file (Legacy header): Riff-Raffling.lua
+INFO - [G] 2025-02-04 15:57:25 :: TRACE :: Loader :: Saving Mod Info: FTV
+INFO - [G] 2025-02-04 15:57:25 :: TRACE :: Loader :: Mod FTV was unable to load: 
+INFO - [G] 2025-02-04 15:57:25 :: INFO  :: TIMER :: [0000] Injected Language in 0.002 ms
+INFO - [G] 2025-02-04 15:57:25 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 3.312 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0002] Injected Atlas in 996.274 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0000] Injected Sound in 0.002 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0008] Injected Stake in 0.293 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0004] Injected Rarity in 0.089 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0004] Injected ObjectType in 0.177 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0048] Injected Center in 2.840 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.061 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0002] Injected Blind in 0.062 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0004] Injected Seal in 0.633 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0004] Injected Suit in 0.141 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0013] Injected Rank in 0.257 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0016] Injected DeckSkin in 0.254 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.799 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0020] Injected Challenge in 1.004 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0000] Injected Tag in 0.005 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0004] Injected Sticker in 0.621 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0000] Injected Shader in 0.005 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0001] Injected Keybind in 0.028 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.297 ms
+INFO - [G] 2025-02-04 15:57:26 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 1.584 ms
+INFO - [G] ERROR LOADING GAME: Card area 'shop_booster' not instantiated before load
+INFO - [G] ERROR LOADING GAME: Card area 'shop_jokers' not instantiated before load
+INFO - [G] ERROR LOADING GAME: Card area 'shop_vouchers' not instantiated before load
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-02-04 15:58:31 :: ERROR :: StackTrace :: Oops! The game crashed
+[SMODS _ "src/utils.lua"]:1203: attempt to index local 'edition' (a nil value)
+Stack Traceback
+===============
+(1) Lua local 'handler' at file 'main.lua:612'
+	Local variables:
+	 msg = string: "[SMODS _ \"src/utils.lua\"]:1203: attempt to index local 'edition' (a nil value)"
+	 (*temporary) = Lua function '?' (defined at line 31 of chunk [SMODS _ "src/logging.lua"])
+	 (*temporary) = string: "Oops! The game crashed\
+"
+(2) LÖVE metamethod at file 'boot.lua:352'
+	Local variables:
+	 errhand = Lua function '?' (defined at line 598 of chunk main.lua)
+	 handler = Lua function '?' (defined at line 598 of chunk main.lua)
+(3) Lua method 'calculate_edition' at Steamodded file 'src/utils.lua:1203' 
+	Local variables:
+	 self = table: 0x04b6cb28  {click_offset:table: 0x03f131d0, children:table: 0x0408d670, ambient_tilt:0.2 (more...)}
+	 context = table: 0x04b80a20  {main_eval:true, buying_card:true, cardarea:table: 0x043747f0, card:table: 0x04366920 (more...)}
+	 edition = nil
+	 (*temporary) = nil
+	 (*temporary) = nil
+	 (*temporary) = nil
+	 (*temporary) = number: 1
+	 (*temporary) = string: "attempt to index local 'edition' (a nil value)"
+(4) Lua global 'eval_card' at file 'functions/common_events.lua:683'
+	Local variables:
+	 card = table: 0x04b6cb28  {click_offset:table: 0x03f131d0, children:table: 0x0408d670, ambient_tilt:0.2 (more...)}
+	 context = table: 0x04b80a20  {main_eval:true, buying_card:true, cardarea:table: 0x043747f0, card:table: 0x04366920 (more...)}
+	 ret = table: 0x0ad5b660  {}
+(5) Lua field 'calculate_context' at Steamodded file 'src/utils.lua:1221' 
+	Local variables:
+	 context = table: 0x04b80a20  {main_eval:true, buying_card:true, cardarea:table: 0x043747f0, card:table: 0x04366920 (more...)}
+	 return_table = nil
+	 (for generator) = C function: builtin#6
+	 (for state) = table: 0x04b97e70  {1:table: 0x043747f0, 2:table: 0x06720970, 3:table: 0x04ce3c28}
+	 (for control) = number: 1
+	 _ = number: 1
+	 area = table: 0x043747f0  {click_offset:table: 0x093b93e0, children:table: 0x0ad53218, shuffle_amt:0 (more...)}
+	 (for generator) = C function: builtin#6
+	 (for state) = table: 0x0671a0d0  {1:table: 0x0ad53240, 2:table: 0x0ad51370, 3:table: 0x04b6cb28, 4:table: 0x03fcbc50 (more...)}
+	 (for control) = number: 3
+	 _ = number: 3
+	 _card = table: 0x04b6cb28  {click_offset:table: 0x03f131d0, children:table: 0x0408d670, ambient_tilt:0.2 (more...)}
+(6) Lua field 'func' at file 'functions/button_callbacks.lua:2467'
+(7) Lua method 'handle' at file 'engine/event.lua:55'
+	Local variables:
+	 self = table: 0x0436abd0  {start_timer:true, timer:TOTAL, blockable:true, trigger:after, func:function: 0x0436aba8 (more...)}
+	 _results = table: 0x066ae620  {blocking:true, pause_skip:false, time_done:true, completed:false}
+(8) Lua method 'update' at file 'engine/event.lua:182'
+	Local variables:
+	 self = table: 0x066b1d28  {queue_last_processed:64.283333333331, queues:table: 0x066b1d50, queue_dt:0.016666666666667 (more...)}
+	 dt = number: 0.0167479
+	 forced = nil
+	 (for generator) = C function: next
+	 (for state) = table: 0x066b1d50  {unlock:table: 0x066b1d78, other:table: 0x066b21f0, tutorial:table: 0x066b1dc8 (more...)}
+	 (for control) = number: nan
+	 k = string: "base"
+	 v = table: 0x066b1da0  {1:table: 0x0671a0a8, 2:table: 0x0436abd0}
+	 blocked = boolean: false
+	 i = number: 2
+	 results = table: 0x066ae620  {blocking:true, pause_skip:false, time_done:true, completed:false}
+(9) Lua upvalue 'gameUpdateRef' at file 'game.lua:2524'
+	Local variables:
+	 self = table: 0x03ddfd90  {F_GUIDE:false, F_CRASH_REPORTS:false, F_QUIT_BUTTON:true, HUD_tags:table: 0x06499e28 (more...)}
+	 dt = number: 0.0167479
+	 http_resp = nil
+(10) Lua method 'update' at Steamodded file 'src/ui.lua:81' 
+	Local variables:
+	 self = table: 0x03ddfd90  {F_GUIDE:false, F_CRASH_REPORTS:false, F_QUIT_BUTTON:true, HUD_tags:table: 0x06499e28 (more...)}
+	 dt = number: 0.0167479
+(11) Lua field 'update' at file 'main.lua:992'
+	Local variables:
+	 dt = number: 0.0167479
+(12) Lua function '?' at file 'main.lua:931' (best guess)
+(13) global C function 'xpcall'
+(14) LÖVE function at file 'boot.lua:377' (best guess)
+	Local variables:
+	 func = Lua function '?' (defined at line 902 of chunk main.lua)
+	 inerror = boolean: true
+	 deferErrhand = Lua function '(LÖVE Function)' (defined at line 348 of chunk [love "boot.lua"])
+	 earlyinit = Lua function '(LÖVE Function)' (defined at line 355 of chunk [love "boot.lua"])
+
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-02-04 15:58:31 :: INFO  :: StackTrace :: Additional Context:
+Balatro Version: 1.0.1n-FULL
+Modded Version: 1.0.0~ALPHA-1401a-STEAMODDED
+LÖVE Version: 11.5.0
+Lovely Version: 0.7.1
+Platform: Windows
+Steamodded Mods:
+    1: Gamepad-Style Keyboard Controls by vgperson [ID: GamepadStyleKeyboardControls]
+Lovely Mods:

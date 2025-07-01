@@ -1,0 +1,159 @@
+INFO - [♥] Lovely 0.7.1
+INFO - [♥] Game directory is at "Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Cleaning up dumps directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 90ms
+INFO - [♥] Applied 12 patches to 'main.lua'
+INFO - [♥] Applied 5 patches to 'engine/controller.lua'
+INFO - [♥] Applied 12 patches to 'back.lua'
+INFO - [♥] Applied 6 patches to 'tag.lua'
+INFO - [♥] Applied 1 patch to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 41 patches to 'functions/misc_functions.lua'
+INFO - [♥] Applied 24 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 3 patches to 'engine/ui.lua'
+INFO - [♥] Applied 69 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 39 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 84 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 35 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 139 patches to 'card.lua'
+INFO - [♥] Applied 6 patches to 'cardarea.lua'
+INFO - [♥] Applied 30 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [G] Failed to connect to the debug server
+INFO - [G] 2025-02-04 15:31:05 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started !
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-02-04 15:31:07 :: TRACE :: Loader :: Processing Mod file (Legacy header): GamepadStyleKeyboardControls.lua
+INFO - [G] 2025-02-04 15:31:07 :: TRACE :: Loader :: Saving Mod Info: GamepadStyleKeyboardControls
+INFO - [G] 2025-02-04 15:31:07 :: WARN  :: Loader :: Found lone Lua file Riff-Raffling.lua in Mods directory :: Please place the files for each mod in its own subdirectory.
+INFO - [G] 2025-02-04 15:31:07 :: TRACE :: Loader :: Processing Mod file (Legacy header): Riff-Raffling.lua
+INFO - [G] 2025-02-04 15:31:07 :: TRACE :: Loader :: Saving Mod Info: FTV
+INFO - [G] 2025-02-04 15:31:07 :: TRACE :: Loader :: Mod FTV was unable to load: 
+INFO - [G] 2025-02-04 15:31:07 :: INFO  :: TIMER :: [0000] Injected Language in 0.004 ms
+INFO - [G] 2025-02-04 15:31:07 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 4.477 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0003] Injected Atlas in 886.703 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0000] Injected Sound in 0.002 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0008] Injected Stake in 0.455 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0004] Injected Rarity in 0.249 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0004] Injected ObjectType in 0.129 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0048] Injected Center in 2.170 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.043 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0002] Injected Blind in 0.039 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0004] Injected Seal in 0.519 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0004] Injected Suit in 0.561 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0013] Injected Rank in 0.459 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0016] Injected DeckSkin in 0.107 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.654 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0020] Injected Challenge in 0.527 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0000] Injected Tag in 0.005 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0004] Injected Sticker in 0.343 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0000] Injected Shader in 0.005 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0001] Injected Keybind in 0.037 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.199 ms
+INFO - [G] 2025-02-04 15:31:08 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 0.912 ms
+INFO - [G] ERROR LOADING GAME: Card area 'shop_booster' not instantiated before load
+INFO - [G] ERROR LOADING GAME: Card area 'shop_jokers' not instantiated before load
+INFO - [G] ERROR LOADING GAME: Card area 'shop_vouchers' not instantiated before load
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: functions/button_callbacks.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-02-04 15:31:44 :: ERROR :: StackTrace :: Oops! The game crashed
+engine/sprite.lua:36: attempt to perform arithmetic on field 'x' (a nil value)
+Stack Traceback
+===============
+(1) Lua local 'handler' at file 'main.lua:612'
+	Local variables:
+	 msg = string: "engine/sprite.lua:36: attempt to perform arithmetic on field 'x' (a nil value)"
+	 (*temporary) = Lua function '?' (defined at line 31 of chunk [SMODS _ "src/logging.lua"])
+	 (*temporary) = string: "Oops! The game crashed\
+"
+(2) LÖVE metamethod at file 'boot.lua:352'
+	Local variables:
+	 errhand = Lua function '?' (defined at line 598 of chunk main.lua)
+	 handler = Lua function '?' (defined at line 598 of chunk main.lua)
+(3) Lua method 'set_sprite_pos' at file 'engine/sprite.lua:36'
+	Local variables:
+	 self = table: 0x05dcfd98  {velocity:table: 0x05dd22b8, scale:table: 0x05d56138, click_offset:table: 0x05e1b090 (more...)}
+	 sprite_pos = table: 0x05dd38a8  {y:0}
+	 (*temporary) = C function: 0x00b1a840
+	 (*temporary) = nil
+	 (*temporary) = number: 32
+	 (*temporary) = table: 0x05d7e230  {T:table: 0x05d98e10}
+	 (*temporary) = table: 0x02fa1c58  {reset:function: 0x02fa1c80, draw_shader:function: 0x02fb7aa0, define_draw_steps:function: 0x02fb7a80 (more...)}
+	 (*temporary) = table: 0x033ee860  {align_to_major:function: 0x033ef9c8, hard_set_T:function: 0x033efbd8, draw:function: 0x033eb068 (more...)}
+	 (*temporary) = table: 0x05dcfd98  {velocity:table: 0x05dd22b8, scale:table: 0x05d56138, click_offset:table: 0x05e1b090 (more...)}
+	 (*temporary) = string: "attempt to perform arithmetic on field 'x' (a nil value)"
+(4) Lua method 'init' at file 'engine/sprite.lua:15'
+	Local variables:
+	 self = table: 0x05dcfd98  {velocity:table: 0x05dd22b8, scale:table: 0x05d56138, click_offset:table: 0x05e1b090 (more...)}
+	 X = number: 0
+	 Y = number: 0
+	 W = number: 0.45
+	 H = number: 0.45
+	 new_sprite_atlas = table: 0x03e07238  {atlas:Atlas, image_data:ImageData: 0x1c8013f0, full_path:C:\users\steamuser\AppData\Roaming\Balatro\Mods/GamepadStyleKeyboardControls/assets/2x/keyboard_icons.png (more...)}
+	 sprite_pos = table: 0x05dd38a8  {y:0}
+(5) Lua global 'Sprite' at file 'engine/object.lua:35'
+	Local variables:
+	 self = table: 0x02fa1c58  {reset:function: 0x02fa1c80, draw_shader:function: 0x02fb7aa0, define_draw_steps:function: 0x02fb7a80 (more...)}
+	 obj = table: 0x05dcfd98  {velocity:table: 0x05dd22b8, scale:table: 0x05d56138, click_offset:table: 0x05e1b090 (more...)}
+(6) Lua global 'create_button_binding_pip' at file 'GamepadStyleKeyboardControls.lua:386' (from mod with id GamepadStyleKeyboardControls)
+	Local variables:
+	 args = table: 0x05dd81f8  {button:back}
+	 key_name = string: "enter"
+	 key_sprite_index = nil
+(7) Lua function '?' at file 'functions/button_callbacks.lua:418' (best guess)
+	Local variables:
+	 e = table: 0x05d4c5a8  {click_offset:table: 0x05d4c670, children:table: 0x05d4c5d0, parent:table: 0x05d45048 (more...)}
+	 (*temporary) = table: 0x05d4c5d0  {}
+	 (*temporary) = table: 0x03d28bd0  {remove_group:function: 0x03d123b8, draw:function: 0x03d12438, print_topology:function: 0x03d105f8 (more...)}
+	 (*temporary) = table: 0x05daf600  {}
+(8) Lua method 'update' at file 'engine/ui.lua:953'
+	Local variables:
+	 self = table: 0x05d4c5a8  {click_offset:table: 0x05d4c670, children:table: 0x05d4c5d0, parent:table: 0x05d45048 (more...)}
+	 dt = number: 0
+(9) Lua upvalue 'gameUpdateRef' at file 'game.lua:2651'
+	Local variables:
+	 self = table: 0x03cdf700  {F_GUIDE:false, F_CRASH_REPORTS:false, F_QUIT_BUTTON:true, HUD_tags:table: 0x05dbe338 (more...)}
+	 dt = number: 0
+	 http_resp = nil
+	 move_dt = number: 0.0165892
+	 (for generator) = C function: next
+	 (for state) = table: 0x03ce41c8  {1:table: 0x08f6d948, 2:table: 0x0424ec38, 3:table: 0x0424f448, 4:table: 0x0424fce8 (more...)}
+	 (for control) = number: nan
+	 k = number: 350
+	 v = table: 0x05d4c5a8  {click_offset:table: 0x05d4c670, children:table: 0x05d4c5d0, parent:table: 0x05d45048 (more...)}
+(10) Lua method 'update' at Steamodded file 'src/ui.lua:81' 
+	Local variables:
+	 self = table: 0x03cdf700  {F_GUIDE:false, F_CRASH_REPORTS:false, F_QUIT_BUTTON:true, HUD_tags:table: 0x05dbe338 (more...)}
+	 dt = number: 0.0165892
+(11) Lua field 'update' at file 'main.lua:992'
+	Local variables:
+	 dt = number: 0.0165892
+(12) Lua function '?' at file 'main.lua:931' (best guess)
+(13) global C function 'xpcall'
+(14) LÖVE function at file 'boot.lua:377' (best guess)
+	Local variables:
+	 func = Lua function '?' (defined at line 902 of chunk main.lua)
+	 inerror = boolean: true
+	 deferErrhand = Lua function '(LÖVE Function)' (defined at line 348 of chunk [love "boot.lua"])
+	 earlyinit = Lua function '(LÖVE Function)' (defined at line 355 of chunk [love "boot.lua"])
+
+INFO - [G] file not found: functions/button_callbacks.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-02-04 15:31:44 :: INFO  :: StackTrace :: Additional Context:
+Balatro Version: 1.0.1n-FULL
+Modded Version: 1.0.0~ALPHA-1401a-STEAMODDED
+LÖVE Version: 11.5.0
+Lovely Version: 0.7.1
+Platform: Windows
+Steamodded Mods:
+    1: Gamepad-Style Keyboard Controls by vgperson [ID: GamepadStyleKeyboardControls]
+Lovely Mods:

@@ -1,0 +1,138 @@
+INFO - [♥] Lovely 0.7.1
+INFO - [♥] Game directory is at "Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Found .lovelyignore in 'DebugPlus', skipping it.
+INFO - [♥] Found .lovelyignore in 'GamepadStyleKeyboardControls', skipping it.
+INFO - [♥] Cleaning up dumps directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 56ms
+INFO - [♥] Applied 12 patches to 'main.lua'
+INFO - [♥] Applied 5 patches to 'engine/controller.lua'
+INFO - [♥] Applied 12 patches to 'back.lua'
+INFO - [♥] Applied 6 patches to 'tag.lua'
+INFO - [♥] Applied 1 patch to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 41 patches to 'functions/misc_functions.lua'
+INFO - [♥] Applied 24 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 3 patches to 'engine/ui.lua'
+INFO - [♥] Applied 69 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 39 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 84 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 35 patches to 'functions/button_callbacks.lua'
+INFO - [♥] Applied 139 patches to 'card.lua'
+INFO - [♥] Applied 6 patches to 'cardarea.lua'
+INFO - [♥] Applied 30 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [G] Failed to connect to the debug server
+INFO - [G] 2025-02-25 13:52:15 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started !
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-02-25 13:52:16 :: INFO  :: DefaultLogger :: Valid JSON file found
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Processing Mod file (Legacy header): GamepadStyleKeyboardControls.lua
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Saving Mod Info: GamepadStyleKeyboardControls
+INFO - [G] 2025-02-25 13:52:16 :: WARN  :: Loader :: Found lone Lua file Riff-Raffling.lua in Mods directory :: Please place the files for each mod in its own subdirectory.
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Processing Mod file (Legacy header): Riff-Raffling.lua
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Saving Mod Info: FTV
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Processing Mod file (Legacy header): gay.lua
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Saving Mod Info: GAYGAYGAYGAY
+INFO - [G] 2025-02-25 13:52:16 :: ERROR :: Loader :: Found invalid metadata JSON file at C:\users\steamuser\AppData\Roaming\Balatro\Mods/balatro-gay/manifest.json, ignoring: [SMODS _ "src/loader.lua"]:226: main_file
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Mod DebugPlus was unable to load: 
+INFO - [G] 2025-02-25 13:52:16 :: TRACE :: Loader :: Mod FTV was unable to load: 
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] line not found
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-02-25 13:52:16 :: ERROR :: StackTrace :: Oops! The game crashed
+[SMODS GAYGAYGAYGAY "gay.lua"]:10: module 'logging' not found:
+	no field package.preload['logging']
+	no 'logging' in LOVE game directories.
+	no file 'logging' in LOVE paths.
+	no file '.\logging.lua'
+	no file 'Z:\home\hazel\.steam\debian-installation\steamapps\common\Balatro\lua\logging.lua'
+	no file 'Z:\home\hazel\.steam\debian-installation\steamapps\common\Balatro\lua\logging\init.lua'
+	no file '.\logging.dll'
+	no file 'Z:\home\hazel\.steam\debian-installation\steamapps\common\Balatro\logging.dll'
+	no file 'Z:\home\hazel\.steam\debian-installation\steamapps\common\Balatro\loadall.dll'
+Stack Traceback
+===============
+(1) Lua local 'handler' at file 'main.lua:612'
+	Local variables:
+	 msg = string: "[SMODS GAYGAYGAYGAY \"gay.lua\"]:10: module 'logging' not found:\
+\9no field package.preload['logging']\
+\9no 'logging' in LOVE game directories.\
+\9no file 'logging' in LOVE paths.\
+\9no file '.\\logging.lua'\
+\9no file 'Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro\\lua\\logging.lua'\
+\9no file 'Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro\\lua\\logging\\init.lua'\
+\9no file '.\\logging.dll'\
+\9no file 'Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro\\logging.dll'\
+\9no file 'Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro\\loadall.dll'"
+	 (*temporary) = Lua function '?' (defined at line 31 of chunk [SMODS _ "src/logging.lua"])
+	 (*temporary) = string: "Oops! The game crashed\
+"
+(2) LÖVE function at file 'boot.lua:352' (best guess)
+	Local variables:
+	 errhand = Lua function '?' (defined at line 598 of chunk main.lua)
+	 handler = Lua function '?' (defined at line 598 of chunk main.lua)
+(3) global C function 'require'
+(4) main chunk of file 'gay.lua' at line 10 (from mod with id GAYGAYGAYGAY)
+(5) Lua global 'loadMods' at Steamodded file 'src/loader.lua:571' 
+	Local variables:
+	 modsDirectory = string: "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods"
+	 header_components = table: 0x0b418128  {version:table: 0x0b418878, id:table: 0x0b418338, conflicts:table: 0x0b418768 (more...)}
+	 json_spec = table: 0x0b418a30  {version:table: 0x0b419170, id:table: 0x0b418d60, main_file:table: 0x0b419350 (more...)}
+	 used_prefixes = table: 0x0b419510  {gayg:GAYGAYGAYGAY, game:GamepadStyleKeyboardControls}
+	 lovely_directories = table: 0x0b419538  {1:C:\users\steamuser\AppData\Roaming\Balatro\Mods/DebugPlus/}
+	 processDirectory = Lua function '?' (defined at line 185 of chunk [SMODS _ "src/loader.lua"])
+	 keyset = table: 0x09833f40  {1:0}
+	 check_dependencies = Lua function '?' (defined at line 419 of chunk [SMODS _ "src/loader.lua"])
+	 (for generator) = C function: builtin#6
+	 (for state) = table: 0x09833f40  {1:0}
+	 (for control) = number: 1
+	 _ = number: 1
+	 priority = number: 0
+	 (for generator) = C function: builtin#6
+	 (for state) = table: 0x0c660aa0  {1:table: 0x0b44f6f0, 2:table: 0x0c6770e0, 3:table: 0x0c679080, 4:table: 0x0c674478 (more...)}
+	 (for control) = number: 3
+	 _ = number: 3
+	 mod = table: 0x0c679080  {version:0.0.0, id:GAYGAYGAYGAY, main_file:gay.lua, can_load:true, badge_colour:table: 0x0c679330 (more...)}
+(6) Lua global 'initSteamodded' at Steamodded file 'src/loader.lua:654' 
+(7) Lua method 'start_up' at file 'game.lua:211'
+	Local variables:
+	 self = table: 0x03ddfdc0  {SPEEDFACTOR:1, F_GUIDE:false, keybind_mapping:table: 0x03deadc0, F_CRASH_REPORTS:false (more...)}
+	 settings = string: "return {[\"version\"]=\"1.0.1o-FULL\",[\"reduced_motion\"]=false,[\"paused\"]=true,[\"QUEUED_CHANGE\"]={},[\"COMP\"]={[\"prev_name\"]=\"\",[\"name\"]=\"\",[\"score\"]=713271562200,},[\"colourblind_option\"]=true,[\"play_button_pos\"]=2,[\"CUSTOM_DECK\"]={[\"Collabs\"]={[\"Spades\"]=\"collab_SK\",[\"Hearts\"]=\"collab_BUG\",[\"Diamonds\"]=\"collab_EG\",[\"Clubs\"]=\"collab_FO\",},},[\"crashreports\"]=false,[\"tutorial_progress\"]={[\"hold_parts\"]={[\"first_hand_3\"]=true,[\"small_blind\"]=true,[\"big_blind\"]=true,[\"first_hand_4\"]=true,[\"second_hand\"]=true,[\"shop_1\"]=true,[\"first_hand_2\"]=true,[\"first_hand\"]=true,},[\"section\"]=\"second_hand\",[\"completed_parts\"]={[\"first_hand\"]=true,[\"first_hand_3\"]=true,[\"small_blind\"]=true,[\"big_blind\"]=true,[\"first_hand_4\"]=true,[\"shop_1\"]=true,[\"first_hand_section\"]=true,[\"first_hand_2\"]=true,[\"second_hand\"]=true,},},[\"language\"]=\"en-us\",[\"tutorial_complete\"]=true,[\"WINDOW\"]={[\"vsync\"]=1,[\"display_names\"]={[1]=\"1\",},[\"screenmode\"]=\"Borderless\",[\"DISPLAYS\"]={[1]={[\"screen_resolutions\"]={[\"strings\"]={[1]=\"2256 X 1504\",},[\"values\"]={[1]={[\"w\"]=2256,[\"h\"]=1504,},},},[\"screen_res\"]={[\"w\"]=2256,[\"h\"]=1504,},[\"DPI_scale\"]=1,[\"MONITOR_DIMS\"]={[\"height\"]=1504,[\"width\"]=2256,},},},[\"selected_display\"]=1,},[\"run_stake_stickers\"]=true,[\"GAMESPEED\"]=4,[\"SOUND\"]={[\"volume\"]=100,[\"music_volume\"]=74.847517730496,[\"game_sounds_volume\"]=100,},[\"music_control\"]={[\"current_track\"]=\"\",[\"desired_track\"]=\"\",[\"lerp\"]=1,},[\"ACHIEVEMENTS_EARNED\"]={[\"card_discarder\"]=true,[\"_10k\"]=true,[\"retrograde\"]=true,[\"you_get_what_you_get\"]=true,[\"heads_up\"]=true,[\"royale\"]=true,[\"shattered\"]=true,[\"roi\"]=true,[\"tiny_hands\"]=true,[\"_100000k\"]=true,[\"cartomancy\"]=true,[\"speedrunner\"]=true,[\"flushed\"]=true,[\"mid_stakes\"]=true,[\"completionist\"]=true,[\"nest_egg\"]=true,[\"rule_bender\"]=true,[\"ante_upper\"]=true,[\"_1000k\"]=true,[\"legendary\"]=true,[\"extreme_couponer\"]=true,[\"big_hands\"]=true,[\"rule_breaker\"]=true,[\"astronomy\"]=true,[\"low_stakes\"]=true,[\"high_stakes\"]=true,[\"clairvoyance\"]=true,[\"ante_up\"]=true,[\"card_player\"]=true,},[\"screenshake\"]=0,[\"current_setup\"]=\"New Run\",[\"profile\"]=1,[\"ambient_control\"]={[\"ambientFire1\"]={[\"per\"]=1.1,[\"vol\"]=0,},[\"ambientOrgan1\"]={[\"per\"]=0.7,[\"vol\"]=0,},[\"ambientFire2\"]={[\"per\"]=1.05,[\"vol\"]=0,},[\"ambientFire3\"]={[\"per\"]=1,[\"vol\"]=0,},},[\"DEMO\"]={[\"win_CTA_shown\"]=true,[\"quit_CTA_shown\"]=true,[\"timed_CTA_shown\"]=true,[\"total_uptime\"]=5.0118314587633,},[\"GRAPHICS\"]={[\"texture_scaling\"]=2,[\"crt\"]=69.844858156028,[\"shadows\"]=\"On\",[\"bloom\"]=2,},}"
+	 settings_ver = nil
+	 new_colour_proto = table: 0x03de8650  {Spades:table: 0x03de88b8, Hearts:table: 0x03de8768, Diamonds:table: 0x03de8820 (more...)}
+	 sound_files = table: 0x03de0620  {1:ambientFire1.ogg, 2:ambientFire2.ogg, 3:ambientFire3.ogg, 4:ambientOrgan1.ogg (more...)}
+	 shader_files = table: 0x03e0b1b8  {1:CRT.fs, 2:background.fs, 3:booster.fs, 4:debuff.fs, 5:dissolve.fs, 6:flame.fs (more...)}
+(8) Lua field 'load' at file 'main.lua:945'
+(9) Lua function '?' at file 'main.lua:892' (best guess)
+(10) global C function 'xpcall'
+(11) LÖVE function at file 'boot.lua:368' (best guess)
+	Local variables:
+	 result = boolean: true
+	 main = nil
+(12) global C function 'xpcall'
+(13) LÖVE function at file 'boot.lua:377' (best guess)
+	Local variables:
+	 func = Lua function '(LÖVE Function)' (defined at line 355 of chunk [love "boot.lua"])
+	 inerror = boolean: true
+	 deferErrhand = Lua function '(LÖVE Function)' (defined at line 348 of chunk [love "boot.lua"])
+	 earlyinit = Lua function '(LÖVE Function)' (defined at line 355 of chunk [love "boot.lua"])
+
+INFO - [G] line not found
+INFO - [G] line not found
+INFO - [G] file not found: main.lua: No such file or directory
+INFO - [G] 2025-02-25 13:52:16 :: INFO  :: StackTrace :: Additional Context:
+Balatro Version: 1.0.1o-FULL
+Modded Version: 1.0.0~ALPHA-1401a-STEAMODDED
+LÖVE Version: 11.5.0
+Lovely Version: 0.7.1
+Platform: Windows
+Steamodded Mods:
+    1: balatro-gay by HeyImKyu [ID: GAYGAYGAYGAY]
+Lovely Mods:

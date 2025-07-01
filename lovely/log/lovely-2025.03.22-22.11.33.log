@@ -1,0 +1,1567 @@
+INFO - [♥] Lovely 0.7.1
+INFO - [♥] Game directory is at "Z:\\home\\hazel\\.steam\\debian-installation\\steamapps\\common\\Balatro"
+INFO - [♥] Writing logs to "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\log"
+INFO - [♥] Using mod directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods"
+INFO - [♥] Found .lovelyignore in 'BalatroMultiplayer-main', skipping it.
+INFO - [♥] Found .lovelyignore in 'deltarune-cards', skipping it.
+INFO - [♥] Found .lovelyignore in 'GamepadStyleKeyboardControls', skipping it.
+INFO - [♥] Found .lovelyignore in 'luigi-cards', skipping it.
+INFO - [♥] Cleaning up dumps directory at "C:\\users\\steamuser\\AppData\\Roaming\\Balatro\\Mods\\lovely\\dump"
+INFO - [♥] Initialization complete in 37ms
+INFO - [♥] Applied 1 patch to 'conf.lua'
+INFO - [♥] Applied 48 patches to 'main.lua'
+INFO - [♥] Applied 11 patches to 'engine/controller.lua'
+INFO - [♥] Applied 15 patches to 'back.lua'
+INFO - [♥] Applied 7 patches to 'tag.lua'
+INFO - [♥] Applied 1 patch to 'engine/moveable.lua'
+INFO - [♥] Applied 2 patches to 'engine/sprite.lua'
+INFO - [♥] Applied 2 patches to 'engine/animatedsprite.lua'
+INFO - [♥] Applied 43 patches to 'functions/misc_functions.lua'
+INFO - [♥] Applied 33 patches to 'game.lua'
+INFO - [♥] Applied 1 patch to 'globals.lua'
+INFO - [♥] Applied 3 patches to 'engine/ui.lua'
+INFO - [♥] Applied 80 patches to 'functions/UI_definitions.lua'
+INFO - [♥] Applied 43 patches to 'functions/state_events.lua'
+INFO - [♥] Applied 92 patches to 'functions/common_events.lua'
+INFO - [♥] Applied 42 patches to 'functions/button_callbacks.lua'
+WARN - [♥] Pattern 'if k ~= \'focused_ui\' and k ~= \"front\" and k ~= \"back\" and k ~= \"soul_parts\" and k ~= \"center\" and k ~= \'floating_sprite\' and k~= \"shadow\" and k~= \"use_button\" and k ~= \'buy_button\' and k ~= \'buy_and_use_button\' and k~= \"debuff\" and k ~= \'price\' and k~= \'particles\' and k ~= \'h_popup\' then v:draw() end' on target 'card.lua' for pattern patch from Malverk\lovely\ui.toml resulted in no matches
+WARN - [♥] Pattern 'if k ~= \'focused_ui\' and k ~= \"front\" and k ~= \"back\" and k ~= \"soul_parts\" and k ~= \"center\" and k ~= \'floating_sprite\' and k~= \"shadow\" and k~= \"use_button\" and k ~= \'buy_button\' and k ~= \'buy_and_use_button\' and k~= \"debuff\" and k ~= \'price\' and k~= \'particles\' and k ~= \'h_popup\' then v:draw() end' on target 'card.lua' for pattern patch from Malverk\lovely\ui.toml resulted in no matches
+INFO - [♥] Applied 142 patches to 'card.lua'
+INFO - [♥] Applied 8 patches to 'cardarea.lua'
+INFO - [♥] Applied 34 patches to 'blind.lua'
+INFO - [♥] Applied 2 patches to 'engine/text.lua'
+INFO - [G] Failed to connect to the debug server 
+INFO - [G] 2025-03-22 22:11:34 :: DEBUG :: DebugConsole :: Steamodded Debug Socket started ! 
+INFO - [♥] Applied 9 patches to 'engine/sound_manager.lua'
+INFO - [♥] Applied 1 patch to 'engine/save_manager.lua'
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): GayPenis.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: GayPenis 
+INFO - [G] 2025-03-22 22:11:35 :: INFO  :: DefaultLogger :: Valid JSON file found 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): Miku.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: bluestorm 
+INFO - [G] 2025-03-22 22:11:35 :: INFO  :: DefaultLogger :: Valid JSON file found 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): GamepadStyleKeyboardControls.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: GamepadStyleKeyboardControls 
+INFO - [G] 2025-03-22 22:11:35 :: INFO  :: DefaultLogger :: Valid JSON file found 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): MayburiDeck.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: Mayburideck 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): main.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: LeSpectrals 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): main.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: TSpectrals 
+INFO - [G] 2025-03-22 22:11:35 :: INFO  :: DefaultLogger :: Valid JSON file found 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): deltarune_cards.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: deltarune_cards 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): main.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: lgbt_mult_cards 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): Miku.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: 39Hatsune 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): hazel-custom-collabs.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: hazel410-customs 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Processing Mod file (Legacy header): LuigiCasinoCards.lua 
+INFO - [G] 2025-03-22 22:11:35 :: TRACE :: Loader :: Saving Mod Info: LuigiCasinoCards 
+INFO - [G] 2025-03-22 22:11:36 :: TRACE :: Loader :: Mod GamepadStyleKeyboardControls was unable to load:  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger :: Gay Penis is ready to FUCK 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger :: Iterating over G.localization.misc: 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger :: capture_table (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger :: idx_str: .misc 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger :: orig_t (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   v_text_parsed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_inflation (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Permanently raise prices by  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: $1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  on every purchase 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_set_joker_slots_ante (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: When ante  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  boss is defeated, set Joker slots to  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 0 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_chips_dollar_cap (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Chips 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: blue 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  cannot exceed the current  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: $ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_set_eternal_ante (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: When ante  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  boss is defeated, all Jokers become  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: eternal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_dollars (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Start with  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: $ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_reward (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: All  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Blinds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  give no reward money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_none (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: None 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: inactive 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_set_seed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 attempt with set Seed:  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_interest (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Earn no  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Interest 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  at end of round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_reward_specific (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2:  Blinds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  give no reward money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_hand_size (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  hand size 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_flipped_cards (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 in  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: green 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  cards are drawn face down 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_none (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: None 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: inactive 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_shop_jokers (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Jokers no longer appear in the  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: shop 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_discard_cost (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Discards each cost  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: $ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_daily (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Daily Challenge! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: red 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             s: 1.2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             E: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_hands (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: blue 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  hands per round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_discards (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: red 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  discards per round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_debuff_played_cards (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: All  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Played 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  cards become  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: debuffed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  after scoring 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_consumable_slots (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  Consumable Slots 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_extra_hand_money (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Extra  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: blue 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  no longer earn money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_minus_hand_size_per_X_dollar (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Hold  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: -1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: red 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  cards in hand for every  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: $ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  you have 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_joker_slots (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: attention 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1:  Joker Slots 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_all_eternal (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: All Jokers are  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Eternal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             C: eternal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   blind_states (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Defeated: Defeated 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Upcoming: Upcoming 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Current: Current 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Selected: Selected 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Select: Select 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Skipped: Skipped 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   v_dictionary (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_handsize: +#1# Hand Size 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     loyalty_active: Active! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     deck_preview_wheel_plural: Numbers may be lower due to the #1# cards drawn face down 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     unlocked: #1#/#2# Unlocked 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     remaining_hand_money: Remaining Hands ($#1# each) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_negative_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Negative 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: +#1# Joker Slot 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_handsize_minus: -#1# Hand Size 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_xmult_minus: -X#1# Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     remaining_discard_money: Remaining Discards ($#1# each) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_polychrome_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Polychrome 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: X#1# Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_mult: +#1# Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_negative_consumable_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Negative 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: +#1# consumable Slot 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_holo_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Holographic 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: +#1# Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     interest: #1# interest per $#2# (#3# max) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     deck_preview_wheel_singular: Numbers may be lower due to the #1# card drawn face down 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_mult_minus: -#1# Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_chips: +#1# 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_hands: +#1# Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     loyalty_inactive: #1# remaining 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_chips_minus: -#1# 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_sold_tally: #1#/#2# Sold 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_remaining: #1# Remaining 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completed: #1#/#2# Completed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_xmult: X#1# Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     challenges_completed: Completed #1#/#2# Challenges 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_foil_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Foil 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: +#1# Chips 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ante_x_voucher: ANTE #1# VOUCHER 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   v_text (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_inflation (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Permanently raise prices by {C:money}$1{} on every purchase 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_set_joker_slots_ante (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: When ante {C:attention}#1#{} boss is defeated, set Joker slots to {C:attention}0 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_chips_dollar_cap (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:blue}Chips{} cannot exceed the current {C:money}$ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_set_eternal_ante (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: When ante {C:attention}#1#{} boss is defeated, all Jokers become {C:attention}eternal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_dollars (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Start with {C:money}$#1# 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_reward (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: All {C:attention}Blinds{} give no reward money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_none (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:inactive}None 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_set_seed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 1 attempt with set Seed: {C:inactive}{Hidden} 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_interest (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Earn no {C:attention}Interest{} at end of round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_minus_hand_size_per_X_dollar (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Hold {C:red}-1{} cards in hand for every {C:money}$#1#{} you have 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_hands (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:blue}#1#{} hands per round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_flipped_cards (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:green}1 in #1#{} cards are drawn face down 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_hand_size (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:attention}#1#{} hand size 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_discards (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:red}#1#{} discards per round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_all_eternal (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: All Jokers are {C:eternal}Eternal{} 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_daily (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {E:1,s:1.2,C:red}Daily Challenge! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_shop_jokers (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Jokers no longer appear in the {C:attention}shop 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_consumable_slots (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:attention}#1#{} Consumable Slots 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_debuff_played_cards (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: All {C:attention}Played{} cards become {C:attention}debuffed{} after scoring 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_discard_cost (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Discards each cost {C:money}$#1#{} 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_extra_hand_money (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Extra {C:blue}Hands{} no longer earn money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_none (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:inactive}None 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_m_joker_slots (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:attention}#1#{} Joker Slots 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ch_c_no_reward_specific (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:attention}#1# Blinds{} give no reward money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   suits_plural (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Clubs: Clubs 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Hearts: Hearts 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Diamonds: Diamonds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Spades: Spades 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   collabs (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Clubs (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: Potion Craft 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Default 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       5: Warframe 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Vampire Survivors 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       6: Vault-Tec 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       7: Dead by Daylight 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: Slay the Spire 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Hearts (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: Cult of the Lamb 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Default 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       5: Divinity Original Sin 2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Among Us 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       6: Critical Role 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       7: Bugsnax 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: The Binding of Isaac 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Diamonds (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: Enter the Gungeon 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Default 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       5: 1000xRESIST 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Dave the Diver 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       6: Civilization VII 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       7: Rust 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: Stardew Valley 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Spades (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: Shovel Knight 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Default 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       5: Don’t Starve 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: The Witcher 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       6: Assassin's Creed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       7: Slay the Princess 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: Cyberpunk 2077 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   quips (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     wq_4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Too bad these 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: chips are all 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: virtual... 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     wq_5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Looks like I've 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: taught you well! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_6 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Oh no, were you 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: bluffing too? 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_7 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Looks like the 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: joke's on us! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     wq_3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Looks like you 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: weren't bluffing! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     wq_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: You Aced it! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     dq_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Yikes! I hope you 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: have a few tricks 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: up your sleeve for 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: this final challenge! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     wq_2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: You dealt with 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: that pretty well! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_9 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: I'm literally 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: a fool, what's 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: your excuse? 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     wq_7 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Good thing 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: I didn't bet 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: against you! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Looks like we 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: found out who 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: the real Joker is! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_8 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: If I had hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: I would have 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: covered my eyes! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Maybe Go Fish 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: is more our 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: speed... 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: You know what 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: they say, the 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: house always wins! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: We folded like 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: a cheap suit! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Time for us 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: to shuffle off 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: and try again! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     lq_10 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: What a flop! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     wq_6 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: You made some 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: heads up plays! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   achievement_descriptions (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     card_discarder: Discard at least 2500 Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     you_get_what_you_get: Win a run without rerolling the shop 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     tiny_hands: Thin your deck down to 20 or fewer cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     _10k: Score 10,000 Chips in a single hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     retrograde: Get any poker hand to level 10 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     speedrunner: Win a run in 12 or fewer rounds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     shattered: Break 2 Glass Cards in a single hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     rule_breaker: Complete every challenge run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     rule_bender: Complete any challenge run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     roi: Buy 5 Vouchers by Ante 4 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completionist_plus_plus: Earn a Gold Sticker on every Joker 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     _100000k: Score 100,000,000 Chips in a single hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     cartomancy: Discover every Tarot card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     royale: Play a Royal Flush 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     flushed: Play a Flush with 5 Wild Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     mid_stakes: Win a run on at least Black Stake difficulty 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completionist: Discover 100% of your collection 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     low_stakes: Win a run on at least Red Stake difficulty 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     nest_egg: Have $400 or more during a single run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ante_upper: Reach Ante 8 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     _1000k: Score 1,000,000 Chips in a single hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     legendary: Discover a Legendary Joker 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     astronomy: Discover every Planet card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completionist_plus: Win with every deck on Gold Stake difficulty 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     extreme_couponer: Discover every Voucher 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     heads_up: Win a Run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     big_hands: Have 80 or more cards in your deck 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     high_stakes: Win a run on at least Gold Stake difficulty 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     clairvoyance: Discover every Spectral card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ante_up: Reach Ante 4 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     card_player: Play at least 2500 Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   poker_hands (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Flush House: Flush House 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Full House: Full House 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Flush: Flush 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Pair: Pair 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Two Pair: Two Pair 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Three of a Kind: Three of a Kind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     High Card: High Card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Straight: Straight 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Straight Flush: Straight Flush 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Flush Five: Flush Five 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Four of a Kind: Four of a Kind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Royal Flush: Royal Flush 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Five of a Kind: Five of a Kind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   ranks (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     4: 4 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     8: 8 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     10: 10 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     5: 5 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     9: 9 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     6: 6 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     King: King 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Ace: Ace 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     3: 3 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     7: 7 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     2: 2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Queen: Queen 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Jack: Jack 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   achievement_names (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     card_discarder: Card Discarder 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     you_get_what_you_get: You Get What You Get 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     tiny_hands: Tiny Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     _10k: 10K 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     retrograde: Retrograde 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     speedrunner: Speedrunner 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     shattered: Shattered 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     rule_breaker: Rule Breaker 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     rule_bender: Rule Bender 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     roi: ROI 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completionist_plus_plus: Completionist++ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     _100000k: 100,000K 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     cartomancy: Cartomancy 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     royale: Royale 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     flushed: Flushed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     mid_stakes: Mid Stakes 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completionist: Completionist 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     low_stakes: Low Stakes 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     nest_egg: Nest Egg 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ante_upper: Ante Upper! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     _1000k: 1,000K 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     legendary: Legendary 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     astronomy: Astronomy 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completionist_plus: Completionist+ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     extreme_couponer: Extreme Couponer 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     heads_up: Heads Up 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     big_hands: Big Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     high_stakes: High Stakes 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     clairvoyance: Clairvoyance 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ante_up: Ante Up! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     card_player: Card Player 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   poker_hand_descriptions (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Flush House (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: A Three of a Kind and a Pair with 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: all cards sharing the same suit 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Full House (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: A Three of a Kind and a Pair 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Flush (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 5 cards that share the same suit 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Pair (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 2 cards that share the same rank. They may 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: be played with up to 3 other unscored cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Two Pair (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 2 pairs of cards with different ranks, may 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: be played with 1 other unscored card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Three of a Kind (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 3 cards with the same rank. They may be 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: played with up to 2 other unscored cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     High Card (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: If the played hand is not any of the above 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: hands, only the highest ranked card scores 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Straight (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 5 cards in a row (consecutive ranks) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Straight Flush (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 5 cards in a row (consecutive ranks) with 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: all cards sharing the same suit 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Flush Five (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 5 cards with the same rank and suit 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Four of a Kind (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 4 cards with the same rank. They may 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: be played with 1 other unscored card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Royal Flush (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 5 cards in a row (consecutive ranks) with 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: all cards sharing the same suit 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Five of a Kind (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: 5 cards with the same rank 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   high_scores (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     furthest_round: Highest Round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     hand: Best Hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     win_streak: Best Win Streak 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     collection: Collection 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     furthest_ante: Highest Ante 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     most_money: Most Money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     poker_hand: Most Played Hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     current_streak:  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     boss_streak: Most Bosses in a Row 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   v_dictionary_parsed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_handsize (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  Hand Size 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     loyalty_active (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: Active! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     deck_preview_wheel_plural (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: Numbers may be lower due to the  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  cards drawn face down 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ante_x_voucher (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: ANTE  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  VOUCHER 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     unlocked (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2: / 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           4:  Unlocked 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_negative_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Negative 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             3:  Joker Slot 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       multi_line: true 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_handsize_minus (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: - 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  Hand Size 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_xmult_minus (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: -X 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     remaining_hand_money (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: Remaining Hands ($ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  each) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_xmult (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: X 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_mult (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_negative_consumable_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Negative 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             3:  consumable Slot 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       multi_line: true 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     completed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2: / 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           4:  Completed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     interest (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2:  interest per $ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           4:  ( 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 3 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           6:  max) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     deck_preview_wheel_singular (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: Numbers may be lower due to the  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  card drawn face down 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_holo_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Holographic 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             3:  Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       multi_line: true 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_mult_minus (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: - 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_hands (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_chips_minus (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: - 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_polychrome_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Polychrome 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: X 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             3:  Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       multi_line: true 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_sold_tally (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2: / 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           4:  Sold 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     loyalty_inactive (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2:  remaining 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     remaining_discard_money (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: Remaining Discards ($ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3:  each) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_chips (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     challenges_completed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1: Completed  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           3: / 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 2 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           5:  Challenges 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_foil_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: Foil 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: + 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::               1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             3:  Chips 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       multi_line: true 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     a_remaining (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         strings (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::             1: 1 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::           2:  Remaining 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::         control (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   labels (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     perishable: Perishable 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     blue_seal: Blue Seal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     rare: Rare 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     voucher: Voucher 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     purple_seal: Purple Seal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     gold_seal: Gold Seal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     red_seal: Red Seal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     tarot: Tarot 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     negative: Negative 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     uncommon: Uncommon 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     rental: Rental 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     pluto_planet: Dwarf Planet 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     common: Common 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     pinned_left: Pinned 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     legendary: Legendary 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     eternal: Eternal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     holographic: Holographic 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     foil: Foil 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     planet: Planet 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     locked: Locked 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     polychrome: Polychrome 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   dictionary (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_credits: Credits 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_rumble: Controller Rumble 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_play_cap: PLAY 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_no_boss_active: no boss active 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_skipped_cap: SKIPPED 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_high_contrast_cards: High Contrast Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_play_discard_pos: Play/Discard Button Position 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_playing_as: Playing as 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_unlocked_ex: Unlocked! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_reroll: Reroll 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_music: Music 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_play_discard_pos_opt (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Discard/Play 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Play/Discard 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_vibration: Vibration 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_restrictions: Restrictions 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_jokers: Jokers 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_copied_ex: Copied! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_graphics: Graphics 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_blind_score_at_least: Score at least 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_disabled_ex: Disabled! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_copy: Copy 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_collection: Collection 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_choose: Choose 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_collection: Collection 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_lower_score: score 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stat_jokers: Jokers 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_buy_and_use_target (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Buy 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: and Use 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_x_base: X Base 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_run_info_1: Run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_rare: Rare 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_click_confirm: Select again to confirm 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_options: Options 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stat_vouchers: Vouchers 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_game_vol: Game Volume 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stats: Stats 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_stake: Stake 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_screenshake: Screenshake 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_demo_thanks_2: BALATRO DEMO 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stat_tarots: Tarots 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_unlock_all_trophies (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: WARNING! Unlocking the complete Collection 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: will disable trophies for this profile! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_dwarf_planet: Dwarf Planet 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stake: Stake 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_wins: Wins 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_blinds: Blinds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_ante_cap: ANTE 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_monitor: Display Monitor 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_arcana_pack: Arcana Pack 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_defeat_this_blind_1: Defeat this blind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_no_vouchers: No vouchers redeemed this run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_upgrade_ex: Upgrade! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_plus_spectral: +1 Spectral 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_open_target (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Open 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_unlock_all_explanation (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: WARNING! Unlocking the complete Collection 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: will disable achievements for this profile! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_redeem: REDEEM 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_redeem_target (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Redeem 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_next_round_2: Round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_sell_target (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Sell 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_swapped_ex: Swapped! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_back: Back 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_voucher: Voucher 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_up_ante_2: Raise all Blinds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_game_modifiers: Game Modifiers 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_create_profile: Create Profile 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_copy_seed: Copy Seed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_view: View 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_plus_planet: +1 Planet 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_tarot_cards: Tarot Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_challenges: Challenges 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_delete_profile: Delete Profile 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_ante: Ante 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_furthest_round: Round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_vouchers_cap: VOUCHERS 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_main_menu: Main Menu 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_game: Game 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_val_up: Value Up! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_apply: Apply 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_smoothing_opt (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Off 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: On 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_achievement: Achievement 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_use: USE 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_deck_stake_wins: Deck Stake Wins 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     $: $ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_master_vol: Master Volume 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_challenges: Challenges 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_customize_deck: Customize Deck 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_base_cards: Base Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_shadows: Shadows 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_undisovered: Undiscovered 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_edition_seal_enhancement_explanation (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Playing cards may each have one 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Enhancement, Edition, and Seal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stat_consumables: Consumables 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_buy: BUY 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_page: Page 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_poker_hand: poker hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_high_score_ex: High Score! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_vouchers_redeemed: Vouchers redeemed this run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_vsync_opt (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: VSync On 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: VSync Off 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_cards_purchased: Cards Purchased 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_enter_seed: Enter Seed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_incompatible: incompatible 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_options_cap: OPTIONS 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_retry: Retry 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_no_reward: No Reward 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_cash_out: Cash Out 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_spectral: Spectral 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_blind_reward: Reward:  
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_unlock_all: Unlock All 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_legendary: Legendary 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_skip_reward: Skip Reward 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_rank: Rank 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_buy_target (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Buy 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_controller_required (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: A game controller is required to play. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Please connect a controller to continue. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_windowmode: Window Mode 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_boss_disabled: Boss Disabled! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_decks: Decks 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_deck_preview_effective: Effective total due to Jokers, Blinds, and card enhancements 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_FAQ: FAQ 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_trophies_disabled: Trophies Disabled 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_open: OPEN 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_CRT_bloom: CRT Bloom 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_aces: Aces 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_banned_cards: Banned Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_trophy: Trophy 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_select: SELECT 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_extinct_ex: Extinct! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_compatible: compatible 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_offline_message (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: This device is offline. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: The current save may be out of date. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_tarot: Tarot 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_4_7_of_clubs: four 7 of Clubs 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_buffoon_pack: Buffoon Pack 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_booster_packs: Booster Packs 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_saved_ex: Saved! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_card_stats: Card Stats 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_nope_ex: Nope! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_unknown: ????? 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_seeded_run: Seeded Run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_hud_discards: Discards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_all_poker_hand: All Poker Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_gold_seal_desc (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Gold Seal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: returns to hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: when played 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_no_space_ex: No Space! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_or: or 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_joker_stickers: Joker Stickers 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_reset_profile: Reset Profile 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_discard: Discard 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_game_over: GAME OVER 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_defeat_this_blind_2: to discover it 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_crash_reports: Crash Reports 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_you_win_demo: YOU WIN THE DEMO! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_enhanced_cards: Enhanced Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_redeemed_ex: Redeemed! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_round: Round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_paste_seed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Paste 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Seed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_mult: Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_challenge_mode: Challenge Mode 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_not_allowed_ex: Not Allowed! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_next: Next 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_new_run: New Run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_wishlist: Wishlist on Steam 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_reward: Reward 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_you_win: YOU WIN! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_new_collection: New Discoveries 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_level_prefix: lvl. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_1_level: +1 Level 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_reduced_motion: Reduced Motion 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_load_profile: Load Profile 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_deck_preview_stones: Stones 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_unscored_hand: Hand will not score 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_all_hands: All Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_stat_joker: Total completed rounds with this card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_banned_tags: Banned Tags 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_sneak_peek: Sneak Peek 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_joker: Joker 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_select_challenge: Select a Challenge 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_planet_q: Planet? 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_money: Money 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_play_hand: Play Hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_poker_hand: Most Played Hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_up_ante_3: Refresh Blinds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_hand: Best Hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_lvl: lvl. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_gamespeed: Game Speed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_safe_ex: Safe! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_disabled_seed (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: All Unlocks and 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Discoveries disabled 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_furthest_ante: Ante 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_endless: Endless Mode 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_edition: Edition 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_cards_discarded: Cards Discarded 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_at_least: Score at least 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_mr_bones: Saved by Mr. Bones 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_editions: Editions 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_most_played: (most played hand) 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_improve_run: Improve your run! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_display_stickers: Display Stake Stickers during Run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_demo_thanks_1: Thanks for playing the 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_defeat_the_boss: Defeat the Boss Blind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_alert_debuff_confirm: Press 'Play' again to confirm 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_settings: Settings 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_up_ante_1: Up the Ante 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_not_discovered: Not Discovered 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_choose_blind_2: next Blind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stat_spectrals: Spectrals 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_choose_blind_1: Choose your 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_plus_stone: +1 Stone 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_none: None 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_active_ex: Active! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_suit: Suit 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_locked: Locked 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_booster: Booster 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_stat_consumable: Number of times this card has been used 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_next_round_1: Next 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_playbalatro: Visit playbalatro.com 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_no_other_jokers: No other Jokers! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_spectral_pack: Spectral Pack 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_crash_report_info (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Crash reports will be sent to the developer 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: to help reduce issues in the future. No 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: identifying or personal info will be sent. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_reset: Reset 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_sounds: Sounds 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_profile: Profile 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_current_profile: Current Profile 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_quit_cap: QUIT 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_audio: Audio 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_skip: Skip 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_video: Video 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_music_vol: Music Volume 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_celestial_pack: Celestial Pack 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_bloom_opt (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Off 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: On 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_CRT: CRT 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_also_applied: Also applied 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_full_deck: Full Deck 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_stat_planets: Planets 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_sort_hand: Sort Hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_set_pixel_smoothing: Pixel Art Smoothing 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_imagery: Imagery 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_again_ex: Again! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_hud_hands: Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_plus_joker: +1 Joker 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_remaining: Remaining 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_new_challenge: Start New Challenge 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_demo_thanks_message (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Please consider wishlisting 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Balatro on Steam and sign up for 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: the newsletter at playbalatro.com 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_eaten_ex: Eaten! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_sell: SELL 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_eroded_ex: Eroded! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_empty_caps: EMPTY 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_enter_name: Enter Name 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_rules: Rules 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_drank_ex: Drank! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_seed: Seed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_uncommon: Uncommon 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_demo_version_ex: Demo Version! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_reroll_boss: Reroll Boss 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_active: active 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_base_cap: BASE 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_spectral_cards: Spectral Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_continue: Continue 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_melted_ex: Melted! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_custom_rules: Custom Rules 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_poker_hands: Poker Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_duplicated_ex: Duplicated! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_daily_run: Daily Run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_defeated_by: Defeated By 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_best_hand: Best Hand 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_numbered_cards: Numbered Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_seed: Seed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_how_to_play: How to play 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_common: Common 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_planet: Planet 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_cards_played: Cards Played 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_skip_blind: Skip Blind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_start_new_run: New Run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_effective: Effective 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_face_cards: Face Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_tags: Tags 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_vouchers: Vouchers 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_score_times_rerolled: Times Rerolled 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_level_up_ex: Level Up! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ph_stat_voucher: Number of times this Voucher has been redeemed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_seals: Seals 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_no_room_ex: No Room! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_gold: Gold 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_planet_cards: Planet Cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_other: Other 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_plus_tarot: +1 Tarot 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_and_use: & USE 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_windowmode_opt (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Windowed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Fullscreen 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: Borderless 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_cap_consumables: CONSUMABLES 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_deck: Deck 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_collection_cap: COLLECTION 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_jokers_cap: JOKERS 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_progress: Progress 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_deck: Deck 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_standard_pack: Standard Pack 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_balanced: Balanced 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_stake_level: Stake Level 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     b_run_info_2: Info 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_achievements_disabled: Achievements Disabled 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_enter_text: Enter Text 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_card_stats (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Stats 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_eternal (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Eternal 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Can't be sold 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: or destroyed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     k_debuffed: Debuffed 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     ml_shadow_opt (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: On 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Off 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   challenge_names (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_five_card_1: Five-Card Draw 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_mad_world_1: Mad World 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_monolith_1: Monolith 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_fragile_1: Fragile 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_luxury_1: Luxury Tax 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_medusa_1: Medusa 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_double_nothing_1: Double or Nothing 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_blast_off_1: Blast Off 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_golden_needle_1: Golden Needle 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_xray_1: X-ray Vision 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_cruelty_1: Cruelty 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_knife_1: On a Knife's Edge 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_rich_1: Rich get Richer 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_non_perishable_1: Non-Perishable 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_omelette_1: The Omelette 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_jokerless_1: Jokerless 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_bram_poker_1: Bram Poker 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_city_1: 15 Minute City 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_inflation_1: Inflation 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     c_typecast_1: Typecast 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   tutorial (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     bb_4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: if you beat it, then the 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}Ante{} goes up and all 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: {C:attention}Blinds{} become harder 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_7 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: This {C:tarot}Tarot{} card is a 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}consumable{}. This one will 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: enhance your playing 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: cards! Hold on to it. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: This is one of the {C:attention}#1# 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}Jokers{} you can add to 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: your run. Every {C:attention}Joker 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: does something different 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_8 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: You can carry up to 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}2 consumable{} cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: with you at a time 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_11 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: And check out both of 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: the {C:booster}Booster Packs{} in 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: every shop. They're 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: full of goodies! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: This one adds {C:red}+4 Mult{} to 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: every hand you play! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_10 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: {C:attention}Vouchers{} are restocked 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: after you defeat the 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: {C:attention}Boss Blind{}. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_12 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Let's move on to 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: the {C:attention}next round{}. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_5_touch (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Now tap up to 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}5{} cards to play 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: and press {C:blue}'Play Hand' 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_8 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Earn {C:attention}300 Chips{} before 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: you run out of {C:blue}Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: to win this round. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: Good luck! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Now select up to 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}5{} cards to play 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: and press {C:blue}'Play Hand' 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Cards also earn 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: you some {C:blue}Chips{}, 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: hover over to see! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     bb_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Selecting the {C:attention}Big Blind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: will earn some cash 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Nicely done! Now that 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: you're {E:1}flush{} with {C:money}Cash{}, 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: you can buy some new 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: cards from the {C:attention}Shop 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Each {C:attention}Poker hand{} earns a 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: base amount of {C:blue}Chips 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: multiplied by some {C:red}Mult 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: See your {C:attention}Poker hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: in the {C:attention}Run Info{} area, 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: along with other info 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: about your current run 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_6 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: You can also {C:red}'Discard'{} up 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: to {C:attention}5{} selected cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: to try and make even 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: stronger hands. Try it! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_7 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Careful! You only have a 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: limited number of {C:blue}Hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: and {C:red}Discards{} per round 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sh_2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: And make sure that you 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}USE{} your consumables! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sh_3_touch (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Select up to {C:attention}2{} cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: in your hand and drag 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: the {C:tarot}Tarot{} card into the {C:attention}'USE'{} 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: area to enhance them! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sh_3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Select up to {C:attention}2{} cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: in your hand and press 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: {C:attention}'USE'{} on the {C:tarot}Tarot{} card 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: to enhance them! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_2_touch (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Try buying this 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: handsome Devil! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: Drag it from the shop 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: into the {C:attention}'BUY'{} area 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sb_3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: This here is a {C:blue}Small Blind{}, 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: you only need to score 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: {C:attention}300 Chips{} to beat it. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sb_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Hello there! My name is 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:attention}Jimbo{}, I'm here to help 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: you learn how to play! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sb_4 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Select the {C:blue}Small Blind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: to start the round! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sb_2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Your goal is to earn 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: {C:blue}Chips{} to defeat 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: the enemy {C:attention}Blind 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_6 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Now buy the other 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: card from the {C:attention}Shop 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Try buying this 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: handsome Devil 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     sh_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: When you get more cards, 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: remember you can rearrange 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: them. {C:attention}Jokers{} trigger in 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: order from left to right 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_4_touch (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Cards also earn 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: you some {C:blue}Chips{}, 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: press and hold to see! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Be picky, you can only 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: carry {C:attention}5 Joker{} cards 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: at a time 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     bb_5 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Beat {C:attention}Ante{} #1# to win. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: Now choose your path! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     fh_1 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: You earn chips by 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: playing {C:attention}Poker hands 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     bb_2 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: Or choose to {C:attention}skip it 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: to get a {C:attention}Tag{}! Each 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: {C:attention}Tag{} has a unique effect 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     bb_3 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: But keep an eye on 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: the {C:attention}Boss Blind{}. It 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: has an ability you'll 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: need to plan around. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     s_9 (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       1: If you save up enough, 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       2: you can buy a {C:attention}Voucher{}. 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       3: {C:attention}Vouchers{} passively 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::       4: upgrade your run! 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::   suits_singular (table): 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Clubs: Club 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Hearts: Heart 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Diamonds: Diamond 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger ::     Spades: Spade 
+INFO - [G] 2025-03-22 22:11:36 :: DEBUG :: DefaultLogger :: Homosexuality complete. 
+INFO - [G] 2025-03-22 22:11:36 :: TRACE :: Loader :: Mod LuigiCasinoCards was unable to load:  
+INFO - [G] 2025-03-22 22:11:36 :: WARN  :: DeckSkin :: Old DeckSkin formatting detected on DeckSkin maybr_mayburiskinhearts! 
+INFO - [G] 2025-03-22 22:11:36 :: WARN  :: DeckSkin :: Old DeckSkin formatting detected on DeckSkin maybr_mayburiskinclubs! 
+INFO - [G] 2025-03-22 22:11:36 :: WARN  :: DeckSkin :: Old DeckSkin formatting detected on DeckSkin maybr_mayburiskinspades! 
+INFO - [G] 2025-03-22 22:11:36 :: WARN  :: DeckSkin :: Old DeckSkin formatting detected on DeckSkin maybr_mayburiskindiamonds! 
+INFO - [G] 2025-03-22 22:11:36 :: TRACE :: Loader :: Mod deltarune_cards was unable to load:  
+INFO - [G] 2025-03-22 22:11:36 :: WARN  :: DeckSkin :: Old DeckSkin formatting detected on DeckSkin HCCs_SV_clubs! 
+INFO - [G] 2025-03-22 22:11:36 :: WARN  :: DeckSkin :: Old DeckSkin formatting detected on DeckSkin HCCs_BS_hearts! 
+INFO - [G] 2025-03-22 22:11:36 :: TRACE :: Loader :: Mod VirtualizedMultiplayer was unable to load:  
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0000] Injected Language in 0.001 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 0.635 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0008] Injected Atlas in 34.899 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0001] Injected Sound in 0.149 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0008] Injected Stake in 0.339 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0004] Injected Rarity in 0.064 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0004] Injected ObjectType in 0.149 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0048] Injected Center in 2.138 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0007] Injected Undiscovered Sprite in 0.036 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0002] Injected Blind in 0.036 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0004] Injected Seal in 0.324 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0004] Injected Suit in 0.232 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0013] Injected Rank in 0.264 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0034] Injected DeckSkin in 0.675 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0012] Injected PokerHand in 0.489 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0020] Injected Challenge in 0.390 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0000] Injected Tag in 0.003 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0004] Injected Sticker in 0.222 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0001] Injected Shader in 15.627 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0001] Injected Keybind in 0.026 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0000] Injected Achievement in 0.194 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0000] Injected [INTERNAL] in 8.111 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0014] Injected AltTexture in 509.539 ms 
+INFO - [G] 2025-03-22 22:11:36 :: INFO  :: TIMER :: [0005] Injected Texture Pack in 0.069 ms 
+INFO - [G] [DebugPlus] Press [/] to toggle console and press [shift] + [/] to toggle new log previews 
