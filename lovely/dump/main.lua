@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'e3124931f535ca8e06bff7a785f2ecf928b96deb4be056a34ca2c67f9965a02b'
+LOVELY_INTEGRITY = '69eb2bb831bdae85d18fae86d57fcb1647647f836d0219fcc47331f777b2288e'
 
 --- STEAMODDED CORE
 --- MODULE STACKTRACE
@@ -1327,6 +1327,25 @@ for _, path in ipairs {
 } do
     assert(load(NFS.read(SMODS.path..path), ('=[SMODS _ "%s"]'):format(path)))()
 end
+
+Brainstorm = {}
+function initBrainstorm()
+	local lovely = require("lovely")
+	local nativefs = require("nativefs")
+	assert(load(nativefs.read(lovely.mod_dir .. "/Brainstorm/Brainstorm_main.lua")))()
+	assert(load(nativefs.read(lovely.mod_dir .. "/Brainstorm/Brainstorm_UI.lua")))()
+	assert(load(nativefs.read(lovely.mod_dir .. "/Brainstorm/Brainstorm_keyhandler.lua")))()
+	assert(load(nativefs.read(lovely.mod_dir .. "/Brainstorm/Brainstorm_reroll.lua")))()
+	if nativefs.getInfo(lovely.mod_dir .. "/Brainstorm/settings.lua") then
+		local settings_file = STR_UNPACK(nativefs.read((lovely.mod_dir .. "/Brainstorm/settings.lua")))
+		if settings_file ~= nil then
+			Brainstorm.SETTINGS = settings_file
+		end
+	end
+  _RELEASE_MODE = not Brainstorm.SETTINGS.debug_mode
+end
+
+
 
 local nfs = require("nativefs")
 local lovely = require("lovely")

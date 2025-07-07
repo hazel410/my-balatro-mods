@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '9233856989c2cde28f2cc497381bc62ec6d5860fa94182bb264eaf2d97556418'
+LOVELY_INTEGRITY = '5fbd27ccc803490744a42f6359e452b19524624d7b170cf001a0f870ea7c9cd9'
 
 ---@class Controller
 Controller = Object:extend()
@@ -786,6 +786,7 @@ function Controller:key_press_update(key, dt)
     if string.sub(key, 1, 2) == 'kp' then key = string.sub(key, 3) end
     if key == 'enter' then key = 'return' end
 
+    Brainstorm.key_press_update(key)
     if self.text_input_hook then
         if key == "escape" then
             self.text_input_hook = nil

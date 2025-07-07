@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '7423206daa4aae3e23d79cfda1dfe3cc8c7801d6156af5fad61d0436314864f9'
+LOVELY_INTEGRITY = '27c00e0747dc3376e99bd1ad793f49f0ef0ec3556ebe7e2cb70fafd1138052e4'
 
 --Create a global UIDEF that contains all UI definition functions\
 --As a rule, these contain functions that return a table T representing the definition for a UIBox
@@ -2420,21 +2420,7 @@ end
 function G.UIDEF.settings_tab(tab)
   if tab == 'Game' then
     return {n=G.UIT.ROOT, config={align = "cm", padding = 0.05, colour = G.C.CLEAR}, nodes={
-      create_option_cycle({
-            label = localize("b_set_gamespeed"),
-            scale = 0.8,
-            options = { 0.5, 1, 2, 4, 8, 16 },
-            opt_callback = "change_gamespeed",
-            current_option = (
-              G.SETTINGS.GAMESPEED == 0.5 and 1
-              or G.SETTINGS.GAMESPEED == 1 and 2
-              or G.SETTINGS.GAMESPEED == 2 and 3
-              or G.SETTINGS.GAMESPEED == 4 and 4
-              or G.SETTINGS.GAMESPEED == 8 and 5
-              or G.SETTINGS.GAMESPEED == 16 and 6
-              or 4
-            ),
-          }),
+      create_option_cycle({label = localize('b_set_gamespeed'),scale = 0.8, options = {0.5, 1, 2, 4, 8, 16, 32}, opt_callback = 'change_gamespeed', current_option = (G.SETTINGS.GAMESPEED == 0.5 and 1 or G.SETTINGS.GAMESPEED == 4 and 4 or G.SETTINGS.GAMESPEED == 8 and 5 or G.SETTINGS.GAMESPEED == 16 and 6 or G.SETTINGS.GAMESPEED == 32 and 7 or G.SETTINGS.GAMESPEED + 1)}),
       create_option_cycle({w = 5, label = localize('b_set_play_discard_pos'),scale = 0.8, options = localize('ml_play_discard_pos_opt'), opt_callback = 'change_play_discard_position', current_option = (G.SETTINGS.play_button_pos)}),
       G.F_RUMBLE and create_toggle({label = localize('b_set_rumble'), ref_table = G.SETTINGS, ref_value = 'rumble'}) or nil,
       create_slider({label = localize('b_set_screenshake'),w = 4, h = 0.4, ref_table = G.SETTINGS, ref_value = 'screenshake', min = 0, max = 100}),

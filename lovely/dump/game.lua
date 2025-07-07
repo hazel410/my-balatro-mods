@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '831b9738c5811c22c2b3419c6929764113020a5b60ef2a0e393257b1dd392d82'
+LOVELY_INTEGRITY = '7fb196db928321ce36e2b276ae7ac6e94c40c46f45a6b865721041e0089c0ec4'
 
 --Class
 Game = Object:extend()
@@ -156,6 +156,7 @@ function Game:start_up()
     end
 
     self:load_profile(G.SETTINGS.profile or 1)
+    initBrainstorm()
 
     self.SETTINGS.QUEUED_CHANGE = {}
     self.SETTINGS.music_control = {desired_track = '', current_track = '', lerp = 1} 
@@ -2486,6 +2487,7 @@ function Game:update(dt)
     G.MAJORS = 0
     G.MINORS = 0
 
+    Brainstorm.update(dt)
     G.FRAMES.MOVE = G.FRAMES.MOVE + 1
                 timer_checkpoint('start->discovery', 'update')
     if not G.SETTINGS.tutorial_complete then G.FUNCS.tutorial_controller() end
@@ -2971,6 +2973,12 @@ function Game:draw()
 end
 love.graphics.pop()
     
+    if Brainstorm.SETTINGS.debug_mode == true then 
+      love.graphics.push()
+      love.graphics.setColor(G.C.DARK_EDITION[1],G.C.DARK_EDITION[2],G.C.DARK_EDITION[3],1)
+      love.graphics.print("BRAINSTORM DEBUG_MODE", 10, -40)
+      love.graphics.pop()
+    end
     love.graphics.setCanvas(G.AA_CANVAS)
     love.graphics.push()
         love.graphics.setColor(G.C.WHITE)
