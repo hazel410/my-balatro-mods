@@ -70,16 +70,16 @@ position = 'at'
 payload = 'if not self.alignment.type_list then return end'
 line_prepend = '$indent'
 
-## Prevent softlock if booster pack is empty
-## Crashes the game when you skip too fast on this PR, along with being the culprit for allowing you to skip boosters early
-# G.FUNCS.can_skip_booster()
-# [[patches]]
-# [patches.pattern]
-# target = 'functions/button_callbacks.lua'
-# pattern = 'if G.pack_cards and (G.pack_cards.cards[1]) and'
-# position = 'at'
-# payload = 'if G.pack_cards and'
-# match_indent = true
+## Don't save run while booster pack opened (always softlocks)
+# save_run()
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+pattern = "function save_run()"
+position = "after"
+payload = """    if G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.SPECTRAL_PACK
+        or G.STATE == G.STATES.BUFFOON_PACK or G.STATE == G.STATES.STANDARD_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED then return end"""
+match_indent = true
 
 ## Set `G.your_collection.config.collection` to true in all cases
 # create_UIBox_your_collection_seals()
@@ -90,7 +90,7 @@ pattern = '''\{card_limit = 4, type = 'title', highlight_limit = 0\}'''
 position = 'at'
 payload = '''{card_limit = 4, type = 'title', highlight_limit = 0, collection = true}'''
 
-## Save and load Card.unique_val
+## Save and load Card.unique_val, edition options
 # Card:save()
 [[patches]]
 [patches.pattern]
@@ -164,12 +164,14 @@ pattern = "self.config.center = center"
 position = 'at'
 match_indent = true
 payload = '''
+if delay_sprites == 'quantum' then self.from_quantum = true end
+local was_added_to_deck = false
 if self.added_to_deck and old_center and not self.debuff then
     self:remove_from_deck()
-    self.added_to_deck = true
+    was_added_to_deck = true
 end
 if type(center) == 'string' then
-    assert(G.P_CENTERS[center])
+    assert(G.P_CENTERS[center], ("Could not find center \"%s\""):format(center))
     center = G.P_CENTERS[center]
 end
 self.config.center = center
@@ -182,10 +184,11 @@ pattern = "if G.consumeables and self.area == G.consumeables then"
 position = 'before'
 match_indent = true
 payload = '''
-if self.added_to_deck and old_center and not self.debuff then
-    self.added_to_deck = false
+if was_added_to_deck and not self.debuff then
     self:add_to_deck()
-end'''
+end
+self.from_quantum = nil'''
+
 
 ## set_ability() transfers over old fields
 # special cases:
@@ -208,7 +211,7 @@ self.ability.extra_value = self.ability.extra_value or 0
 for k, v in pairs(new_ability) do
     self.ability[k] = v
 end
--- reset keys do not persist an ability change
+-- reset keys do not persist on ability change
 local reset_keys = {'name', 'effect', 'set', 'extra', 'played_this_ante', 'perma_debuff'}
 for _, mod in ipairs(SMODS.mod_list) do
     if mod.set_ability_reset_keys then
@@ -239,14 +242,14 @@ payload = "self.label = center.label or self.config.card and self.config.card.la
 
 ## Blind:drawn_to_hand()
 [[patches]]
-[patches.pattern]
+[patches.regex]
 target = 'blind.lua'
-pattern = "if self.name == 'Crimson Heart' and self.prepped and G.jokers.cards[1] then"
+pattern = "if self.name == 'Crimson Heart' and self.prepped and G.jokers.cards\\[1\\] then"
 position = 'after'
-match_indent = true
 payload = """
-    local prev_chosen_set = {}
-    local fallback_jokers = {}"""
+
+            local prev_chosen_set = {}
+            local fallback_jokers = {}"""
 # Fix bad logic if not enough choices for debuff
 [[patches]]
 [patches.regex]
@@ -309,31 +312,29 @@ end"""
 
 ## Blind:disable()
 [[patches]]
-[patches.pattern]
+[patches.regex]
 target = 'blind.lua'
-pattern = "if self.name == 'The Water' then"
-position = 'before'
+pattern = "elseif self.name == 'The Water' then"
+position = 'at'
 payload = """
-if self.name == 'Crimson Heart' then
-    for _, v in ipairs(G.jokers.cards) do
-        v.ability.crimson_heart_chosen = nil
-    end
-end"""
-match_indent = true
+elseif self.name == 'Crimson Heart' then
+        for _, v in ipairs(G.jokers.cards) do
+            v.ability.crimson_heart_chosen = nil
+        end
+    elseif self.name == 'The Water' then"""
 
 ## Blind:defeat()
 [[patches]]
-[patches.pattern]
+[patches.regex]
 target = 'blind.lua'
-pattern = "if self.name == 'The Manacle' and not self.disabled then"
-position = 'before'
+pattern = "elseif self.name == 'The Manacle' and not self.disabled then"
+position = 'at'
 payload = """
-if self.name == 'Crimson Heart' then
-    for _, v in ipairs(G.jokers.cards) do
-        v.ability.crimson_heart_chosen = nil
-    end
-end"""
-match_indent = true
+elseif self.name == 'Crimson Heart' then
+        for _, v in ipairs(G.jokers.cards) do
+            v.ability.crimson_heart_chosen = nil
+        end
+    elseif self.name == 'The Manacle' and not self.disabled then"""
 
 
 ## Fix Manacle's unnecessary card draw after positive G.hand:change_size()
@@ -399,7 +400,7 @@ payload = '''if win_ante and (win_ante >= 8) or (v.in_pool and type(v.in_pool) =
 target = "card.lua"
 pattern = 'if G\.GAME\.blind then'
 position = "at"
-payload = "if G.GAME.blind and G.GAME.blind.in_blind then"
+payload = "if G.GAME.blind and G.GAME.blind.in_blind and not self.from_quantum then"
 
 # end_round()
 [[patches]]
@@ -466,31 +467,6 @@ match_indent = true
 pattern = "for _, v in pairs(G.I.SPRITE) do"
 position = "at"
 payload = 'for k, v in pairs(G.I.SPRITE) do'
-
-##
-## Card:draw() - improved mod compatibility
-##
-# Add option for sprites to not be drawn
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-match_indent = true
-pattern = '''
-if k ~= 'focused_ui' and k ~= "front" and k ~= "back" and k ~= "soul_parts" and k ~= "center" and k ~= 'floating_sprite' and k~= "shadow" and k~= "use_button" and k ~= 'buy_button' and k ~= 'buy_and_use_button' and k~= "debuff" and k ~= 'price' and k~= 'particles' and k ~= 'h_popup' then v:draw() end'''
-position = "at"
-payload = '''
-if not v.custom_draw and k ~= 'focused_ui' and k ~= "front" and k ~= "back" and k ~= "soul_parts" and k ~= "center" and k ~= 'floating_sprite' and k~= "shadow" and k~= "use_button" and k ~= 'buy_button' and k ~= 'buy_and_use_button' and k~= "debuff" and k ~= 'price' and k~= 'particles' and k ~= 'h_popup' then v:draw() end'''
-
-# This check is not necessary?
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-match_indent = true
-pattern = '''
-if self.edition or self.seal or self.ability.eternal or self.ability.rental or self.ability.perishable or self.sticker or ((self.sticker_run and self.sticker_run ~= 'NONE') and G.SETTINGS.run_stake_stickers) or (self.ability.set == 'Spectral') or self.debuff or self.greyed or (self.ability.name == 'The Soul') or (self.ability.set == 'Voucher') or (self.ability.set == 'Booster') or self.config.center.soul_pos or self.config.center.demo then'''
-position = "at"
-payload = '''
-if true then'''
 
 ## Make vanilla enhancement jokers work with extra enhancements
 
@@ -645,6 +621,131 @@ target = "main.lua"
 pattern = "st = require 'luasteam'"
 position = "at"
 payload = """local success, _st = pcall(require, 'luasteam')
-if success then st = _st else sendWarnMessage(_st); st = {} end"""
+if success then st = _st else sendWarnMessage(_st, "LuaSteam"); st = {} end"""
 overwrite = true
+match_indent = true
+
+# copy_card edition config
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+position = 'after'
+match_indent = true
+pattern = 'new_card:set_edition(other.edition or {}, nil, true)'
+payload = '''for k,v in pairs(other.edition or {}) do
+    if type(v) == 'table' then
+        new_card.edition[k] = copy_table(v)
+    else
+        new_card.edition[k] = v
+    end
+end'''
+
+# fix Smeared Joker compat issues with modded suits
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if next(find_joker('Smeared Joker')) and (self.base.suit == 'Hearts' or self.base.suit == 'Diamonds') == (suit == 'Hearts' or suit == 'Diamonds') then"
+position = "at"
+payload = "if SMODS.smeared_check(self, suit) then"
+overwrite = true
+match_indent = true
+
+# fix Seeing Double compat issues with modded suits
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = """local suits = {
+    ['Hearts'] = 0,
+    ['Diamonds'] = 0,
+    ['Spades'] = 0,
+    ['Clubs'] = 0
+}
+for i = 1, #context.scoring_hand do
+    if not SMODS.has_any_suit(context.scoring_hand[i]) then
+        if context.scoring_hand[i]:is_suit('Hearts') then suits["Hearts"] = suits["Hearts"] + 1 end
+        if context.scoring_hand[i]:is_suit('Diamonds') then suits["Diamonds"] = suits["Diamonds"] + 1 end
+        if context.scoring_hand[i]:is_suit('Spades') then suits["Spades"] = suits["Spades"] + 1 end
+        if context.scoring_hand[i]:is_suit('Clubs') then suits["Clubs"] = suits["Clubs"] + 1 end
+    end
+end
+for i = 1, #context.scoring_hand do
+    if SMODS.has_any_suit(context.scoring_hand[i]) then
+        if context.scoring_hand[i]:is_suit('Clubs') and suits["Clubs"] == 0 then suits["Clubs"] = suits["Clubs"] + 1
+        elseif context.scoring_hand[i]:is_suit('Diamonds') and suits["Diamonds"] == 0  then suits["Diamonds"] = suits["Diamonds"] + 1
+        elseif context.scoring_hand[i]:is_suit('Spades') and suits["Spades"] == 0  then suits["Spades"] = suits["Spades"] + 1
+        elseif context.scoring_hand[i]:is_suit('Hearts') and suits["Hearts"] == 0  then suits["Hearts"] = suits["Hearts"] + 1 end
+    end
+end
+if (suits["Hearts"] > 0 or
+suits["Diamonds"] > 0 or
+suits["Spades"] > 0) and
+suits["Clubs"] > 0 then
+    return {
+        message = localize{type='variable',key='a_xmult',vars={self.ability.extra}},
+        Xmult_mod = self.ability.extra
+    }
+end"""
+position = "at"
+payload = """if SMODS.seeing_double_check(context.scoring_hand, 'Clubs') then
+    return {
+        message = localize{type='variable',key='a_xmult',vars={self.ability.extra}},
+        Xmult_mod = self.ability.extra
+    }
+end"""
+overwrite = true
+match_indent = true
+
+# Card:get_end_of_round_effect
+# prevents Blue Seal crash from a hand with no matching planet card (spawns random planet card)
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = """local card = create_card(card_type,G.consumeables, nil, nil, nil, nil, _planet, 'blusl')"""
+position = 'before'
+payload = """if _planet == 0 then _planet = nil end"""
+match_indent = true
+
+## Fix remove_from_deck being called and unlocking stuff when exiting a run and
+## clearing screen
+# Game:delete_run()
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = 'function Game:delete_run()'
+position = 'after'
+payload = '    G.in_delete_run = true'
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = 'G.STATE = -1'
+position = 'after'
+payload = 'G.in_delete_run = false'
+match_indent = true
+# Card:remove()
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = 'if self.area then self.area:remove_card(self) end'
+position = 'after'
+payload = 'if G.in_delete_run then goto skip_game_actions_during_remove end'
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = 'if G.playing_cards then'
+position = 'before'
+payload = '::skip_game_actions_during_remove::'
+match_indent = true
+# CardArea:remove_card()
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = '''
+self:set_ranks()
+if self == G.deck then check_for_unlock({type = 'modify_deck', deck = self}) end'''
+position = 'at'
+payload = '''
+self:set_ranks()
+if not G.in_delete_run and self == G.deck then check_for_unlock({type = 'modify_deck', deck = self}) end'''
 match_indent = true

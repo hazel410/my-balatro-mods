@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '7fb196db928321ce36e2b276ae7ac6e94c40c46f45a6b865721041e0089c0ec4'
+LOVELY_INTEGRITY = '84ca06bb97bcbdb4bcf9c744091e466b6cc5bf3ef8f3fc0e6d23b95d37bfca23'
 
 --Class
 Game = Object:extend()
@@ -1162,6 +1162,7 @@ function Game:init_window(reset)
 end
 
 function Game:delete_run()
+    G.in_delete_run = true
     if self.ROOM then
         remove_all(G.STAGE_OBJECTS[G.STAGE])
         self.load_shop_booster = nil
@@ -1208,6 +1209,7 @@ function Game:delete_run()
     if G.GAME then G.GAME.won = false end
 
     G.STATE = -1
+    G.in_delete_run = false
 end
 
 
@@ -1448,6 +1450,19 @@ function Game:splash_screen()
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.2,func = (function()
                 local SC_scale = 1.2
                 SC = Card(G.ROOM.T.w/2 - SC_scale*G.CARD_W/2, 10. + G.ROOM.T.h/2 - SC_scale*G.CARD_H/2, SC_scale*G.CARD_W, SC_scale*G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['j_joker'])
+                if pokermon_config.pokemon_splash then
+                  local pokemon = {}
+                  for k, v in pairs(G.P_CENTERS) do
+                    if v.set == 'Joker' and v.stage and v.discovered then
+                      table.insert(pokemon, v)
+                    end
+                  end
+                  if #pokemon > 0 then
+                    local chosen = math.random(#pokemon)
+                    local chosencard = pokemon[chosen]
+                    SC = Card(G.ROOM.T.w/2 - SC_scale*G.CARD_W/2, 10. + G.ROOM.T.h/2 - SC_scale*G.CARD_H/2, SC_scale*G.CARD_W, SC_scale*G.CARD_H, G.P_CARDS.empty, chosencard)
+                  end
+                end
                 SC.T.y = G.ROOM.T.h/2 - SC_scale*G.CARD_H/2
                 SC.ambient_tilt = 1
                 SC.states.drag.can = false
@@ -1603,6 +1618,13 @@ function Game:main_menu(change_context) --True if main menu is accessed from the
         13*SC_scale, 
         13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
         G.ASSET_ATLAS["balatro"], {x=0,y=0})
+        if pokermon_config.pokemon_title then
+          local poke_logo = pokermon_config.pokemon_aprilfools and "poke_smeargle_logo" or "poke_logo"
+          G.SPLASH_LOGO = Sprite(0, 0, 
+              13/333*389*SC_scale, 
+              13/333*389*SC_scale*(G.ASSET_ATLAS[poke_logo].py/G.ASSET_ATLAS[poke_logo].px),
+              G.ASSET_ATLAS[poke_logo], {x=0.0,y=0})
+        end
 
     G.SPLASH_LOGO:set_alignment({
         major = G.title_top,
@@ -1618,10 +1640,20 @@ function Game:main_menu(change_context) --True if main menu is accessed from the
     G.SPLASH_LOGO.dissolve = 1   
 
 
-    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+    local replace_card = nil
+    if pokermon_config.pokemon_title then
+      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.empty, G.P_CENTERS.j_poke_unown)
+      replace_card.ability.extra.form = "R"
+      G.P_CENTERS.j_poke_unown:set_sprites(replace_card)
+    else
+      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+    end
     self.title_top:emplace(replace_card)
 
     replace_card.states.visible = false
+    if pokermon_config.pokemon_title then
+      replace_card.seal = nil
+    end
     replace_card.no_ui = true
     replace_card.ambient_tilt = 0.0
 
@@ -1785,6 +1817,13 @@ function Game:demo_cta() --True if main menu is accessed from the splash screen,
         13*SC_scale, 
         13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
         G.ASSET_ATLAS["balatro"], {x=0,y=0})
+        if pokermon_config.pokemon_title then
+          local poke_logo = pokermon_config.pokemon_aprilfools and "poke_smeargle_logo" or "poke_logo"
+          G.SPLASH_LOGO = Sprite(0, 0, 
+              13/333*389*SC_scale, 
+              13/333*389*SC_scale*(G.ASSET_ATLAS[poke_logo].py/G.ASSET_ATLAS[poke_logo].px),
+              G.ASSET_ATLAS[poke_logo], {x=0.0,y=0})
+        end
 
     G.SPLASH_LOGO:set_alignment({
         major = G.title_top,
@@ -1799,10 +1838,20 @@ function Game:demo_cta() --True if main menu is accessed from the splash screen,
     G.SPLASH_LOGO.dissolve_colours = {G.C.WHITE, G.C.WHITE}
     G.SPLASH_LOGO.dissolve = 1   
 
-    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+    local replace_card = nil
+    if pokermon_config.pokemon_title then
+      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.empty, G.P_CENTERS.j_poke_unown)
+      replace_card.ability.extra.form = "R"
+      G.P_CENTERS.j_poke_unown:set_sprites(replace_card)
+    else
+      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+    end
     self.title_top:emplace(replace_card)
 
     replace_card.states.visible = false
+    if pokermon_config.pokemon_title then
+      replace_card.seal = nil
+    end
     replace_card.no_ui = true
     replace_card.ambient_tilt = 0.0
 
@@ -2052,6 +2101,7 @@ function Game:start_run(args)
     local selected_back = saveTable and saveTable.BACK.name or (args.challenge and args.challenge.deck and args.challenge.deck.type) or (self.GAME.viewed_back and self.GAME.viewed_back.name) or self.GAME.selected_back and self.GAME.selected_back.name or 'Red Deck'
     selected_back = get_deck_from_name(selected_back)
     self.GAME = saveTable and saveTable.GAME or self:init_game_object()
+    SMODS.update_hand_limit_text(true, true)
     self.GAME.modifiers = self.GAME.modifiers or {}
     self.GAME.stake = args.stake or self.GAME.stake or 1
     self.GAME.STOP_USE = 0
@@ -2416,7 +2466,8 @@ function Game:start_run(args)
         reset_mail_rank()
         self.GAME.current_round.ancient_card.suit = nil
         reset_ancient_card()
-        reset_castle_card()        for _, mod in ipairs(SMODS.mod_list) do
+        reset_castle_card()        
+        for _, mod in ipairs(SMODS.mod_list) do
         	if mod.reset_game_globals and type(mod.reset_game_globals) == 'function' then
         		mod.reset_game_globals(true)
         	end
@@ -2493,6 +2544,7 @@ function Game:update(dt)
     if not G.SETTINGS.tutorial_complete then G.FUNCS.tutorial_controller() end
                 timer_checkpoint('tallies', 'update')
     modulate_sound(dt)
+    SMODS.enh_cache:clear()
                 timer_checkpoint('sounds', 'update')
     update_canvas_juice(dt)
                 timer_checkpoint('canvas and juice', 'update')
@@ -2543,6 +2595,9 @@ function Game:update(dt)
         for k, v in pairs(SMODS.Rarities) do
             if v.gradient and type(v.gradient) == "function" then v:gradient(dt) end
         end
+        for _,v in pairs(SMODS.Gradients) do
+           v:update(dt)
+        end
 
         
         self.E_MANAGER:update(self.real_dt)
@@ -2557,7 +2612,7 @@ function Game:update(dt)
                             {n=G.UIT.O, config={object = DynaText({scale = 0.7, string = localize('ph_unscored_hand'), maxw = 9, colours = {G.C.WHITE},float = true, shadow = true, silent = true, pop_in = 0, pop_in_rate = 6})}},
                         }},
                         {n=G.UIT.R, config = {align = 'cm', maxw = 1}, nodes={
-                            {n=G.UIT.O, config={object = DynaText({scale = 0.6, string = G.GAME.blind:get_loc_debuff_text(), maxw = 9, colours = {G.C.WHITE},float = true, shadow = true, silent = true, pop_in = 0, pop_in_rate = 6})}},
+                            {n=G.UIT.O, config={func = "update_blind_debuff_text", object = DynaText({scale = 0.6, string = SMODS.debuff_text or G.GAME.blind:get_loc_debuff_text(), maxw = 9, colours = {G.C.WHITE},float = true, shadow = true, silent = true, pop_in = 0, pop_in_rate = 6})}},
                         }}
                     }}, 
                     config = {
@@ -2568,7 +2623,11 @@ function Game:update(dt)
                   }
                   self.boss_warning_text.attention_text = true
                   self.boss_warning_text.states.collide.can = false
-                  G.GAME.blind.children.animatedSprite:juice_up(0.05, 0.02)
+                  if SMODS.hand_debuff_source then
+                      SMODS.hand_debuff_source:juice_up(0.05, 0.1)
+                  else
+                      G.GAME.blind.children.animatedSprite:juice_up(0.05, 0.02)
+                  end
                   play_sound('chips1', math.random()*0.1 + 0.55, 0.12)
             end
         else
@@ -2672,7 +2731,7 @@ function Game:update(dt)
                     timer_checkpoint('move', 'update')
         
         for k, v in pairs(self.MOVEABLES) do
-            v:update(dt*self.SPEEDFACTOR)
+            v:update(dt*self.SPEEDFACTOR, self.real_dt)
             v.states.collide.is = false
         end
                     timer_checkpoint('update', 'update')
@@ -3102,6 +3161,11 @@ function Game:update_selecting_hand(dt)
         self.buttons.states.visible = true
     end
 
+    if not self.scry_view and type(create_scry_cardarea) == "function" then
+      self.scry_view = create_scry_cardarea()
+    elseif self.scry_view then
+      update_scry_cardarea(self.scry_view)
+    end
     if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 then
         end_round()
     end
@@ -3347,6 +3411,7 @@ function Game:update_blind_select(dt)
 end
 
 function Game:update_round_eval(dt)
+    if G.scry_view then hide_scry_cardarea() end
     if self.buttons then self.buttons:remove(); self.buttons = nil end
     if self.shop then self.shop:remove(); self.shop = nil end
 

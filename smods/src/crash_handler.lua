@@ -30,7 +30,7 @@ function loadStackTracePlus()
     local pcall, type, pairs, ipairs = pcall, type, pairs, ipairs
     local error = error
 
-    assert(debug, "debug table must be available at this point")
+    assert(debug, "Internal: Debug table must be available at this point")
 
     local io_open = io.open
     local string_gmatch = string.gmatch
@@ -38,7 +38,7 @@ function loadStackTracePlus()
     local table_concat = table.concat
 
     local _M = {
-        max_tb_output_len = 70 -- controls the maximum length of the 'stringified' table before cutting with ' (more...)'
+        max_tb_output_len = 140 -- controls the maximum length of the 'stringified' table before cutting with ' (more...)'
     }
 
     -- this tables should be weak so the elements in them won't become uncollectable
@@ -100,7 +100,7 @@ function loadStackTracePlus()
     -- Parses a line, looking for possible function definitions (in a very naïve way)
     -- Returns '(anonymous)' if no function name was found in the line
     local function ParseLine(line)
-        assert(type(line) == "string")
+        assert(type(line) == "string", ("Internal: line \"%s\" is type \"%s\", should be a string"):format(tostring(line), type(line)))
         -- print(line)
         local match = line:match("^%s*function%s+(%w+)")
         if match then
@@ -663,6 +663,9 @@ function injectStackTrace()
         if sanitizedmsg:find("Syntax error: game.lua:4: '=' expected near 'Game'") then
             table.insert(err,
                 'Duplicate installation of Steamodded detected! Please clean your installation: Steam Library > Balatro > Properties > Installed Files > Verify integrity of game files.')
+        elseif sanitizedmsg:find("Syntax error: game.lua:%d+: duplicate label 'continue'") then
+            table.insert(err,
+                'Duplicate installation of Steamodded detected! Please remove the duplicate steamodded/smods folder in your mods folder.')
         else
             table.insert(err, sanitizedmsg)
         end

@@ -21,7 +21,7 @@ function loadAPIs()
 
     function SMODS.GameObject:__call(o)
         o = o or {}
-        assert(o.mod == nil)
+        assert(o.mod == nil, "Created object should not have \"mod\" field defined.")
         o.mod = SMODS.current_mod
         o.original_mod = o.mod
         setmetatable(o, self)
@@ -85,7 +85,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         if above_stake_cfg ~= false then
             if type(above_stake_cfg) ~= 'table' then above_stake_cfg = {} end
             SMODS.modify_key(obj, mod and mod.prefix, above_stake_cfg.mod, 'above_stake')
-            SMODS.modify_key(obj, cls.class_prefix, above_stake_cfg.class, 'above_stake') 
+            SMODS.modify_key(obj, cls.class_prefix, above_stake_cfg.class, 'above_stake')
         end
         local applied_stakes_cfg = obj.prefix_config.applied_stakes
         if applied_stakes_cfg ~= false and obj.applied_stakes then
@@ -99,7 +99,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         if unlocked_stake_cfg ~= false then
             if type(unlocked_stake_cfg) ~= 'table' then unlocked_stake_cfg = {} end
             SMODS.modify_key(obj, mod and mod.prefix, unlocked_stake_cfg.mod, 'unlocked_stake')
-            SMODS.modify_key(obj, cls.class_prefix, unlocked_stake_cfg.class, 'unlocked_stake') 
+            SMODS.modify_key(obj, cls.class_prefix, unlocked_stake_cfg.class, 'unlocked_stake')
         end
     end
 
@@ -145,8 +145,8 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
     function SMODS.GameObject:process_loc_text()
         SMODS.process_loc_text(G.localization.descriptions[self.set], self.key, self.loc_txt)
     end
-    
-    --- Starting from this class, recursively searches for 
+
+    --- Starting from this class, recursively searches for
     --- functions with the given key on all subordinate classes
     --- and run all found functions with the given arguments
     function SMODS.GameObject:send_to_subclasses(func, ...)
@@ -172,7 +172,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             o.atlas = o.atlas or o.set
 
             if o._discovered_unlocked_overwritten then
-                assert(o._saved_d_u)
+                assert(o._saved_d_u, ("Internal: original discovery/unlocked state for object \"%s\" should have been saved at this point."):format(o and o.key or "UNKNOWN"))
                 o.discovered, o.unlocked = o._d, o._u
                 o._discovered_unlocked_overwritten = false
             else
@@ -274,6 +274,50 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
     end
 
     -------------------------------------------------------------------------------------------------
+    ----- API CODE GameObject.Font
+    -------------------------------------------------------------------------------------------------
+    
+    SMODS.Fonts = {}
+    SMODS.Font = SMODS.GameObject:extend {
+        obj_table = SMODS.Fonts,
+        set = 'Fonts',
+        obj_buffer = {},
+        disable_mipmap = false,
+        required_params = {
+            'key',
+            'path',
+        },
+        render_scale = 200,
+        TEXT_HEIGHT_SCALE = 0.83,
+        TEXT_OFFSET = {x = 0, y = 0},
+        FONTSCALE = 0.1,
+        squish = 1,
+        DESCSCALE = 1,
+        register = function(self)
+            if self.registered then
+                sendWarnMessage(('Detected duplicate register call on object %s'):format(self.key), self.set)
+                return
+            end
+            self.name = self.key
+            SMODS.Font.super.register(self)
+        end,
+        inject = function(self)
+            local file_path = self.path
+            if file_path == 'DEFAULT' then return end
+
+            self.full_path = (self.mod and self.mod.path or SMODS.path) ..
+                'assets/fonts/' .. file_path
+            local file_data = assert(NFS.newFileData(self.full_path),
+                ('Failed to collect file data for Font %s'):format(self.key))
+            self.FONT = assert(love.graphics.newFont(file_data, self.render_scale or G.TILESIZE),
+                ('Failed to initialize font data for Font %s'):format(self.key))
+            
+        end,
+        process_loc_text = function() end,
+    }
+
+
+    -------------------------------------------------------------------------------------------------
     ----- API CODE GameObject.Language
     -------------------------------------------------------------------------------------------------
 
@@ -294,7 +338,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 local data = assert(NFS.newFileData(self.mod.path .. 'assets/fonts/' .. self.font.file), ('Failed to collect file data for font of language %s'):format(self.key))
                 self.font.FONT = love.graphics.newFont(data, self.font.render_scale)
             elseif type(self.font) ~= 'table' then
-                self.font = G.FONTS[type(self.font) == 'number' and self.font or 1] or G.FONTS[1]
+                self.font = SMODS.Fonts[self.font] or G.FONTS[type(self.font) == 'number' and self.font or 1] or G.FONTS[1]
             end
             G.LANGUAGES[self.key] = self
             if self.key == (G.SETTINGS.real_language or G.SETTINGS.language) then G.LANG = self end
@@ -375,7 +419,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             end
         end,
         process_loc_text = function() end,
-        pre_inject_class = function(self) 
+        pre_inject_class = function(self)
             G:set_render_settings() -- restore originals first in case a texture pack was disabled
         end
     }
@@ -423,9 +467,9 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                     replace, times = self.replace, -1
                 end
                 self.replace_sounds[replace] = { key = self.key, times = times, args = args }
-            end 
+            end
             -- TODO detect music state based on if select_music_track exists
-            assert(not self.select_music_track or self.key:find('music'))
+            assert(not self.select_music_track or self.key:find('music'), ("Object \"%s\" has a defined \"select_music_track\" but is not a music track."):format(self.key))
             SMODS.Sound.super.register(self)
         end,
         inject = function(self)
@@ -629,7 +673,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             SMODS.build_stake_chain(G.P_STAKES[s], applied)
         end
         return applied
-    end 
+    end
 
     function SMODS.setup_stake(i)
         local applied_stakes = SMODS.build_stake_chain(G.P_CENTER_POOLS.Stake[i])
@@ -730,7 +774,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             G.GAME.modifiers.enable_perishables_in_shop = true
         end,
         colour = G.C.ORANGE,
-        loc_txt = {}
+        loc_txt = {},
     }
     SMODS.Stake {
         name = "Gold Stake",
@@ -763,6 +807,10 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         inject = function(self)
             G.P_JOKER_RARITY_POOLS[self.key] = {}
             G.C.RARITY[self.key] = self.badge_colour
+            -- Called every frame, moving deprecated prints here
+            if self.gradient and type(self.gradient) == "function" then
+                sendWarnMessage(('Found `gradient` function on SMODS.Rarity object "%s". This field is deprecated; please use `SMODS.Gradient` API instead.'):format(self.key), 'Rarity')
+            end
         end,
         process_loc_text = function(self)
             SMODS.process_loc_text(G.localization.misc.labels, "k_"..self.key:lower(), self.loc_txt, 'name')
@@ -770,21 +818,21 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         end,
         get_rarity_badge = function(self, rarity)
             local vanilla_rarity_keys = {localize('k_common'), localize('k_uncommon'), localize('k_rare'), localize('k_legendary')}
-            if (vanilla_rarity_keys)[rarity] then 
+            if (vanilla_rarity_keys)[rarity] then
                 return vanilla_rarity_keys[rarity] --compat layer in case function gets the int of the rarity
-            else 
+            else
                 return localize("k_"..rarity:lower())
-            end 
+            end
         end,
     }
 
     function SMODS.inject_rarity(object_type, rarity)
-        if not object_type.rarities then 
+        if not object_type.rarities then
             object_type.rarities = {}
             object_type.rarity_pools = {}
         end
         object_type.rarities[#object_type.rarities+1] = {
-            key = rarity.key, 
+            key = rarity.key,
             weight = type(rarity.pools[object_type.key]) == "table" and rarity.pools[object_type.key].weight or rarity.default_weight
         }
         for _, vv in ipairs(object_type.rarities) do
@@ -859,7 +907,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         required_params = {
             'key',
         },
-        prefix_config = { key = false }, 
+        prefix_config = { key = false },
         inject = function(self)
             G.P_CENTER_POOLS[self.key] = G.P_CENTER_POOLS[self.key] or {}
             local injected_rarities = {}
@@ -879,9 +927,16 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             for _, v in pairs(SMODS.Rarities) do
                 if v.pools and v.pools[self.key] and not injected_rarities[v.key] then SMODS.inject_rarity(self, v) end
             end
+            if self.cards then
+                for k, v in pairs(G.P_CENTERS) do
+                    if self.cards[k] then self:inject_card(v) end
+                end
+            end
         end,
         inject_card = function(self, center)
             if center.set ~= self.key then SMODS.insert_pool(G.P_CENTER_POOLS[self.key], center) end
+            if not center.pools then center.pools = {} end
+            center.pools[self.key] = true
             local default_rarity_check = {["Common"] = 1, ["Uncommon"] = 2, ["Rare"] = 3, ["Legendary"] = 4}
             if self.rarities and center.rarity and self.rarity_pools[default_rarity_check[center.rarity] or center.rarity] then
                 SMODS.insert_pool(self.rarity_pools[default_rarity_check[center.rarity] or center.rarity], center)
@@ -889,6 +944,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         end,
         delete_card = function(self, center)
             if center.set ~= self.key then SMODS.remove_pool(G.P_CENTER_POOLS[self.key], center.key) end
+            if center.pools then center.pools[self.key] = nil end
             local default_rarity_check = {["Common"] = 1, ["Uncommon"] = 2, ["Rare"] = 3, ["Legendary"] = 4}
             if self.rarities and center.rarity and self.rarity_pools[default_rarity_check[center.rarity] or center.rarity] then
                 SMODS.remove_pool(self.rarity_pools[default_rarity_check[center.rarity] or center.rarity], center.key)
@@ -912,6 +968,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
     SMODS.ConsumableTypes = {}
     SMODS.ConsumableType = SMODS.ObjectType:extend {
         ctype_buffer = {},
+        visible_buffer = {},
         set = 'ConsumableType',
         required_params = {
             'key',
@@ -922,7 +979,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         collection_rows = { 6, 6 },
         create_UIBox_your_collection = function(self)
             local type_buf = {}
-            for _, v in ipairs(SMODS.ConsumableType.ctype_buffer) do
+            for _, v in ipairs(SMODS.ConsumableType.visible_buffer) do
                 if not v.no_collection and (not G.ACTIVE_MOD_UI or modsCollectionTally(G.P_CENTER_POOLS[v]).of > 0) then type_buf[#type_buf + 1] = v end
             end
             return SMODS.card_collection_UIBox(G.P_CENTER_POOLS[self.key], self.collection_rows, { back_func = #type_buf>3 and 'your_collection_consumables' or nil })
@@ -931,6 +988,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             SMODS.ConsumableType.super.register(self)
             if self:check_dependencies() then
                 SMODS.ConsumableType.ctype_buffer[#SMODS.ConsumableType.ctype_buffer+1] = self.key
+                if not self.no_collection then SMODS.ConsumableType.visible_buffer[#SMODS.ConsumableType.visible_buffer + 1] = self.key end
             end
         end,
         inject = function(self)
@@ -1058,6 +1116,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 key = self.key,
                 set = self.set,
                 nodes = desc_nodes,
+                AUT = full_UI_table,
                 vars =
                     specific_vars or {}
             }
@@ -1070,6 +1129,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 target.scale = res.scale
                 target.text_colour = res.text_colour
             end
+
             if desc_nodes == full_UI_table.main and not full_UI_table.name then
                 full_UI_table.name = self.set == 'Enhanced' and 'temp_value' or localize { type = 'name', set = target.set, key = res.name_key or target.key, nodes = full_UI_table.name, vars = res.name_vars or target.vars or {} }
             elseif desc_nodes ~= full_UI_table.main and not desc_nodes.name and self.set ~= 'Enhanced' then
@@ -1077,12 +1137,14 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             end
             if specific_vars and specific_vars.debuffed and not res.replace_debuff then
                 target = { type = 'other', key = 'debuffed_' ..
-                (specific_vars.playing_card and 'playing_card' or 'default'), nodes = desc_nodes }
+                (specific_vars.playing_card and 'playing_card' or 'default'), nodes = desc_nodes, AUT = full_UI_table, }
             end
             if res.main_start then
                 desc_nodes[#desc_nodes + 1] = res.main_start
             end
+
             localize(target)
+            
             if res.main_end then
                 desc_nodes[#desc_nodes + 1] = res.main_end
             end
@@ -1173,7 +1235,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             return {}
         end
     }
-    
+
     SMODS.Tarot = SMODS.Consumable:extend {
         set = 'Tarot',
     }
@@ -1209,13 +1271,14 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
 
     SMODS.Voucher:take_ownership('observatory', {
         calculate = function(self, card, context)
-            if 
+            if
                 context.other_consumeable and
                 context.other_consumeable.ability.set == 'Planet' and
                 context.other_consumeable.ability.consumeable.hand_type == context.scoring_name
             then
                 return {
-                    x_mult = card.ability.extra
+                    x_mult = card.ability.extra,
+                    message_card = context.other_consumeable,
                 }
             end
         end,
@@ -1294,6 +1357,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 type = 'other',
                 key = self.key,
                 nodes = desc_nodes,
+                AUT = full_UI_table,
                 vars = {}
             }
             local res = {}
@@ -1307,7 +1371,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             if desc_nodes == full_UI_table.main and not full_UI_table.name then
                 full_UI_table.name = localize{type = 'name', set = 'Other', key = res.name_key or target.key, nodes = full_UI_table.name, vars = res.name_vars or target.vars or {}}
             elseif desc_nodes ~= full_UI_table.main and not desc_nodes.name then
-                desc_nodes.name = localize{type = 'name_text', key = res.name_key or target.key, set = 'Other' } 
+                desc_nodes.name = localize{type = 'name_text', key = res.name_key or target.key, set = 'Other' }
             end
             localize(target)
             desc_nodes.background_colour = res.background_colour
@@ -1321,7 +1385,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         update_pack = function(self, dt)
             if G.buttons then G.buttons:remove(); G.buttons = nil end
             if G.shop then G.shop.alignment.offset.y = G.ROOM.T.y+11 end
-        
+
             if not G.STATE_COMPLETE then
                 G.STATE_COMPLETE = true
                 G.CONTROLLER.interrupt.focus = true
@@ -1340,7 +1404,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                             trigger = 'immediate',
                             func = function()
                                 if self.draw_hand == true then G.FUNCS.draw_from_deck_to_hand() end
-        
+
                                 G.E_MANAGER:add_event(Event({
                                     trigger = 'after',
                                     delay = 0.5,
@@ -1350,10 +1414,10 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                                     end}))
                                 return true
                             end
-                        }))  
+                        }))
                         return true
                     end
-                }))  
+                }))
             end
         end,
         ease_background_colour = function(self)
@@ -1365,7 +1429,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             G.pack_cards = CardArea(
                 G.ROOM.T.x + 9 + G.hand.T.x, G.hand.T.y,
                 math.max(1,math.min(_size,5))*G.CARD_W*1.1,
-                1.05*G.CARD_H, 
+                1.05*G.CARD_H,
                 {card_limit = _size, type = 'consumeable', highlight_limit = 1})
 
             local t = {n=G.UIT.ROOT, config = {align = 'tm', r = 0.15, colour = G.C.CLEAR, padding = 0.15}, nodes={
@@ -1473,7 +1537,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             if G.GAME.used_vouchers.v_telescope and i == 1 then
                 local _planet, _hand, _tally = nil, nil, 0
                 for k, v in ipairs(G.handlist) do
-                    if G.GAME.hands[v].visible and G.GAME.hands[v].played > _tally then
+                    if SMODS.is_poker_hand_visible(v) and G.GAME.hands[v].played > _tally then
                         _hand = v
                         _tally = G.GAME.hands[v].played
                     end
@@ -1637,16 +1701,18 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
     })
     SMODS.Blind:take_ownership('wheel', {
         loc_vars = function(self)
-            return { vars = { G.GAME.probabilities.normal } }
+            return { vars = { SMODS.get_probability_vars(self, 1, 7, 'wheel') } }
         end,
         collection_loc_vars = function(self)
-            return { vars = { '1' }}
+            return { vars = { '1', '7' }}
         end,
         process_loc_text = function(self)
             local text = G.localization.descriptions.Blind[self.key].text[1]
             if string.sub(text, 1, 3) ~= '#1#' then
                 G.localization.descriptions.Blind[self.key].text[1] = "#1#"..text
             end
+            -- Is this too much hacky?
+            G.localization.descriptions.Blind[self.key].text[1] = string.gsub(G.localization.descriptions.Blind[self.key].text[1], "7", "#2#")
             SMODS.Blind.process_loc_text(self)
         end,
         get_loc_debuff_text = function() return G.GAME.blind.loc_debuff_text end,
@@ -1691,6 +1757,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 set = 'Other',
                 key = self.key:lower()..'_seal',
                 nodes = desc_nodes,
+                AUT = full_UI_table,
                 vars = specific_vars or {},
             }
             local res = {}
@@ -1808,7 +1875,8 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                             ranks = {'Ace', 'King', 'Queen', 'Jack', '10', '9', '8', '7', '6', '5', '4', '3', '2'},
                             display_ranks = {'King', 'Queen', 'Jack'},
                             atlas = self.hc_atlas,
-                            pos_style = 'deck'
+                            pos_style = 'deck',
+                            hc_default = true
                         } or nil,
                     }
                 }
@@ -1889,6 +1957,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             ignore = false
         },
         next = {},
+        prev = nil,
         straight_edge = false,
         -- TODO we need a better system for what this is doing.
         -- We should allow setting a playing card's atlas and position to any values,
@@ -1919,6 +1988,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             self.id = self.max_id.value
             self.shorthand = self.shorthand or self.key
             self.sort_nominal = self.nominal + (self.face_nominal or 0)
+            self.prev = self.prev or {}
             if self:check_dependencies() and not self.obj_table[self.key] then
                 self.obj_table[self.key] = self
                 local j
@@ -1934,12 +2004,19 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 else
                     table.insert(self.obj_buffer, self.key)
                 end
+                
             end
         end,
         process_loc_text = function(self)
             SMODS.process_loc_text(G.localization.misc.ranks, self.key, self.loc_txt, 'name')
         end,
         inject = function(self)
+            for _,v in ipairs(self.next) do
+                local other = self.obj_table[v]
+                if other then
+                    table.insert(other.prev, self.key)
+                end
+            end
             for _, suit in pairs(SMODS.Suits) do
                 SMODS.inject_p_card(suit, self)
             end
@@ -2064,20 +2141,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        local _card = G.hand.highlighted[i]
-                        local rank_data = SMODS.Ranks[_card.base.value]
-                        local behavior = rank_data.strength_effect or { fixed = 1, ignore = false, random = false }
-                        local new_rank
-                        if behavior.ignore or not next(rank_data.next) then
-                            return true
-                        elseif behavior.random then
-                            -- TODO doesn't respect in_pool
-                            new_rank = pseudorandom_element(rank_data.next, pseudoseed('strength'))
-                        else
-                            local ii = (behavior.fixed and rank_data.next[behavior.fixed]) and behavior.fixed or 1
-                            new_rank = rank_data.next[ii]
-                        end
-                        assert(SMODS.change_base(_card, nil, new_rank))
+                        assert(SMODS.modify_rank(G.hand.highlighted[i], 1))
                         return true
                     end
                 }))
@@ -2347,7 +2411,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 return
             end
             if self:check_dependencies() then
-                assert(not self.palettes ~= not (self.ranks and self.lc_atlas), 
+                assert(not self.palettes ~= not (self.ranks and self.lc_atlas),
                     ('Error loading DeckSkin %s! Please define your palettes or use the old formatting'):format(self.key))
                 -- for compat with old format
                 self.pos_style = self.posStyle or self.pos_style
@@ -2420,12 +2484,12 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             if type(key) == "number" then
                 key = G.COLLABS.options[suit][key]
             end
-        
+
             local conv_palette_loc_options = {}
             for k, v in pairs(G.localization.misc.collab_palettes[key]) do
                 conv_palette_loc_options[tonumber(k)] = v
             end
-        
+
             return conv_palette_loc_options
         end,
         post_inject_class = function(self)
@@ -2440,9 +2504,22 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                     G.SETTINGS.colour_palettes[k] = skin.palettes[1].key
                 end
             end
-                
+
         end
     }
+
+    -- weird hook to artificially initialize G.collab_credits early
+    -- this previously used a local recursive function, which broke modded languages
+    SMODS.init_collab_credits = true
+    local ps_ref = Game.prep_stage
+    function Game:prep_stage(new_stage, new_state, new_game_obj)
+        ps_ref(self, new_stage, new_state, new_game_obj)
+        if not G.collab_credits then
+            G.FUNCS.show_credits()
+            SMODS.init_collab_credits = nil
+            G.FUNCS:exit_overlay_menu()
+        end
+    end
 
     for suitName, options in pairs(G.COLLABS.options) do
         SMODS.DeckSkin{
@@ -2487,6 +2564,21 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                         hc_default = true,
                     },
                 },
+                generate_ds_card_ui = function(card, deckskin, palette, info_queue, desc_nodes, specific_vars, full_UI_table)
+                    for k, v in pairs(G.collab_credits) do
+                        if v.artist and deckskin.key == v.art and (card.base.value == "Jack" or card.base.value == "Queen" or card.base.value == "King") then
+                            localize{type = 'other', key = 'artist', nodes = desc_nodes, vars = {}}
+                            localize{type = 'other', key = 'artist_credit', nodes = desc_nodes, vars = { v.artist }}
+                        end
+                    end
+                end,
+                has_ds_card_ui = function(card, deckskin, palette)
+                    for k, v in pairs(G.collab_credits) do
+                        if v.artist and deckskin.key == v.art and (card.base.value == "Jack" or card.base.value == "Queen" or card.base.value == "King") then
+                            return true
+                        end
+                    end
+                end
             }
         end
     end
@@ -2574,7 +2666,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
     }
     SMODS.PokerHandPart {
         key = '_straight',
-        func = function(hand) return get_straight(hand) end
+        func = function(hand) return get_straight(hand, SMODS.four_fingers(), SMODS.shortcut(), SMODS.wrap_around_straight()) end
     }
     SMODS.PokerHandPart {
         key = '_flush',
@@ -2605,26 +2697,26 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         ['Flush House'] = function(parts)
             if #parts._3 < 1 or #parts._2 < 2 or not next(parts._flush) then return {} end
             return { SMODS.merge_lists(parts._all_pairs, parts._flush) }
-        end, 
+        end,
         ['Five of a Kind'] = function(parts) return parts._5 end,
         ['Straight Flush'] = function(parts)
             if not next(parts._straight) or not next(parts._flush) then return end
             return { SMODS.merge_lists(parts._straight, parts._flush) }
-        end, 
-        ['Four of a Kind'] = function(parts) return parts._4 end, 
+        end,
+        ['Four of a Kind'] = function(parts) return parts._4 end,
         ['Full House'] = function(parts)
             if #parts._3 < 1 or #parts._2 < 2 then return {} end
             return parts._all_pairs
         end,
         ['Flush'] = function(parts) return parts._flush end,
         ['Straight'] = function(parts) return parts._straight end,
-        ['Three of a Kind'] = function(parts) return parts._3 end, 
+        ['Three of a Kind'] = function(parts) return parts._3 end,
         ['Two Pair'] = function(parts)
             if #parts._2 < 2 then return {} end
             return parts._all_pairs
-        end, 
-        ['Pair'] = function(parts) return parts._2 end, 
-        ['High Card'] = function(parts) return parts._highest end, 
+        end,
+        ['Pair'] = function(parts) return parts._2 end,
+        ['High Card'] = function(parts) return parts._highest end,
     }
     for _, v in ipairs(handlist) do
         local hand = copy_table(hands[v])
@@ -2737,6 +2829,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
                 key = self.key,
                 set = self.set,
                 nodes = desc_nodes,
+                AUT = full_UI_table,
                 vars = specific_vars
             }
             local res = {}
@@ -2752,7 +2845,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             if desc_nodes == full_UI_table.main and not full_UI_table.name then
                 full_UI_table.name = localize { type = 'name', set = target.set, key = res.name_key or target.key, nodes = full_UI_table.name, vars = res.name_vars or res.vars or {} }
             elseif desc_nodes ~= full_UI_table.main and not desc_nodes.name then
-                desc_nodes.name = localize{type = 'name_text', key = res.name_key or target.key, set = target.set } 
+                desc_nodes.name = localize{type = 'name_text', key = res.name_key or target.key, set = target.set }
             end
             if res.main_start then
                 desc_nodes[#desc_nodes + 1] = res.main_start
@@ -2806,13 +2899,16 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         -- or handling it in apply
         -- TODO: rename
         should_apply = function(self, card, center, area, bypass_roll)
-            if 
+            if
                 ( not self.sets or self.sets[center.set or {}]) and
                 (
                     center[self.key..'_compat'] or -- explicit marker
-                    (self.default_compat and not self.compat_exceptions[center.key]) or -- default yes with no exception
-                    (not self.default_compat and self.compat_exceptions[center.key]) -- default no with exception
-                ) and 
+                    (
+                        center[self.key..'_compat'] == nil and
+                        ((self.default_compat and not self.compat_exceptions[center.key]) or -- default yes with no exception
+                        (not self.default_compat and self.compat_exceptions[center.key]))
+                    ) -- default no with exception
+                ) and
                 (not self.needs_enable_flag or G.GAME.modifiers['enable_'..self.key])
             then
                 self.last_roll = pseudorandom((area == G.pack_cards and 'packssj' or 'shopssj')..self.key..G.GAME.round_resets.ante)
@@ -2825,7 +2921,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
     }
 
     -- Create base game stickers
-    -- eternal and perishable follow shared checks for sticker application, therefore omitted 
+    -- eternal and perishable follow shared checks for sticker application, therefore omitted
     SMODS.Sticker{
         key = "eternal",
         badge_colour = HEX 'c75985',
@@ -2898,7 +2994,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         prefix_config = {key = false},
         pos = { x = 10, y = 10 }, -- Base game has no art, and I haven't made any yet to represent Pinned with
         rate = 0,
-        should_apply = false, 
+        should_apply = false,
         order = 4,
         apply = function(self, card, val)
             card[self.key] = val
@@ -2933,13 +3029,10 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         -- if true, enhanced card is any suit
         -- always_scores
         -- if true, card always scores
-        -- loc_subtract_extra_chips
-        -- During tooltip generation, number of chips to subtract from displayed extra chips.
-        -- Use if enhancement already displays its own chips.
         -- Future work: use ranks() and suits() for better control
         register = function(self)
             self.config = self.config or {}
-            assert(not (self.no_suit and self.any_suit))
+            assert(not (self.no_suit and self.any_suit), "Cannot have both \"no_suit\" and \"any_suit\" defined in a SMODS.Enhancement object.")
             if self.no_rank then self.overrides_base_rank = true end
             SMODS.Enhancement.super.register(self)
         end,
@@ -2948,15 +3041,43 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         -- You will probably want to override this if your enhancement interacts with
         -- those parts of the base card.
         generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
+            local always_show = self.config and self.config.always_show or {}
             if specific_vars and specific_vars.nominal_chips and not self.replace_base_card then
                 localize { type = 'other', key = 'card_chips', nodes = desc_nodes, vars = { specific_vars.nominal_chips } }
             end
             SMODS.Enhancement.super.generate_ui(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
             if specific_vars and specific_vars.bonus_chips then
                 local remaining_bonus_chips = specific_vars.bonus_chips - (self.config.bonus or 0)
-                if remaining_bonus_chips > 0 then
-                    localize { type = 'other', key = 'card_extra_chips', nodes = desc_nodes, vars = { specific_vars.bonus_chips - (self.config.bonus or 0) } }
+                if remaining_bonus_chips ~= 0 then
+                    localize { type = 'other', key = 'card_extra_chips', nodes = desc_nodes, vars = { SMODS.signed(remaining_bonus_chips) } }
                 end
+            end
+            if specific_vars and specific_vars.bonus_x_chips then
+                localize{type = 'other', key = 'card_x_chips', nodes = desc_nodes, vars = {specific_vars.bonus_x_chips}}
+            end
+            if specific_vars and specific_vars.bonus_mult then
+                localize{type = 'other', key = 'card_extra_mult', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.bonus_mult)}}
+            end
+            if specific_vars and specific_vars.bonus_x_mult then
+                localize{type = 'other', key = 'card_x_mult', nodes = desc_nodes, vars = {specific_vars.bonus_x_mult}}
+            end
+            if specific_vars and specific_vars.bonus_h_chips then
+                localize{type = 'other', key = 'card_extra_h_chips', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.bonus_h_chips)}}
+            end
+            if specific_vars and specific_vars.bonus_x_chips then
+                localize{type = 'other', key = 'card_h_x_chips', nodes = desc_nodes, vars = {specific_vars.bonus_h_x_chips}}
+            end
+            if specific_vars and specific_vars.bonus_h_mult then
+                localize{type = 'other', key = 'card_extra_h_mult', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.bonus_h_mult)}}
+            end
+            if specific_vars and specific_vars.bonus_h_x_mult then
+                localize{type = 'other', key = 'card_h_x_mult', nodes = desc_nodes, vars = {specific_vars.bonus_h_x_mult}}
+            end
+            if specific_vars and specific_vars.bonus_p_dollars then
+                localize{type = 'other', key = 'card_extra_p_dollars', nodes = desc_nodes, vars = {SMODS.signed_dollars(specific_vars.bonus_p_dollars)}}
+            end
+            if specific_vars and specific_vars.bonus_h_dollars then
+                localize{type = 'other', key = 'card_extra_h_dollars', nodes = desc_nodes, vars = {SMODS.signed_dollars(specific_vars.bonus_h_dollars)}}
             end
         end,
         -- other methods:
@@ -2993,6 +3114,23 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
     --         }
     --     end
     -- })
+
+    SMODS.Enhancement:take_ownership('glass', {
+        calculate = function(self, card, context)
+            if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and SMODS.pseudorandom_probability(card, 'glass', 1, card.ability.extra) then
+                card.glass_trigger = true
+                return { remove = true }
+            end
+        end,
+    })
+
+    SMODS.Enhancement:take_ownership('lucky', {
+        loc_vars = function (self, info_queue, card)
+            local numerator_mult, denominator_mult = SMODS.get_probability_vars(card, 1, 5, 'lucky_mult')
+            local numerator_dollars, denominator_dollars = SMODS.get_probability_vars(card, 1, 15, 'lucky_money')
+            return {vars = {numerator_mult, card.ability.mult, denominator_mult, card.ability.p_dollars, denominator_dollars, numerator_dollars}}
+        end,
+    })
 
     -------------------------------------------------------------------------------------------------
     ----- API CODE GameObject.Shader
@@ -3044,7 +3182,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         },
         -- optional fields:
         extra_cost = nil,
-        
+
         -- TODO badge colours. need to check how Steamodded already does badge colors
         -- other methods:
         calculate = nil, -- function (self)
@@ -3098,6 +3236,8 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         sound = { sound = "foil1", per = 1.2, vol = 0.4 },
         weight = 20,
         extra_cost = 2,
+        in_shop = true,
+        vanilla = true,
         get_weight = function(self)
             return G.GAME.edition_rate * self.weight
         end,
@@ -3108,7 +3248,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
                 return {
                     chips = card.edition.chips
-                }     
+                }
             end
         end
     })
@@ -3129,6 +3269,8 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         sound = { sound = "holo1", per = 1.2 * 1.58, vol = 0.4 },
         weight = 14,
         extra_cost = 3,
+        in_shop = true,
+        vanilla = true,
         get_weight = function(self)
             return G.GAME.edition_rate * self.weight
         end,
@@ -3139,7 +3281,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
                 return {
                     mult = card.edition.mult
-                }     
+                }
             end
         end
     })
@@ -3160,6 +3302,8 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         sound = { sound = "polychrome1", per = 1.2, vol = 0.7 },
         weight = 3,
         extra_cost = 5,
+        in_shop = true,
+        vanilla = true,
         get_weight = function(self)
             return (G.GAME.edition_rate - 1) * G.P_CENTERS["e_negative"].weight + G.GAME.edition_rate * self.weight
         end,
@@ -3170,7 +3314,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             if context.post_joker or (context.main_scoring and context.cardarea == G.play) then
                 return {
                     x_mult = card.edition.x_mult
-                }     
+                }
             end
         end
     })
@@ -3191,6 +3335,8 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         sound = { sound = "negative", per = 1.5, vol = 0.4 },
         weight = 3,
         extra_cost = 5,
+        in_shop = true,
+        vanilla = true,
         get_weight = function(self)
             return self.weight
         end,
@@ -3228,7 +3374,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         end,
         inject = function(_) end
     }
-    
+
     SMODS.Keybind {
         key_pressed = 'm',
         event = 'held',
@@ -3239,8 +3385,18 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         end
     }
 
+        SMODS.Keybind {
+        key_pressed = 'f5',
+        held_keys = { "lalt" },
+        event = 'pressed',
+        action = function(self)
+            SMODS.save_all_config()
+		    SMODS.restart_game()
+        end
+    }
+
     -------------------------------------------------------------------------------------------------
-    ------- API CODE GameObject.Achievements
+    ------- API CODE GameObject.Achievement
     -------------------------------------------------------------------------------------------------
 
     SMODS.Achievements = {}
@@ -3272,6 +3428,54 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
             SMODS.process_loc_text(G.localization.misc.achievement_descriptions, self.key, self.loc_txt, "description")
         end,
     }
+
+    -------------------------------------------------------------------------------------------------
+    ------- API CODE GameObject.Gradient
+    -------------------------------------------------------------------------------------------------
+
+    SMODS.Gradients = {}
+    SMODS.Gradient = SMODS.GameObject:extend {
+        obj_table = SMODS.Gradients,
+        obj_buffer = {},
+        required_params = { 'key' },
+        interpolation = 'trig',
+        cycle = 10,
+        colours = {},
+        inject = function(self) self[1], self[2], self[3], self[4] = 0,0,0,1 end,
+        update = function(self, dt)
+            if #self.colours < 2 then return end
+            local timer = G.TIMERS.REAL%self.cycle
+            local start_index = math.ceil(timer*#self.colours/self.cycle)
+            local end_index = start_index == #self.colours and 1 or start_index+1
+            local start_colour, end_colour = self.colours[start_index], self.colours[end_index]
+            local partial_timer = (timer%(self.cycle/#self.colours))*#self.colours/self.cycle
+            for i = 1, 4 do
+                if self.interpolation == 'linear' then
+
+                    self[i] = start_colour[i] + partial_timer*(end_colour[i]-start_colour[i])
+                elseif self.interpolation == 'trig' then
+                    self[i] = start_colour[i] + 0.5*(1-math.cos(partial_timer*math.pi))*(end_colour[i]-start_colour[i])
+                end
+            end
+        end,
+    }
+    SMODS.Gradient {
+        key = 'warning_bg',
+        colours = { G.C.RED, G.C.GREEN },
+        cycle = 1,
+    }
+    SMODS.Gradient {
+        key = 'warning_text',
+        colours = { G.C.WHITE, G.C.RED },
+        cycle = 1,
+    }
+
+
+    -------------------------------------------------------------------------------------------------
+    ----- API IMPORT GameObject.DrawStep
+    -------------------------------------------------------------------------------------------------
+
+    assert(load(NFS.read(SMODS.path..'src/card_draw.lua'), ('=[SMODS _ "src/card_draw.lua"]')))()
 
     -------------------------------------------------------------------------------------------------
     ----- INTERNAL API CODE GameObject._Loc_Post

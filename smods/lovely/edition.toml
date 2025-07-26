@@ -93,114 +93,6 @@ for _, v in ipairs(G.P_CENTER_POOLS.Edition) do
 	G.BADGE_COL[v.key:sub(3)] = v.badge_colour
 end'''
 
-# Limit ARGS.send_to_shader[1] to wiggle between 0 and 2 instead of growing infinitely
-# this makes shaders responsiveness on tilt reliable over time
-# Card:draw()
-[[patches]]
-[patches.regex]
-target = "card.lua"
-pattern = '''
-G\.TIMERS\.REAL/\(28\)'''
-position = "at"
-payload = '''math.sin(G.TIMERS.REAL/28) + 1'''
-
-# Allow editions to not draw shadow
-# Card:draw()
-[[patches]]
-[patches.regex]
-target = "card.lua"
-pattern = '''
-self\.ability\.effect ~= 'Glass Card' and not self\.greyed'''
-position = "after"
-payload = ''' and self:should_draw_shadow() '''
-
-# If shader modifies shape of card, this will stop "back" layer of the card being rendered.
-# Card:draw()
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = '''
-elseif not self.greyed then'''
-position = "before"
-payload = '''
-elseif not self:should_draw_base_shader() then
-    -- Don't render base dissolve shader.
-'''
-match_indent = true
-
-# If shader modifies shape of card, this will stop "back" layer of the card being rendered.
-# spectral cards and booster packs only.
-# Card:draw()
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = '''
-if self.ability.set == 'Booster' or self.ability.set == 'Spectral' then'''
-position = "at"
-payload = '''
-if (self.ability.set == 'Booster' or self.ability.set == 'Spectral') and self:should_draw_base_shader() then'''
-match_indent = true
-
-# If shader modifies shape of card, this will stop "back" layer of the card being rendered.
-# invisible joker and vouchers.
-# Card:draw()
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = '''
-self.children.center:draw_shader('voucher', nil, self.ARGS.send_to_shader)'''
-position = "at"
-payload = '''
-if self:should_draw_base_shader() then
-    self.children.center:draw_shader('voucher', nil, self.ARGS.send_to_shader)
-end'''
-match_indent = true
-
-# Inject shaders applying to cards
-# Card:draw()
-[[patches]]
-[patches.regex]
-target = "card.lua"
-pattern = '''
-(?<indent>[\t ]*)if self\.edition and self\.editi[A-z\.\:\n\t _(',)~=]*me', nil, self.ARGS.send_to_shader\)
-[\t ]*end
-[\t ]*end'''
-position = "at"
-payload = '''
-if self.edition then
-    for k, v in pairs(G.P_CENTER_POOLS.Edition) do
-        if self.edition[v.key:sub(3)] and v.shader then
-            if type(v.draw) == 'function' then
-                v:draw(self, layer)
-            else
-                self.children.center:draw_shader(v.shader, nil, self.ARGS.send_to_shader)
-                if self.children.front and self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card then
-                    self.children.front:draw_shader(v.shader, nil, self.ARGS.send_to_shader)
-                end
-            end
-        end
-    end
-end'''
-line_prepend = "$indent"
-
-# Inject shaders applying to floating sprites
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = "self.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, self.children.center, scale_mod, rotate_mod)"
-position = "after"
-payload = '''
-if self.edition then 
-    for k, v in pairs(G.P_CENTER_POOLS.Edition) do
-        if v.apply_to_float then
-            if self.edition[v.key:sub(3)] then
-                self.children.floating_sprite:draw_shader(v.shader, nil, nil, nil, self.children.center, scale_mod, rotate_mod)
-            end
-        end
-    end
-end'''
-match_indent = true
-
 # Remove prefix from shader key when calling send()
 [[patches]]
 [patches.pattern]
@@ -208,7 +100,7 @@ target = "engine/sprite.lua"
 pattern = "if _send then G.SHADERS[_shader or 'dissolve']:send(_shader,_send) end"
 position = "at"
 payload = '''
-if _send then 
+if _send then
     G.SHADERS[_shader or 'dissolve']:send((SMODS.Shaders[_shader or 'dissolve'] and SMODS.Shaders[_shader or 'dissolve'].original_key) or _shader,_send)
 end'''
 match_indent = true
@@ -238,8 +130,8 @@ pattern = '''(?<indent>[\t ]*)if self\.edition[A-z\.\:\n\t _(',)~=+\-0-9]*limit 
 position = "at"
 payload = '''
 if true then
-    if from_debuff then 
-        self.ability.joker_added_to_deck_but_debuffed = nil
+    if from_debuff then
+        self.joker_added_to_deck_but_debuffed = nil
     else
         if self.edition and self.edition.card_limit then
             if self.ability.consumeable then
@@ -257,7 +149,7 @@ position = "at"
 payload = '''
 if G.jokers then
     if from_debuff then
-        self.ability.joker_added_to_deck_but_debuffed = true
+        self.joker_added_to_deck_but_debuffed = true
     else
         if self.edition and self.edition.card_limit then
             if self.ability.consumeable then
@@ -273,7 +165,7 @@ target = "card.lua"
 pattern = '''(?<indent>[\t ]*)if self\.ability\.queue_neg[A-z\.\:\n\t _(',)~=+\-0-9]*limit \- 1'''
 position = "at"
 payload = '''
-if self.ability.joker_added_to_deck_but_debuffed then
+if self.joker_added_to_deck_but_debuffed then
     if self.edition and self.edition.card_limit then
         if self.ability.consumeable then
             G.consumeables.config.card_limit = G.consumeables.config.card_limit - self.edition.card_limit
@@ -290,7 +182,30 @@ position = "after"
 payload = "joker_added_to_deck_but_debuffed = self.joker_added_to_deck_but_debuffed,"
 match_indent = true
 
+## Buying card_limit cards fix
+# G.FUNCS.check_for_buy_space
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "    not (card.ability.consumeable and #G.consumeables.cards < G.consumeables.config.card_limit + ((card.edition and card.edition.negative) and 1 or 0)) then"
+position = "at"
+match_indent = true
+payload = '''
+    not (card.ability.consumeable and #G.consumeables.cards < G.consumeables.config.card_limit + (card.edition and card.edition.card_limit or 0)) then
+'''
+times = 1
 
+# G.FUNCS.check_for_buy_space
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "not (card.ability.set == 'Joker' and #G.jokers.cards < G.jokers.config.card_limit + ((card.edition and card.edition.negative) and 1 or 0)) and"
+position = "at"
+match_indent = true
+payload = '''
+    not (card.ability.set == 'Joker' and #G.jokers.cards < G.jokers.config.card_limit + (card.edition and card.edition.card_limit or 0)) and
+'''
+times = 1
 
 ## Negative playing card logic
 # CardArea:emplace()
@@ -300,7 +215,7 @@ target = "cardarea.lua"
 pattern = "function CardArea:emplace(*"
 position = "after"
 payload = '''
-    if card.edition and card.edition.card_limit and (self == G.hand) then
+    if not card.debuff and card.edition and card.edition.card_limit and (self == G.hand) then
         self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) + card.edition.card_limit
         self.config.card_limit = math.max(0, self.config.real_card_limit)
     end'''
@@ -312,7 +227,7 @@ target = "cardarea.lua"
 pattern = "card:remove_from_area()"
 position = "before"
 payload = '''
-if card.edition and card.edition.card_limit and (self == G.hand) then
+if not card.debuff and card.edition and card.edition.card_limit and (self == G.hand) then
     self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) - card.edition.card_limit
     self.config.card_limit = math.max(0, self.config.real_card_limit)
 end'''
@@ -330,7 +245,7 @@ if not hand_space then
     local n = 0
     while n < #G.deck.cards do
         local card = G.deck.cards[#G.deck.cards-n]
-        limit = limit - 1 + (card.edition and card.edition.card_limit or 0)
+        limit = limit - 1 + (not card.debuff and card.edition and card.edition.card_limit or 0)
         if limit < 0 then break end
         n = n + 1
     end
@@ -359,7 +274,7 @@ if p_shader and type(p_shader.send_vars) == "function" then
     local sh = G.SHADERS[_shader or 'dissolve']
     local parent_card = self.role.major and self.role.major:is(Card) and self.role.major
     local send_vars = p_shader.send_vars(self, parent_card)
-    
+
     if type(send_vars) == "table" then
         for key, value in pairs(send_vars) do
             sh:send(key, value)
@@ -377,7 +292,7 @@ position = "at"
 payload = '''if v == 'negative_consumable' or v == 'negative_playing_card' then v = 'negative' end'''
 match_indent = true
 
-# 
+#
 [[patches]]
 [patches.regex]
 target = 'functions/common_events.lua'
@@ -385,6 +300,6 @@ pattern = '''(?<indent>[\t ]*)(?<edi>local edition = poll_edition\('edi'\.\.\(ke
 position = 'at'
 line_prepend = '$indent'
 payload = '''
-if not SMODS.bypass_create_card_edition then
+if not SMODS.bypass_create_card_edition and not card.edition then
     $edi
 end'''

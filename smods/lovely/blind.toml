@@ -4,53 +4,6 @@ dump_lua = true
 priority = -10
 
 ### Blind API
-## elseif-ify some if chains
-[[patches]]
-[patches.regex]
-target = 'blind.lua'
-pattern = "end\n(?<indent>[\t ]*)if self.name == ['\"](?<ability>.*?)['\"]"
-position = 'at'
-payload = "elseif self.name == '$ability'"
-
-# revert the change for The Pillar
-[[patches]]
-[patches.regex]
-target = 'blind.lua'
-pattern = "(?<indent>[\t ]*)elseif self.name == 'The Pillar' and card.ability.played_this_ante then"
-position = 'at'
-line_prepend = '$indent'
-payload = '''end
-if self.name == 'The Pillar' and card.ability.played_this_ante then'''
-
-# revert the change for The Eye in debuff_hand
-[[patches]]
-[patches.regex]
-target = 'blind.lua'
-pattern = "(?<indent>[\t ]*)elseif self.name == 'The Eye' then"
-position = 'at'
-line_prepend = '$indent'
-payload = '''end
-if self.name == 'The Eye' then'''
-
-# revert the change for The Arm in debuff_hand
-[[patches]]
-[patches.regex]
-target = 'blind.lua'
-pattern = "(?<indent>[\t ]*)elseif self.name == 'The Arm' then"
-position = 'at'
-line_prepend = '$indent'
-payload = '''end
-if self.name == 'The Arm' then'''
-
-# revert the change for Crimson Heart in debuff_card
-[[patches]]
-[patches.regex]
-target = 'blind.lua'
-pattern = '''(?<indent>[\t ]*)elseif self\.name == 'Crimson Heart' and not self\.disabled'''
-position = 'at'
-line_prepend = '$indent'
-payload = '''end
-if self.name == 'Crimson Heart' and not self.disabled'''
 
 ## Set debuffed_by_blind, use it for Matador behavior
 ## Blind:debuff_card()
@@ -106,7 +59,7 @@ if blind then
     self.in_blind = true
 end
 local obj = self.config.blind
-if obj.set_blind and type(obj.set_blind) == 'function' then
+if not reset and obj.set_blind and type(obj.set_blind) == 'function' then
     obj:set_blind()
 elseif self.name == 'The Eye' and not reset then'''
 match_indent = true
@@ -166,6 +119,15 @@ elseif not self.disabled and obj.debuff_card and type(obj.debuff_card) == 'funct
 end'''
 
 # Blind:stay_flipped()
+
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = "function Blind:stay_flipped(area, card)"
+position = 'at'
+match_indent = true
+payload = '''function Blind:stay_flipped(area, card, from_area)'''
+
 [[patches]]
 [patches.pattern]
 target = 'blind.lua'
@@ -175,8 +137,25 @@ match_indent = true
 payload = '''
 local obj = self.config.blind
 if obj.stay_flipped and type(obj.stay_flipped) == 'function' then
-    return obj:stay_flipped(area, card)
+    return obj:stay_flipped(area, card, from_area)
 end'''
+
+
+[[patches]]
+[patches.pattern]
+target = 'cardarea.lua'
+pattern = "local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card)"
+position = 'at'
+match_indent = true
+payload = '''local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card, area)'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = "local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(to, card)"
+position = 'at'
+match_indent = true
+payload = '''local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(to, card, from)'''
 
 # Blind:drawn_to_hand()
 [[patches]]
@@ -217,6 +196,22 @@ local obj = self.config.blind
 if obj.modify_hand and type(obj.modify_hand) == 'function' then
     return obj:modify_hand(cards, poker_hands, text, mult, hand_chips)
 end'''
+
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = "function Blind:modify_hand(cards, poker_hands, text, mult, hand_chips)"
+position = 'at'
+match_indent = true
+payload = '''function Blind:modify_hand(cards, poker_hands, text, mult, hand_chips, scoring_hand)'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "mult, hand_chips, modded = G.GAME.blind:modify_hand(G.play.cards, poker_hands, text, mult, hand_chips)"
+position = 'at'
+match_indent = true
+payload = '''mult, hand_chips, modded = G.GAME.blind:modify_hand(G.play.cards, poker_hands, text, mult, hand_chips, scoring_hand)'''
 
 # Blind:press_play()
 [[patches]]
@@ -422,3 +417,51 @@ pattern = "local temp_blind = AnimatedSprite(0,0,1,1, G.ANIMATION_ATLAS['blind_c
 position = 'at'
 match_indent = true
 payload = "local temp_blind = AnimatedSprite(0,0,1,1, G.ANIMATION_ATLAS[v.atlas or ''] or G.ANIMATION_ATLAS['blind_chips'], v.pos)"
+
+## elseif-ify some if chains
+[[patches]]
+[patches.regex]
+target = 'blind.lua'
+pattern = "end\n(?<indent>[\t ]*)if self.name == ['\"](?<ability>.*?)['\"]"
+position = 'at'
+payload = "elseif self.name == '$ability'"
+
+# revert the change for The Pillar
+[[patches]]
+[patches.regex]
+target = 'blind.lua'
+pattern = "(?<indent>[\t ]*)elseif self.name == 'The Pillar' and card.ability.played_this_ante then"
+position = 'at'
+line_prepend = '$indent'
+payload = '''end
+if self.name == 'The Pillar' and card.ability.played_this_ante then'''
+
+# revert the change for The Eye in debuff_hand
+[[patches]]
+[patches.regex]
+target = 'blind.lua'
+pattern = "(?<indent>[\t ]*)elseif self.name == 'The Eye' then"
+position = 'at'
+line_prepend = '$indent'
+payload = '''end
+if self.name == 'The Eye' then'''
+
+# revert the change for The Arm in debuff_hand
+[[patches]]
+[patches.regex]
+target = 'blind.lua'
+pattern = "(?<indent>[\t ]*)elseif self.name == 'The Arm' then"
+position = 'at'
+line_prepend = '$indent'
+payload = '''end
+if self.name == 'The Arm' then'''
+
+# revert the change for Crimson Heart in debuff_card
+[[patches]]
+[patches.regex]
+target = 'blind.lua'
+pattern = '''(?<indent>[\t ]*)elseif self\.name == 'Crimson Heart' and not self\.disabled'''
+position = 'at'
+line_prepend = '$indent'
+payload = '''end
+if self.name == 'Crimson Heart' and not self.disabled'''

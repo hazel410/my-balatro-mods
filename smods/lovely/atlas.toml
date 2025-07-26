@@ -39,19 +39,31 @@ payload = '''
         _atlas = G.ASSET_ATLAS[_smods_atlas] or _atlas
     end'''
 
-## Hide floating ? from undiscovered types
-# Card:draw()
+## Set ability resizing fix
+[[patches]]
+[patches.pattern]
+target = 'engine/moveable.lua'
+pattern = '''Node.init(self, args)'''
+position = 'after'
+match_indent = true
+payload = '''self.original_T = copy_table(self.T)'''
 [[patches]]
 [patches.pattern]
 target = 'card.lua'
-pattern = '''shared_sprite:draw_shader('dissolve', nil, nil, nil, self.children.center, scale_mod, rotate_mod)'''
-position = 'at'
+pattern = '''self.T.scale = 0.95'''
+position = 'after'
 match_indent = true
+payload = '''self.original_T = copy_table(self.T)'''
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+match_indent = true
+position = 'before'
+pattern = '''
+local X, Y, W, H = self.T.x, self.T.y, self.T.w, self.T.h
+'''
 payload = '''
-if (self.config.center.undiscovered and not self.config.center.undiscovered.no_overlay) or not( SMODS.UndiscoveredSprites[self.ability.set] and SMODS.UndiscoveredSprites[self.ability.set].no_overlay) then 
-    shared_sprite:draw_shader('dissolve', nil, nil, nil, self.children.center, scale_mod, rotate_mod)
-else
-    if SMODS.UndiscoveredSprites[self.ability.set] and SMODS.UndiscoveredSprites[self.ability.set].overlay_sprite then
-        SMODS.UndiscoveredSprites[self.ability.set].overlay_sprite:draw_shader('dissolve', nil, nil, nil, self.children.center, scale_mod, rotate_mod)
-    end
-end'''
+for key, _ in pairs(self.T) do
+    self.T[key] = self.original_T[key]
+end
+'''

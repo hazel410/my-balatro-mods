@@ -23,8 +23,7 @@ pattern = '''
 [\t ]*    return self\.ability\.bonus \+ \(self\.ability\.perma_bonus or 0\)
 [\t ]*end'''
 position = "at"
-payload = '''
-if self.ability.effect == 'Stone Card' or self.config.center.replace_base_card then
+payload = '''if self.ability.effect == 'Stone Card' or self.config.center.replace_base_card then
     return self.ability.bonus + (self.ability.perma_bonus or 0)
 end'''
 line_prepend = '$indent'
@@ -80,7 +79,7 @@ target = "card.lua"
 pattern = 'if self.ability.name == "Wild Card" and not self.debuff then'
 match_indent = true
 position = "at"
-payload = '''if SMODS.has_any_suit(self) and not self.debuff then'''
+payload = '''if SMODS.has_any_suit(self) and self:can_calculate() then'''
 
 # check_for_unlock
 [[patches]]
@@ -142,17 +141,6 @@ payload = """if not SMODS.has_no_suit(scoring_hand[i]) then
     G.GAME.cards_played[scoring_hand[i].base.value].suits[scoring_hand[i].base.suit] = true
 end"""
 
-
-## replace_base_card
-# Determines whether to draw the base card's front or not
-# Card:draw()
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-pattern = "if self.children.front and self.ability.effect ~= 'Stone Card' then"
-match_indent = true
-position = "at"
-payload = "if self.children.front and (self.ability.delayed or (self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card)) then"
 # Add the delayed property to sprites that are delayed
 [[patches]]
 [patches.pattern]
@@ -171,7 +159,8 @@ if delay_sprites then
     })) 
 '''
 payload = '''
-if delay_sprites then 
+if delay_sprites == 'quantum' or delay_sprites == 'manual' then
+elseif delay_sprites then 
     self.ability.delayed = true
     G.E_MANAGER:add_event(Event({
         func = function()
@@ -234,7 +223,7 @@ match_indent = true
 # Prevent blue seal effect on extra enhancements at end of round
 [[patches]]
 [patches.pattern]
-target = "card"
+target = "card.lua"
 pattern = "if self.seal == 'Blue' and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then"
 position = "before"
 payload = '''
@@ -291,4 +280,72 @@ target = "card.lua"
 pattern = "if self.seal == 'Blue' and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then"
 position = "at"
 payload = "if self.seal == 'Blue' and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit and not self.ability.extra_enhancement then"
+match_indent = true
+
+# Reset enh cache on game update
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "modulate_sound(dt)"
+position = "after"
+payload = "SMODS.enh_cache:clear()"
+match_indent = true
+
+# Invalidate enhancement cache when card changes / replace_base_card fix pt1
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "function Card:set_ability(center, initial, delay_sprites)"
+position = "after"
+payload = '''  SMODS.enh_cache:write(self, nil)
+  
+  if self.ability and not initial then
+    self.front_hidden = self:should_hide_front()
+  end'''
+match_indent = true
+
+# replace_base_card Fix Part 2
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "self:set_sprites(center)"
+position = "after"
+payload = '''if self.ability and not initial then
+  self.front_hidden = self:should_hide_front()
+end'''
+match_indent = true
+
+# replace_base_card Fix Part 3
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if not G.OVERLAY_MENU then "
+position = "before"
+payload = '''if self.ability and not initial then
+  self.front_hidden = self:should_hide_front()
+end'''
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "function Card:set_base(card, initial)"
+position = "after"
+payload = "SMODS.enh_cache:write(self, nil)"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "function Card:set_seal(_seal, silent, immediate)"
+position = "after"
+payload = "SMODS.enh_cache:write(self, nil)"
+match_indent = true
+
+# safeguards an infloop with debuff context
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = 'if not initial then G.GAME.blind:debuff_card(self) end'
+position = 'at'
+payload = 'if not initial and delay_sprites ~= "quantum" and G.GAME.blind then G.GAME.blind:debuff_card(self) end'
 match_indent = true

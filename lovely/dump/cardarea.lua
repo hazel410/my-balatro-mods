@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '7bd7aad22c4263abfb58df32e72d295970b023a8b7bfa03e80e333375bb58706'
+LOVELY_INTEGRITY = '16b8a627bde76ddc76e0f11ede6a065735f4159910457c7e7744a0f7bba93054'
 
 --Class
 CardArea = Moveable:extend()
@@ -35,14 +35,23 @@ function CardArea:emplace(card, location, stay_flipped)
 if self == G.jokers then
     Cartomancer.handle_joker_added(card)
 end
-    if card.edition and card.edition.card_limit and (self == G.hand) then
+    if not card.debuff and card.ability and card.ability.card_limit and (self == G.hand) then
+        self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) + card.ability.card_limit
+        self.config.card_limit = math.max(0, self.config.real_card_limit)
+    end
+    if not card.debuff and card.edition and card.edition.card_limit and (self == G.hand) then
         self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) + card.edition.card_limit
         self.config.card_limit = math.max(0, self.config.real_card_limit)
     end
     if location == 'front' or self.config.type == 'deck' then 
         table.insert(self.cards, 1, card)
     else
-        self.cards[#self.cards+1] = card
+          
+        if type(location) == "number" then
+          table.insert(self.cards, location, card)
+        else
+          self.cards[#self.cards+1] = card
+        end
     end
     if card.facing == 'back' and self.config.type ~= 'discard' and self.config.type ~= 'deck' and not stay_flipped then
         card:flip()
@@ -89,8 +98,12 @@ function CardArea:remove_card(card, discarded_only)
     end
     for i = #self.cards,1,-1 do
         if self.cards[i] == card then
-            if card.edition and card.edition.card_limit and (self == G.hand) then
+            if not card.debuff and card.edition and card.edition.card_limit and (self == G.hand) then
                 self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) - card.edition.card_limit
+                self.config.card_limit = math.max(0, self.config.real_card_limit)
+            end
+            if not card.debuff and card.ability and card.ability.card_limit and (self == G.hand) then
+                self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) - card.ability.card_limit
                 self.config.card_limit = math.max(0, self.config.real_card_limit)
             end
             card:remove_from_area()
@@ -100,7 +113,7 @@ function CardArea:remove_card(card, discarded_only)
         end
     end
     self:set_ranks()
-    if self == G.deck then check_for_unlock({type = 'modify_deck', deck = self}) end
+    if not G.in_delete_run and self == G.deck then check_for_unlock({type = 'modify_deck', deck = self}) end
     return card
 end
 
@@ -372,7 +385,7 @@ function CardArea:draw()
             end
         end
 
-        if self.config.type == 'hand' or self.config.type == 'play' or self.config.type == 'title' or self.config.type == 'voucher' then 
+        if self.config.type == 'hand' or self.config.type == 'scry' or self.config.type == 'play' or self.config.type == 'title' or self.config.type == 'voucher' then
             for i = 1, #self.cards do 
                 if self.cards[i] ~= G.CONTROLLER.focused.target or self == G.hand then
                     if G.CONTROLLER.dragging.target ~= self.cards[i] then self.cards[i]:draw(v) end
@@ -493,9 +506,7 @@ function CardArea:align_cards()
         end
         table.sort(self.cards, function (a, b) return a.T.x + a.T.w/2 < b.T.x + b.T.w/2 end)
     end  
-    if self.config.type == 'hand' and not (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
-        local max_cards_override = (Cartomancer.SETTINGS.dynamic_hand_align and self.config.temp_limit - #self.cards > 5) and math.max(#self.cards, math.min(10, self.config.temp_limit))
-
+    if self.config.type == 'scry' or self.config.type == 'hand' and not (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
 
         for k, card in ipairs(self.cards) do
             if not card.states.drag.is then 
@@ -661,10 +672,7 @@ function CardArea:draw_card_from(area, stay_flipped, discarded_only)
                 if area == G.discard then
                     card.T.r = 0
                 end
-                if self == G.hand and not card.states.visible then
-                    card.states.visible = true
-                end
-                local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card)
+                local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card, area)
                 if (self == G.hand) and G.GAME.modifiers.flipped_cards then
                     if pseudorandom(pseudoseed('flipped_card')) < 1/G.GAME.modifiers.flipped_cards then
                         stay_flipped = true

@@ -88,8 +88,11 @@ payload = '''
     for _, v in ipairs(SMODS.Rarity.obj_buffer) do
         G.ARGS.LOC_COLOURS[v:lower()] = G.C.RARITY[v]
     end
+    for _, v in ipairs(SMODS.Gradient.obj_buffer) do
+        G.ARGS.LOC_COLOURS[v:lower()] = SMODS.Gradients[v]
+    end
     for _, v in ipairs(SMODS.ConsumableType.ctype_buffer) do
-        G.ARGS.LOC_COLOURS[v:lower()] = G.C.SECONDARY_SET[v] 
+        G.ARGS.LOC_COLOURS[v:lower()] = G.C.SECONDARY_SET[v]
     end
     for _, v in ipairs(SMODS.Suit.obj_buffer) do
         G.ARGS.LOC_COLOURS[v:lower()] = G.C.SUITS[v]
@@ -97,14 +100,43 @@ payload = '''
 
 # get_flush()
 [[patches]]
-[patches.regex]
+[patches.pattern]
 target = "functions/misc_functions.lua"
-pattern = '(?<indent>[\t ]*)local suits = \{\n[\t ]*"Spades",\n[\t ]*"Hearts",\n[\t ]*"Clubs",\n[\t ]*"Diamonds"\n[\t ]*\}\n[\t ]*if #hand > 5 or (?<restcond>#hand < \(5 - \(four_fingers and 1 or 0\)\) then return ret else)'
+pattern = '''
+local suits = {
+    "Spades",
+    "Hearts",
+    "Clubs",
+    "Diamonds"
+  }
+'''
 position = 'at'
-line_prepend = '$indent'
-payload = '''
-local suits = SMODS.Suit.obj_buffer
-if $restcond'''
+payload = 'local suits = SMODS.Suit.obj_buffer'
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "local four_fingers = next(find_joker('Four Fingers'))"
+position = 'at'
+payload = "local four_fingers = SMODS.four_fingers()"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "if #hand > 5 or #hand < (5 - (four_fingers and 1 or 0)) then return ret else"
+position = 'at'
+payload = "if #hand < four_fingers then return ret else"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "if flush_count >= (5 - (four_fingers and 1 or 0)) then"
+position = 'at'
+payload = "if flush_count >= four_fingers then"
+match_indent = true
 
 # get_X_same()
 [[patches]]
@@ -146,7 +178,7 @@ function Card:get_nominal(mod)
     local mult = 1
     local rank_mult = 1
     if mod == 'suit' then mult = 10000 end
-    if self.ability.effect == 'Stone Card' or (self.config.center.no_suit and self.config.center.no_rank) then 
+    if self.ability.effect == 'Stone Card' or (self.config.center.no_suit and self.config.center.no_rank) then
         mult = -10000
     elseif self.config.center.no_suit then
         mult = 0
@@ -272,7 +304,7 @@ for j = 1, #suit_map do
     if SUITS[suit_map[j]][1] then num_suits = num_suits + 1 end
 end
 for j = 1, #suit_map do
-    $mid			
+    $mid
             (0.42 - (num_suits <= 4 and 0 or num_suits >= 8 and 0.28 or 0.07 * (num_suits - 4))) * G.CARD_H,'''
 
 [[patches]]
@@ -297,3 +329,19 @@ payload = '''if card_type == 'Default' or card_type == 'Enhanced' and not _c.rep
 end
 
 '''
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''function Card:set_base(card, initial)'''
+position = 'at'
+match_indent = true
+payload = '''function Card:set_base(card, initial, manual_sprites)'''
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''if next(card) then'''
+position = 'at'
+match_indent = true
+payload = '''if next(card) and not manual_sprites then'''

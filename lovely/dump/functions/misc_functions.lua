@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'c2a95f090fe37c4defa7bb5411cca0e7b7ebe53e49be5ef8b238b4bb63961060'
+LOVELY_INTEGRITY = 'ac42893ea1e90ebd2ab045f4d328198a3a0cfd23156909649cf6d07bb930a489'
 
 --Updates all display information for all displays for a given screenmode. Returns the key for the resolution option cycle
 --
@@ -253,6 +253,7 @@ function get_first_legendary(_key)
 end
 
 function pseudorandom_element(_t, seed, args)
+    if seed and type(seed) == "string" then seed = pseudoseed(seed) end
     -- TODO special cases for now
     -- Preserves reverse nominal order for Suits, nominal+face_nominal order for Ranks
     -- for vanilla RNG
@@ -266,13 +267,13 @@ function pseudorandom_element(_t, seed, args)
   local keys = {}
   for k, v in pairs(_t) do
       local keep = true
-      local in_pool_func = 
+      local in_pool_func =
           args and args.in_pool
           or type(v) == 'table' and type(v.in_pool) == 'function' and v.in_pool
           or _t == G.P_CARDS and function(c)
                   --Handles special case for Erratic Deck
                   local initial_deck = args and args.starting_deck or false
-                  
+      
                   return not (
                       type(SMODS.Ranks[c.value].in_pool) == 'function' and not SMODS.Ranks[c.value]:in_pool({initial_deck = initial_deck, suit = c.suit})
                       or type(SMODS.Suits[c.suit].in_pool) == 'function' and not SMODS.Suits[c.suit]:in_pool({initial_deck = initial_deck, rank = c.value})
@@ -581,9 +582,9 @@ end
 
 function get_flush(hand)
   local ret = {}
-  local four_fingers = next(find_joker('Four Fingers'))
+  local four_fingers = SMODS.four_fingers()
   local suits = SMODS.Suit.obj_buffer
-  if #hand < (5 - (four_fingers and 1 or 0)) then return ret else
+  if #hand < four_fingers then return ret else
     for j = 1, #suits do
       local t = {}
       local suit = suits[j]
@@ -591,7 +592,7 @@ function get_flush(hand)
       for i=1, #hand do
         if hand[i]:is_suit(suit, nil, true) then flush_count = flush_count + 1;  t[#t+1] = hand[i] end 
       end
-      if flush_count >= (5 - (four_fingers and 1 or 0)) then
+      if flush_count >= four_fingers then
         table.insert(ret, t)
         return ret
       end
@@ -602,8 +603,8 @@ end
 
 function get_straight(hand)
   local ret = {}
-  local four_fingers = next(find_joker('Four Fingers'))
-  if #hand > 5 or #hand < (5 - (four_fingers and 1 or 0)) then return ret else
+  local four_fingers = SMODS.four_fingers()
+  if #hand < four_fingers then return ret else
     local t = {}
     local IDS = {}
     for i=1, #hand do
@@ -995,6 +996,34 @@ function alert_no_space(card, area)
 end
 
 function find_joker(name, non_debuff)
+if name == "Shortcut" then
+  local asdf = find_joker("poke_Shortcut")
+  local dsaf = find_joker("pansage")
+  local safd = find_joker("simisage")
+  return (next(asdf) and asdf) or (next(dsaf) and dsaf) or (next(safd) and safd) or {}
+elseif name == "Pareidolia" then
+  local asdf = find_joker("poke_Pareidolia")
+  local dsaf = find_joker("panpour")
+  local safd = find_joker("simipour")
+  return (next(asdf) and asdf) or (next(dsaf) and dsaf) or (next(safd) and safd) or {}
+elseif name == "Four Fingers" then
+  local asdf = find_joker("poke_Four_Fingers")
+  local dsaf = find_joker("pansear")
+  local safd = find_joker("simisear")
+  return (next(asdf) and asdf) or (next(dsaf) and dsaf) or (next(safd) and safd) or {}
+elseif name == "Smeared Joker" then
+  local smeared = find_joker("poke_Smeared_Joker")
+  local smeargle = find_joker("smeargle")
+  return (next(smeared) and smeared) or (next(smeargle) and smeargle) or {}
+elseif name == "poke_Shortcut" then
+  name = "Shortcut"
+elseif name == "poke_Pareidolia" then
+  name = "Pareidolia"
+elseif name == "poke_Four_Fingers" then
+  name = "Four Fingers"
+elseif name == "poke_Smeared_Joker" then
+  name = "Smeared Joker"
+end
   local jokers = {}
   if not G.jokers or not G.jokers.cards then return {} end
   for k, v in pairs(G.jokers.cards) do
@@ -1011,7 +1040,7 @@ function find_joker(name, non_debuff)
 end
 
 function get_blind_amount(ante)
-if G.GAME.modifiers.scaling and G.GAME.modifiers.scaling > 3 then return SMODS.get_blind_amount(ante) end
+if G.GAME.modifiers.scaling and (G.GAME.modifiers.scaling ~= 1 and G.GAME.modifiers.scaling ~= 2 and G.GAME.modifiers.scaling ~= 3) then return SMODS.get_blind_amount(ante) end
   local k = 0.75
   if not G.GAME.modifiers.scaling or G.GAME.modifiers.scaling == 1 then 
     local amounts = {
@@ -1398,7 +1427,7 @@ function set_profile_progress()
       G.PROGRESS.deck_stakes.of = G.PROGRESS.deck_stakes.of + #G.P_CENTER_POOLS.Stake
       G.PROGRESS.deck_stakes.tally = G.PROGRESS.deck_stakes.tally + get_deck_win_stake(v.key)
     end
-    if v.set == 'Joker' then 
+    if v.set == 'Joker' and not v.no_collection and not v.omit then 
       G.PROGRESS.joker_stickers.of = G.PROGRESS.joker_stickers.of + #G.P_CENTER_POOLS.Stake
       G.PROGRESS.joker_stickers.tally = G.PROGRESS.joker_stickers.tally + get_joker_win_sticker(v, true)
     end
@@ -1572,6 +1601,8 @@ function save_with_action(action)
 end
 
 function save_run()
+    if G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.SPECTRAL_PACK
+        or G.STATE == G.STATES.BUFFOON_PACK or G.STATE == G.STATES.STANDARD_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED then return end
   if G.F_NO_SAVING == true then return end
   local cardAreas = {}
   for k, v in pairs(G) do
@@ -1635,13 +1666,17 @@ function loc_colour(_c, _default)
     edition = G.C.EDITION,
     dark_edition = G.C.DARK_EDITION,
     legendary = G.C.RARITY[4],
+    poke_safari = G.C.RARITY['poke_safari'], poke_mega = G.C.RARITY['poke_mega'],
     enhanced = G.C.SECONDARY_SET.Enhanced
   }
       for _, v in ipairs(SMODS.Rarity.obj_buffer) do
           G.ARGS.LOC_COLOURS[v:lower()] = G.C.RARITY[v]
       end
+      for _, v in ipairs(SMODS.Gradient.obj_buffer) do
+          G.ARGS.LOC_COLOURS[v:lower()] = SMODS.Gradients[v]
+      end
       for _, v in ipairs(SMODS.ConsumableType.ctype_buffer) do
-          G.ARGS.LOC_COLOURS[v:lower()] = G.C.SECONDARY_SET[v] 
+          G.ARGS.LOC_COLOURS[v:lower()] = G.C.SECONDARY_SET[v]
       end
       for _, v in ipairs(SMODS.Suit.obj_buffer) do
           G.ARGS.LOC_COLOURS[v:lower()] = G.C.SUITS[v]
@@ -1689,7 +1724,14 @@ function init_localization()
           center.text_parsed = {}
           if not center.text then else
           for _, line in ipairs(center.text) do
-            center.text_parsed[#center.text_parsed+1] = loc_parse_string(line)
+              if type(line) == 'table' then
+                  center.text_parsed[#center.text_parsed+1] = {}
+                  for _, new_line in ipairs(line) do
+                       center.text_parsed[#center.text_parsed][#center.text_parsed[#center.text_parsed]+1] = loc_parse_string(new_line)
+                  end
+              else
+                  center.text_parsed[#center.text_parsed+1] = loc_parse_string(line)
+              end
           end
           center.name_parsed = {}
           for _, line in ipairs(type(center.name) == 'table' and center.name or {center.name}) do
@@ -1873,26 +1915,72 @@ function localize(args, misc_cat)
       ret_string = assembled_string or 'ERROR'
     end
   elseif args.type == 'name_text' then
-    if pcall(function() ret_string = G.localization.descriptions[(args.set or args.node.config.center.set)][args.key or args.node.config.center.key].name end) then
+    if pcall(function()
+        local name_text = G.localization.descriptions[(args.set or args.node.config.center.set)][args.key or args.node.config.center.key].name
+        if type(name_text) == "table" then
+            ret_string = ""
+            for i, line in ipairs(name_text) do
+                ret_string = ret_string.. (i ~= 1 and " " or "")..line
+            end
+        else
+            ret_string = name_text
+        end
+    end) then
     else ret_string = "ERROR" end
   elseif args.type == 'name' then
-    loc_target = G.localization.descriptions[(args.set or args.node.config.center.set)][args.key or args.node.config.center.key]
+    loc_target = loc_target or {}
+    if pcall(function()
+    local name = G.localization.descriptions[(args.set or args.node.config.center.set)][args.key or args.node.config.center.key]
+    loc_target.name_parsed = name.name_parsed or {loc_parse_string(name.name)}
+    end) then
+    else loc_target.name_parsed = {} end
   end
 
+  if ret_string and type(ret_string) == 'string' then ret_string = string.gsub(ret_string, "{.-}", "") end
   if ret_string then return ret_string end
 
   if loc_target then 
+    args.AUT = args.AUT or {}
+    args.AUT.box_colours = {}
+    if (args.type == 'descriptions' or args.type == 'other') and type(loc_target.text) == 'table' and type(loc_target.text[1]) == 'table' then
+        args.AUT.multi_box = {}
+        for i, box in ipairs(loc_target.text_parsed) do
+            for j, line in ipairs(box) do
+                local final_line = SMODS.localize_box(line, args)
+                if i == 1 or next(args.AUT.info) then
+                    args.nodes[#args.nodes+1] = final_line -- Sends main box to AUT.main
+                    if not next(args.AUT.info) then args.nodes.main_box_flag = true end
+                elseif not next(args.AUT.info) then 
+                    args.AUT.multi_box[i-1] = args.AUT.multi_box[i-1] or {}
+                    args.AUT.multi_box[i-1][#args.AUT.multi_box[i-1]+1] = final_line
+                end
+                if not next(args.AUT.info) then args.AUT.box_colours[i] = args.vars.box_colours and args.vars.box_colours[i] or G.C.UI.BACKGROUND_WHITE end
+            end
+        end
+        return
+    end
     for _, lines in ipairs(args.type == 'unlocks' and loc_target.unlock_parsed or args.type == 'name' and loc_target.name_parsed or (args.type == 'text' or args.type == 'tutorial' or args.type == 'quips') and loc_target or loc_target.text_parsed) do
       local final_line = {}
+      local final_name_assembled_string = ''
+      if args.type == 'name' and loc_target.name_parsed then
+          for _, part in ipairs(lines) do
+              local assembled_string_part = ''
+              for _, subpart in ipairs(part.strings) do
+                  assembled_string_part = assembled_string_part..(type(subpart) == 'string' and subpart or format_ui_value(format_ui_value(args.vars[tonumber(subpart[1])])) or 'ERROR')
+              end
+              final_name_assembled_string = final_name_assembled_string..assembled_string_part
+          end
+      end
       for _, part in ipairs(lines) do
         local assembled_string = ''
         for _, subpart in ipairs(part.strings) do
           assembled_string = assembled_string..(type(subpart) == 'string' and subpart or format_ui_value(args.vars[tonumber(subpart[1])]) or 'ERROR')
         end
-        local desc_scale = G.LANG.font.DESCSCALE
+        local desc_scale = (SMODS.Fonts[part.control.f] or G.FONTS[tonumber(part.control.f)] or G.LANG.font).DESCSCALE
         if G.F_MOBILE_UI then desc_scale = desc_scale*1.5 end
         if args.type == 'name' then
-          final_line[#final_line+1] = {n=G.UIT.O, config={
+          final_line[#final_line+1] = {n=G.UIT.C, config={align = "m", colour = part.control.B and args.vars.colours[tonumber(part.control.B)] or part.control.X and loc_colour(part.control.X) or nil, r = 0.05, padding = 0.03, res = 0.15}, nodes={}}
+          final_line[#final_line].nodes[1] = {n=G.UIT.O, config={
             object = DynaText({string = {assembled_string},
               colours = {(part.control.V and args.vars.colours[tonumber(part.control.V)]) or (part.control.C and loc_colour(part.control.C)) or args.text_colour or G.C.UI.TEXT_LIGHT},
               bump = true,
@@ -1902,8 +1990,9 @@ function localize(args, misc_cat)
               maxw = 5,
               shadow = true,
               y_offset = -0.6,
-              spacing = math.max(0, 0.32*(17 - #assembled_string)),
-              scale =  (0.55 - 0.004*#assembled_string)*(part.control.s and tonumber(part.control.s) or args.scale  or 1)
+              spacing = math.max(0, 0.32*(17 - #(final_name_assembled_string or assembled_string))),
+              font = SMODS.Fonts[part.control.f] or G.FONTS[tonumber(part.control.f)],
+              scale =  (0.55 - 0.004*#(final_name_assembled_string or assembled_string))*(part.control.s and tonumber(part.control.s) or args.scale  or 1)
             })
           }}
         elseif part.control.E then
@@ -1913,34 +2002,65 @@ function localize(args, misc_cat)
           elseif part.control.E == '2' then
             _bump = true; _spacing = 1
           end
-          final_line[#final_line+1] = {n=G.UIT.O, config={
+          final_line[#final_line+1] = {n=G.UIT.C, config={align = "m", colour = part.control.B and args.vars.colours[tonumber(part.control.B)] or part.control.X and loc_colour(part.control.X) or nil, r = 0.05, padding = 0.03, res = 0.15}, nodes={}}
+          final_line[#final_line].nodes[1] = {n=G.UIT.O, config={
             object = DynaText({string = {assembled_string}, colours = {part.control.V and args.vars.colours[tonumber(part.control.V)] or loc_colour(part.control.C or nil)},
             float = _float,
             silent = _silent,
             pop_in = _pop_in,
             bump = _bump,
             spacing = _spacing,
+            font = SMODS.Fonts[part.control.f] or G.FONTS[tonumber(part.control.f)],
             scale = 0.32*(part.control.s and tonumber(part.control.s) or args.scale  or 1)*desc_scale})
           }}
-        elseif part.control.X then
-          final_line[#final_line+1] = {n=G.UIT.C, config={align = "m", colour = loc_colour(part.control.X), r = 0.05, padding = 0.03, res = 0.15}, nodes={
+        elseif part.control.br then
+          local height = 0.05
+          local gaps = 0.2
+          local mid = 0.15
+          local sides = (tonumber(part.control.br) - gaps*2 - mid) / 2
+          -- spacing
+          args.nodes[#args.nodes+1] = {{n=G.UIT.R, config={align = "cm", minh = height}, nodes={}}}
+          if sides < gaps then
+            args.nodes[#args.nodes+1] = {{n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = tonumber(part.control.br), minh = height}}}
+          else
+            local temp_nodes = {{n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = sides, minh = height}, nodes={}},
+                                {n=G.UIT.C, config={align = "cm", minw = gaps}, nodes={}},
+                                {n=G.UIT.C, config={align = "cm", colour = G.C.UI.TEXT_INACTIVE, minw = mid, minh = height}, nodes={}},
+                                {n=G.UIT.C, config={align = "cm", minw = gaps}, nodes={}},
+                                {n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = sides, minh = height}, nodes={}}}
+            args.nodes[#args.nodes+1] = {{n=G.UIT.R, config={align = "cm", minw = tonumber(part.control.br)}, nodes=temp_nodes}}
+          end
+        elseif part.control.X or part.control.B then
+          final_line[#final_line+1] = {n=G.UIT.C, config={align = "m", colour = part.control.B and args.vars.colours[tonumber(part.control.B)] or loc_colour(part.control.X), r = 0.05, padding = 0.03, res = 0.15}, nodes={
               {n=G.UIT.T, config={
                 text = assembled_string,
-                colour = loc_colour(part.control.C or nil),
+                font = SMODS.Fonts[part.control.f] or G.FONTS[tonumber(part.control.f)],
+                colour = part.control.V and args.vars.colours[tonumber(part.control.V)] or loc_colour(part.control.C or nil),
                 scale = 0.32*(part.control.s and tonumber(part.control.s) or args.scale  or 1)*desc_scale}},
           }}
         else
           final_line[#final_line+1] = {n=G.UIT.T, config={
           detailed_tooltip = part.control.T and (G.P_CENTERS[part.control.T] or G.P_TAGS[part.control.T]) or nil,
           text = assembled_string,
+          font = SMODS.Fonts[part.control.f] or G.FONTS[tonumber(part.control.f)],
           shadow = args.shadow,
-          colour = part.control.V and args.vars.colours[tonumber(part.control.V)] or not part.control.C and args.text_colour or loc_colour(part.control.C or nil, args.default_col),
+          colour = part.control.V and args.vars.colours and args.vars.colours[tonumber(part.control.V)] or not part.control.C and args.text_colour or loc_colour(part.control.C or nil, args.default_col),
           scale = 0.32*(part.control.s and tonumber(part.control.s) or args.scale  or 1)*desc_scale},}
         end
       end
-        if args.type == 'name' or args.type == 'text' then return final_line end
-        args.nodes[#args.nodes+1] = final_line
-    end
+            if args.type == 'text' then return final_line end
+            if not args.nodes and args.type == 'name' then args.nodes = {} end
+            args.nodes[#args.nodes+1] = final_line
+        end
+        if args.type == 'name' then
+            local final_name = {}
+        
+            for _, line in ipairs(args.nodes or {}) do
+                final_name[#final_name+1] = {n=G.UIT.R, config={align = "m"}, nodes=line}
+            end
+        
+            return final_name
+        end
   end
 end
 
@@ -2070,6 +2190,9 @@ return {
     reroll_cost = 5,
     joker_slots = 5,
     ante_scaling = 1,
+    play_limit = 5,
+    discard_limit = 5,
+    no_limit = '',
     consumable_slots = 2,
     no_faces = false,
     erratic_suits_and_ranks = false,

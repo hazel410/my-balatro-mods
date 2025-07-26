@@ -231,7 +231,7 @@ function loadMods(modsDirectory)
                             if v.check then v.check(mod, mod[k]) end
                         end
                     end)
-                    if not success then 
+                    if not success then
                         valid = false
                         err = e
                     end
@@ -239,13 +239,13 @@ function loadMods(modsDirectory)
                 if not valid then
                     sendErrorMessage(('Found invalid metadata JSON file at %s, ignoring: %s'):format(file_path, err), 'Loader')
                 else
-                    sendInfoMessage('Valid JSON file found')
+                    sendInfoMessage('Valid JSON file found', 'Loader')
                     if NFS.getInfo(directory..'/.lovelyignore') then
                         mod.disabled = true
                     end
                     if mod.prefix and used_prefixes[mod.prefix] then
                         mod.can_load = false
-                        mod.load_issues = { 
+                        mod.load_issues = {
                             prefix_conflict = used_prefixes[mod.prefix],
                             dependencies = {},
                             conflicts = {},
@@ -621,7 +621,7 @@ function SMODS.injectItems()
         G.P_SEALS,
     } do
         for k, v in pairs(t) do
-            assert(v._discovered_unlocked_overwritten)
+            assert(v._discovered_unlocked_overwritten, ("Internal: discovery/unlocked of object \"%s\" failed to override."):format(v and v.key or "UNKNOWN"))
         end
     end
 end
@@ -630,6 +630,9 @@ local function initializeModUIFunctions()
     for id, modInfo in pairs(SMODS.mod_list) do
         G.FUNCS["openModUI_" .. modInfo.id] = function(e)
             G.ACTIVE_MOD_UI = modInfo
+            if e and e.config and e.config.page then
+                SMODS.LAST_SELECTED_MOD_TAB = e.config.page
+            end
             G.FUNCS.overlay_menu({
                 definition = create_UIBox_mods(e)
             })

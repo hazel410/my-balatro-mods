@@ -73,10 +73,10 @@ end
 local methods = {GET=true, HEAD=true, POST=true, PUT=true, DELETE=true, PATCH=true}
 
 local function checkAndHandleInput(url, options, skipUserAgent)
-	assert(type(url) == "string", "url must be a string")
+	assert(type(url) == "string", "\"url\" must be a string")
 	options = options or {}
-	assert(type(options) == "table", "options must be a table")
-	assert(type(options.headers or {}) == "table", "options.headers must be a table")
+	assert(type(options) == "table", "\"options\" must be a table")
+	assert(type(options.headers or {}) == "table", "\"options.headers\" must be a table")
 	local contentTypeHeader = false
 	if not skipUserAgent then
 		local headers = {}
@@ -96,10 +96,10 @@ local function checkAndHandleInput(url, options, skipUserAgent)
 		options.headers = headers
 	end
 	if options.method then
-		assert(type(options.method) == "string", "options.method must be a string")
-		assert(methods[options.method], "options.method must be one of \"GET\", \"HEAD\", \"POST\", \"PUT\", \"DELETE\", or \"PATCH\"")
+		assert(type(options.method) == "string", "\"options.method\" must be a string")
+		assert(methods[options.method], "\"options.method\" must be one of \"GET\", \"HEAD\", \"POST\", \"PUT\", \"DELETE\", or \"PATCH\"")
 	end
-	assert(type(options.data or "") == "string", "options.data must be a string")
+	assert(type(options.data or "") == "string", "\"options.data\" must be a string")
 	if options.data == "" then options.data = nil end
 	return options
 end
@@ -226,12 +226,12 @@ if not isThread then -- In main thread
 			assert(type(msgType) == "string", "Thread message type is not a string")
 			if msgType == "log" then
 				assert(type(msg.msg) == "string", "Logging msg not a string")
-				assert(type(msg.level) == "string", "logging level not a string")
+				assert(type(msg.level) == "string", "Logging level not a string")
 				assert(type(msg.logger) == "string", "Logging logger not a string")
 				sendMessageToConsole(msg.level, msg.logger .. "(" .. tostring(msg.id) .. ")", msg.msg)
 			elseif msgType == "cb" then -- NOTE: cb removes the thread so it must be the last message
 				t.cb(msg.code, msg.body, msg.headers)
-				threads[id] = nil
+				threads[msg.id] = nil
 			end
 		end
 	end
@@ -268,9 +268,10 @@ if not isThread then -- In main thread
 		assert(type(cb) == "function", "Callback is not a function")
 		checkAndHandleInput(url, options, true) -- That way we aren't erroring in the thread as much
 		local thread = love.thread.newThread(getContent())
-		local obj = {thread = thread, cb = cb, id = id}
-		threads[id] = obj
-		thread:start(userAgent, url, options, id)
+		local tID = tostring(id)
+		local obj = {thread = thread, cb = cb, id = tID}
+		threads[tID] = obj
+		thread:start(userAgent, url, options, tID)
 		id = id + 1
 	end
 

@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '5a825729e9ce5899fe300927d6ccffca351dc89a793abc7c60285eb1a78c938e'
+LOVELY_INTEGRITY = 'fec0a5e7e91c1959c981f20c13e6e0c1f64c4623a45de4d3312fdf8d1837c258'
 
 --class
 Blind = Moveable:extend()
@@ -167,7 +167,7 @@ function Blind:set_blind(blind, reset, silent)
         self.in_blind = true
     end
     local obj = self.config.blind
-    if obj.set_blind and type(obj.set_blind) == 'function' then
+    if not reset and obj.set_blind and type(obj.set_blind) == 'function' then
         obj:set_blind()
     elseif self.name == 'The Eye' and not reset then
         self.hands = {
@@ -525,7 +525,7 @@ function Blind:press_play()
     end
 end
 
-function Blind:modify_hand(cards, poker_hands, text, mult, hand_chips)
+function Blind:modify_hand(cards, poker_hands, text, mult, hand_chips, scoring_hand)
     if self.disabled then return mult, hand_chips, false end
     local obj = self.config.blind
     if obj.modify_hand and type(obj.modify_hand) == 'function' then
@@ -597,8 +597,7 @@ function Blind:drawn_to_hand()
         local obj = self.config.blind
         if obj.drawn_to_hand and type(obj.drawn_to_hand) == 'function' then
             obj:drawn_to_hand()
-        end
-        if self.name == 'Cerulean Bell' then
+        elseif self.name == 'Cerulean Bell' then
             local any_forced = nil
             for k, v in ipairs(G.hand.cards) do
                 if v.ability.forced_selection then
@@ -643,14 +642,14 @@ function Blind:drawn_to_hand()
     self.prepped = nil
 end
 
-function Blind:stay_flipped(area, card)
+function Blind:stay_flipped(area, card, from_area)
     if not self.disabled then
         local obj = self.config.blind
         if obj.stay_flipped and type(obj.stay_flipped) == 'function' then
-            return obj:stay_flipped(area, card)
+            return obj:stay_flipped(area, card, from_area)
         end
         if area == G.hand then
-            if self.name == 'The Wheel' and pseudorandom(pseudoseed('wheel')) < G.GAME.probabilities.normal/7 then
+            if self.name == 'The Wheel' and SMODS.pseudorandom_probability(self, pseudoseed('wheel'), 1, 7, 'wheel') then
                 return true
             elseif self.name == 'The House' and G.GAME.current_round.hands_played == 0 and G.GAME.current_round.discards_used == 0 then
                 return true
