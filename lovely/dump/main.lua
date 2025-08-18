@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'a3858168ee4a521b108410aa4a50b75ca2b254f045bde3eade46f133e72e22fe'
+LOVELY_INTEGRITY = 'c6cce3d2315ddf5d389ed41cbd2d85c0a189a1a2861703f99c110ca677fdc9ac'
 
 --- STEAMODDED CORE
 --- MODULE STACKTRACE
@@ -1554,16 +1554,20 @@ Cartomancer.path = assert(
     "Failed to find mod folder. Make sure that `Cartomancer` folder has `cartomancer.lua` file!"
 )
 
-Cartomancer.load_mod_file('internal/config.lua', 'internal.config')
-Cartomancer.load_mod_file('internal/atlas.lua', 'internal.atlas')
-Cartomancer.load_mod_file('internal/ui.lua', 'internal.ui')
-Cartomancer.load_mod_file('internal/keybinds.lua', 'internal.keybinds')
+Cartomancer.load_mod_file('internal/config.lua', 'cartomancer.config')
+Cartomancer.load_mod_file('internal/atlas.lua', 'cartomancer.atlas')
+Cartomancer.load_mod_file('internal/ui.lua', 'cartomancer.ui')
+Cartomancer.load_mod_file('internal/keybinds.lua', 'cartomancer.keybinds')
 
-Cartomancer.load_mod_file('core/view-deck.lua', 'core.view-deck')
-Cartomancer.load_mod_file('core/flames.lua', 'core.flames')
-Cartomancer.load_mod_file('core/optimizations.lua', 'core.optimizations')
-Cartomancer.load_mod_file('core/jokers.lua', 'core.jokers')
-Cartomancer.load_mod_file('core/hand.lua', 'core.hand')
+Cartomancer.load_mod_file('core/view-deck.lua', 'cartomancer.view-deck')
+Cartomancer.load_mod_file('core/flames.lua', 'cartomancer.flames')
+Cartomancer.load_mod_file('core/optimizations.lua', 'cartomancer.optimizations')
+Cartomancer.load_mod_file('core/jokers.lua', 'cartomancer.jokers')
+Cartomancer.load_mod_file('core/hand.lua', 'cartomancer.hand')
+Cartomancer.load_mod_file('core/blinds_info.lua', 'cartomancer.blinds_info')
+if SMODS then
+    Cartomancer.load_mod_file('core/view-deck-steamodded.lua', 'cartomancer.view-deck-steamodded')
+end
 
 Cartomancer.load_config()
 

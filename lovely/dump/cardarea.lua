@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '3f76e8bd3c93d6ed6da7485bcd34e1c5985d64a537a8815ee285cb5f67b47370'
+LOVELY_INTEGRITY = 'a4f4967469fe2e268c73ce148142f9863d4c3b8284ae6a20208d262217368020'
 
 --Class
 CardArea = Moveable:extend()
@@ -660,6 +660,9 @@ function CardArea:draw_card_from(area, stay_flipped, discarded_only)
             if card then
                 if area == G.discard then
                     card.T.r = 0
+                end
+                if self == G.hand and not card.states.visible then
+                    card.states.visible = true
                 end
                 local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card, area)
                 if (self == G.hand) and G.GAME.modifiers.flipped_cards then

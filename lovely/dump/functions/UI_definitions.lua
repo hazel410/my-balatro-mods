@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'f7094aac25b5a9d789ce59be6eb4e09241a538993a14f5af02b125d4b8e396ff'
+LOVELY_INTEGRITY = '8d57385ca762867fab308a84dd5d9f60a4c28e809a6811b3b5bf5996e5025ff6'
 
 --Create a global UIDEF that contains all UI definition functions\
 --As a rule, these contain functions that return a table T representing the definition for a UIBox
@@ -2349,6 +2349,9 @@ function create_UIBox_options()
   if G.STAGE == G.STAGES.RUN then
     restart = UIBox_button{id = 'restart_button', label = {localize('b_start_new_run')}, button = "setup_run", minw = 5}
     main_menu = UIBox_button{ label = {localize('b_main_menu')}, button = "go_to_menu", minw = 5}
+    unstuck_button = UIBox_button{ label = {localize('b_unstuck')}, button = "mp_unstuck", minw = 5}
+    return_to_lobby = UIBox_button{ label = {localize('return_lobby')}, button = "mp_return_to_lobby", minw = 5}
+    leave_lobby = UIBox_button{ label = {localize('leave_lobby')}, button = "lobby_leave", minw = 5}
     mods = UIBox_button{ id = "mods_button", label = {localize('b_mods')}, button = "mods_button", minw = 5}
     your_collection = UIBox_button{ label = {localize('b_collection')}, button = "your_collection", minw = 5, id = 'your_collection'}
     current_seed = {n=G.UIT.R, config={align = "cm", padding = 0.05}, nodes={
@@ -2383,9 +2386,12 @@ function create_UIBox_options()
   local t = create_UIBox_generic_options({ contents = {
   saturn_settings,
       settings,
-      G.GAME.seeded and current_seed or nil,
-      restart,
-      main_menu,
+      (not G.LOBBY.code and G.GAME.seeded) and current_seed or nil,
+      not G.LOBBY.code and restart or nil,
+      not G.LOBBY.code and main_menu or nil,
+      G.LOBBY.code and unstuck_button or nil,
+      G.LOBBY.code and return_to_lobby or nil,
+      G.LOBBY.code and leave_lobby or nil,
       mods,
       high_scores,
       your_collection,
@@ -3328,6 +3334,10 @@ function G.UIDEF.deck_info(_show_remaining)
         chosen = true,
         tab_definition_function = G.UIDEF.view_deck
       },
+      G.LOBBY.code and {
+                    label = G.localization.misc.challenge_names.c_multiplayer_1 or "Multiplayer",
+                    tab_definition_function = G.UIDEF.multiplayer_deck,
+                  },
     },
     tab_h = 8,
     snap_to_nav = true})}})
@@ -3341,10 +3351,30 @@ function G.UIDEF.run_info()
             chosen = true,
             tab_definition_function = create_UIBox_current_hands,
         },
-        {
-          label = localize('b_blinds'),
-          tab_definition_function = G.UIDEF.current_blinds,
-        },
+                {
+                  label = localize('b_blinds'),
+                  tab_definition_function = 
+                  Cartomancer.SETTINGS.blinds_info and
+                  function()
+                  return 
+                    {n=G.UIT.ROOT, config={align = "cm", colour = G.C.CLEAR, padding = 0}, nodes={
+                    Cartomancer.create_vert_tabs(
+                      {tabs = {
+                          {
+                              chosen = true,
+                              label = localize('carto_blinds_info_current'),
+                              tab_definition_function = G.UIDEF.current_blinds,
+                          },
+                          {
+                              label = localize('carto_blinds_info_extra'),
+                              tab_definition_function = Cartomancer.view_blinds_info,
+                          },
+                      }})
+                    }}
+                  end
+                  or
+                  G.UIDEF.current_blinds,
+                },
         {
             label = localize('b_vouchers'),
             tab_definition_function = G.UIDEF.used_vouchers,
@@ -4372,20 +4402,9 @@ function create_UIBox_your_collection_blinds(exit)
     end)
   }))
 
-  local min_ante = 1
-  local max_ante = 16
-  local spacing = 1 - 15*0.06
-  if G.GAME and G.GAME.round_resets and G.GAME.round_resets.ante then
-      local current_ante = G.GAME.round_resets.ante
-  
-      if current_ante > 8 then
-          min_ante = current_ante - 8 + 1
-          max_ante = current_ante + 8
-      end
-  end
   local ante_amounts = {}
-  for i = min_ante, max_ante do
-    -- :3
+  for i = 1, math.min(16, math.max(16, G.PROFILES[G.SETTINGS.profile].high_scores.furthest_ante.amt)) do 
+    local spacing = 1 - math.min(20, math.max(15, G.PROFILES[G.SETTINGS.profile].high_scores.furthest_ante.amt))*0.06
     if spacing > 0 and i > 1 then 
       ante_amounts[#ante_amounts+1] = {n=G.UIT.R, config={minh = spacing}, nodes={}}
     end
@@ -5660,7 +5679,13 @@ function G.UIDEF.run_setup(from_game_over)
 
   local _can_continue = G.MAIN_MENU_UI and G.FUNCS.can_continue({config = {func = true}})
   G.FUNCS.false_ret = function() return false end
-  local t =   create_UIBox_generic_options({no_back = from_game_over, no_esc = from_game_over, contents ={
+  local t = G.LOBBY.code and create_UIBox_generic_options({contents ={
+      {n=G.UIT.R, config={padding = 0.0, align = "cm", colour = G.C.CLEAR}, nodes={
+        {n=G.UIT.R, config={align = 'cm', padding = 0.1, no_fill = true, minh = 0, minw = 0}, nodes={
+          {n=G.UIT.O, config={id = 'tab_contents', object = UIBox{definition = ((Galdur and Galdur.config.use) and G.UIDEF.run_setup_option_new_model or G.UIDEF.run_setup_option)('New Run'), config = {offset = {x=0,y=0}}}}}
+        }},
+      }},
+    }}) or create_UIBox_generic_options({no_back = from_game_over, no_esc = from_game_over, contents ={
       {n=G.UIT.R, config={align = "cm", padding = 0, draw_layer = 1}, nodes={
         create_tabs(
         {tabs = {
@@ -6036,7 +6061,7 @@ function G.UIDEF.challenge_description(_id, daily, is_row)
         no_shoulders = true,
         no_loop = true}
     )}},
-    not is_row and {n=G.UIT.R, config={align = "cm", minh = 0.9}, nodes={
+    (not G.LOBBY.code) and (not is_row) and {n=G.UIT.R, config={align = "cm", minh = 0.9}, nodes={
       {n=G.UIT.R, config={align = "cm", padding = 0.1, minh = 0.7, minw = 9, r = 0.1, hover = true, colour = G.C.BLUE, button = "start_challenge_run", shadow = true, id = _id}, nodes={
         {n=G.UIT.T, config={text = localize('b_play_cap'), scale = 0.5, colour = G.C.UI.TEXT_LIGHT,func = 'set_button_pip', focus_args = {button = 'x',set_button_pip = true}}}
       }}
@@ -6342,7 +6367,7 @@ function G.UIDEF.run_setup_option(type)
   end
 
   G.SETTINGS.current_setup = type
-  G.GAME.viewed_back = Back(get_deck_from_name(G.PROFILES[G.SETTINGS.profile].MEMORY.deck))
+  G.GAME.viewed_back = G.LOBBY.code and Back(get_deck_from_name(G.LOBBY.deck.back)) or Back(get_deck_from_name(G.PROFILES[G.SETTINGS.profile].MEMORY.deck))
 
   G.PROFILES[G.SETTINGS.profile].MEMORY.stake = G.PROFILES[G.SETTINGS.profile].MEMORY.stake or 1
 
@@ -6360,7 +6385,7 @@ function G.UIDEF.run_setup_option(type)
     end
   end
 
-  if type == 'New Run' then
+  if type == 'New Run' and not G.LOBBY.code then
     if G.OVERLAY_MENU then 
       local seed_toggle = G.OVERLAY_MENU:get_UIE_by_ID('run_setup_seed')
       if seed_toggle then seed_toggle.states.visible = true end
@@ -6368,6 +6393,10 @@ function G.UIDEF.run_setup_option(type)
     G.viewed_stake = G.PROFILES[G.SETTINGS.profile].MEMORY.stake or 1
     G.FUNCS.change_stake({to_key = G.viewed_stake})
   else
+    if G.LOBBY.code then
+        G.viewed_stake = G.LOBBY.deck.stake
+        G.FUNCS.change_stake({to_key = G.viewed_stake})
+      end
     G.run_setup_seed = nil
     if G.OVERLAY_MENU then 
       local seed_toggle = G.OVERLAY_MENU:get_UIE_by_ID('run_setup_seed')
@@ -6491,7 +6520,7 @@ function G.UIDEF.run_setup_option(type)
                   }},
                     {n=G.UIT.C, config={align = "cm", minw = 5, minh = 0.8, padding = 0.2, r = 0.1, hover = true, colour = G.C.BLUE, button = "start_setup_run", shadow = true, func = 'can_start_run'}, nodes={
                       {n=G.UIT.R, config={align = "cm", padding = 0}, nodes={
-                        {n=G.UIT.T, config={text = localize('b_play_cap'), scale = 0.8, colour = G.C.UI.TEXT_LIGHT,func = 'set_button_pip', focus_args = {button = 'x',set_button_pip = true}}}
+                        {n=G.UIT.T, config={text =  G.LOBBY.code and localize('b_select') or localize('b_play_cap'), scale = 0.8, colour = G.C.UI.TEXT_LIGHT,func = 'set_button_pip', focus_args = {button = 'x',set_button_pip = true}}}
                       }}
                     }},
                    {n=G.UIT.C, config={align = "cm", minw = 2.5}, nodes={}}
@@ -6774,7 +6803,7 @@ function UIBox_button(args)
     but_UI_label = {}
     
     table.insert(but_UI_label, {n=G.UIT.R, config={align = "cm", padding = 0, minw = args.minw, maxw = args.maxw}, nodes={
-      {n=G.UIT.T, config={ref_table = args.dynamic_label, ref_value = 'text', scale = args.scale, colour = args.text_colour, shadow = args.shadow, focus_args = button_pip and args.focus_args or nil, func = button_pip,}}
+      {n=G.UIT.T, config={ref_table = args.dynamic_label, ref_value = 'text', scale = args.scale, colour = args.text_colour, shadow = args.shadow, focus_args = button_pip and args.focus_args or nil, func = button_pip,vert = args.vert,}}
     }})
   end
   for k, v in ipairs(args.label) do 
@@ -6782,7 +6811,7 @@ function UIBox_button(args)
       button_pip ='set_button_pip'
     end
     table.insert(but_UI_label, {n=G.UIT.R, config={align = "cm", padding = 0, minw = args.minw, maxw = args.maxw}, nodes={
-      {n=G.UIT.T, config={text = v, scale = args.scale, colour = args.text_colour, shadow = args.shadow, focus_args = button_pip and args.focus_args or nil, func = button_pip, ref_table = args.ref_table}}
+      {n=G.UIT.T, config={text = v, scale = args.scale, colour = args.text_colour, shadow = args.shadow, focus_args = button_pip and args.focus_args or nil, func = button_pip,vert = args.vert, ref_table = args.ref_table}}
     }})
   end
 

@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'f11efcc6e58abf6d3e9d305b183b490e4e024b3b48a1aa31c4f4f33e488f7cc6'
+LOVELY_INTEGRITY = '67f20bd9308658c3d374c9d85d5312283d29a47a736c27c3dac12dace4f31ac3'
 
 --Class
 Game = Object:extend()
@@ -211,7 +211,7 @@ function Game:start_up()
     initSteamodded()
 
     set_profile_progress()
-    Cartomancer.load_mod_file('internal/localization.lua', 'localization')
+    Cartomancer.load_mod_file('internal/localization.lua', 'cartomancer.localization')
     boot_timer('prep stage', 'splash prep',1)
     self:splash_screen()
     boot_timer('splash prep', 'end',1)
@@ -2258,7 +2258,14 @@ function Game:start_run(args)
         CAI.consumeable_H, 
         {card_limit = self.GAME.starting_params.consumable_slots, type = 'joker', highlight_limit = 1})
 
-    self.jokers = CardArea(
+    if G.LOBBY.code then 
+      self.shared = CardArea(
+        0, CAI.consumeable_H + 0.3,
+        CAI.consumeable_W / 2,
+        CAI.consumeable_H, 
+        {card_limit = 0, type = 'joker', highlight_limit = 1})
+    end
+self.jokers = CardArea(
         0, 0,
         CAI.joker_W,
         CAI.joker_H, 
@@ -3354,7 +3361,8 @@ function Game:update_round_eval(dt)
     if self.buttons then self.buttons:remove(); self.buttons = nil end
     if self.shop then self.shop:remove(); self.shop = nil end
 
-    if not G.STATE_COMPLETE then
+     if not G.STATE_COMPLETE and not G.MULTIPLAYER_GAME.prevent_eval then
+        G.MULTIPLAYER_GAME.prevent_eval = true
         stop_use()
         G.STATE_COMPLETE = true
         G.E_MANAGER:add_event(Event({

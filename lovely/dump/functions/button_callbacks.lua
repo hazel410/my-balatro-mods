@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'd39e22a25741c49b40c3fa7a641ed5ec0493e2320e2a7acda8e264d6d6925780'
+LOVELY_INTEGRITY = '6444e9c8eca62a5050163ffcedacceb40ab9678fb50d0fcb57ef952ccf362775'
 
 --Moves the tutorial to the next step in queue
 --
@@ -1838,7 +1838,7 @@ end
 
 G.FUNCS.start_setup_run = function(e)
   if G.OVERLAY_MENU then G.FUNCS.exit_overlay_menu() end
-  if G.SETTINGS.current_setup == 'New Run' then 
+  if G.SETTINGS.current_setup == 'New Run' or G.SETTINGS.current_setup == 'Multiplayer' then
     if not G.GAME or (not G.GAME.won and not G.GAME.seeded) then
       if G.SAVED_GAME ~= nil then
         if not G.SAVED_GAME.GAME.won then 
