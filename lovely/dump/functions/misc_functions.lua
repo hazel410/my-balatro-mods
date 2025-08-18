@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'ac42893ea1e90ebd2ab045f4d328198a3a0cfd23156909649cf6d07bb930a489'
+LOVELY_INTEGRITY = '23e57d1a4b3de49d3c66d227fc542d0de0797105adc15a93acd5aaa3ca4a9d47'
 
 --Updates all display information for all displays for a given screenmode. Returns the key for the resolution option cycle
 --
@@ -996,34 +996,6 @@ function alert_no_space(card, area)
 end
 
 function find_joker(name, non_debuff)
-if name == "Shortcut" then
-  local asdf = find_joker("poke_Shortcut")
-  local dsaf = find_joker("pansage")
-  local safd = find_joker("simisage")
-  return (next(asdf) and asdf) or (next(dsaf) and dsaf) or (next(safd) and safd) or {}
-elseif name == "Pareidolia" then
-  local asdf = find_joker("poke_Pareidolia")
-  local dsaf = find_joker("panpour")
-  local safd = find_joker("simipour")
-  return (next(asdf) and asdf) or (next(dsaf) and dsaf) or (next(safd) and safd) or {}
-elseif name == "Four Fingers" then
-  local asdf = find_joker("poke_Four_Fingers")
-  local dsaf = find_joker("pansear")
-  local safd = find_joker("simisear")
-  return (next(asdf) and asdf) or (next(dsaf) and dsaf) or (next(safd) and safd) or {}
-elseif name == "Smeared Joker" then
-  local smeared = find_joker("poke_Smeared_Joker")
-  local smeargle = find_joker("smeargle")
-  return (next(smeared) and smeared) or (next(smeargle) and smeargle) or {}
-elseif name == "poke_Shortcut" then
-  name = "Shortcut"
-elseif name == "poke_Pareidolia" then
-  name = "Pareidolia"
-elseif name == "poke_Four_Fingers" then
-  name = "Four Fingers"
-elseif name == "poke_Smeared_Joker" then
-  name = "Smeared Joker"
-end
   local jokers = {}
   if not G.jokers or not G.jokers.cards then return {} end
   for k, v in pairs(G.jokers.cards) do
@@ -1666,7 +1638,6 @@ function loc_colour(_c, _default)
     edition = G.C.EDITION,
     dark_edition = G.C.DARK_EDITION,
     legendary = G.C.RARITY[4],
-    poke_safari = G.C.RARITY['poke_safari'], poke_mega = G.C.RARITY['poke_mega'],
     enhanced = G.C.SECONDARY_SET.Enhanced
   }
       for _, v in ipairs(SMODS.Rarity.obj_buffer) do
@@ -2013,23 +1984,6 @@ function localize(args, misc_cat)
             font = SMODS.Fonts[part.control.f] or G.FONTS[tonumber(part.control.f)],
             scale = 0.32*(part.control.s and tonumber(part.control.s) or args.scale  or 1)*desc_scale})
           }}
-        elseif part.control.br then
-          local height = 0.05
-          local gaps = 0.2
-          local mid = 0.15
-          local sides = (tonumber(part.control.br) - gaps*2 - mid) / 2
-          -- spacing
-          args.nodes[#args.nodes+1] = {{n=G.UIT.R, config={align = "cm", minh = height}, nodes={}}}
-          if sides < gaps then
-            args.nodes[#args.nodes+1] = {{n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = tonumber(part.control.br), minh = height}}}
-          else
-            local temp_nodes = {{n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = sides, minh = height}, nodes={}},
-                                {n=G.UIT.C, config={align = "cm", minw = gaps}, nodes={}},
-                                {n=G.UIT.C, config={align = "cm", colour = G.C.UI.TEXT_INACTIVE, minw = mid, minh = height}, nodes={}},
-                                {n=G.UIT.C, config={align = "cm", minw = gaps}, nodes={}},
-                                {n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = sides, minh = height}, nodes={}}}
-            args.nodes[#args.nodes+1] = {{n=G.UIT.R, config={align = "cm", minw = tonumber(part.control.br)}, nodes=temp_nodes}}
-          end
         elseif part.control.X or part.control.B then
           final_line[#final_line+1] = {n=G.UIT.C, config={align = "m", colour = part.control.B and args.vars.colours[tonumber(part.control.B)] or loc_colour(part.control.X), r = 0.05, padding = 0.03, res = 0.15}, nodes={
               {n=G.UIT.T, config={
@@ -2044,7 +1998,7 @@ function localize(args, misc_cat)
           text = assembled_string,
           font = SMODS.Fonts[part.control.f] or G.FONTS[tonumber(part.control.f)],
           shadow = args.shadow,
-          colour = part.control.V and args.vars.colours and args.vars.colours[tonumber(part.control.V)] or not part.control.C and args.text_colour or loc_colour(part.control.C or nil, args.default_col),
+          colour = part.control.V and args.vars.colours[tonumber(part.control.V)] or not part.control.C and args.text_colour or loc_colour(part.control.C or nil, args.default_col),
           scale = 0.32*(part.control.s and tonumber(part.control.s) or args.scale  or 1)*desc_scale},}
         end
       end

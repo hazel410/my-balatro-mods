@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '6c053750820e7866b43e64b4c44d0ea588ad0c3ba3d3d691418fd085c5a0d497'
+LOVELY_INTEGRITY = 'd39e22a25741c49b40c3fa7a641ed5ec0493e2320e2a7acda8e264d6d6925780'
 
 --Moves the tutorial to the next step in queue
 --
@@ -2215,7 +2215,6 @@ end
       G.booster_pack.alignment.offset.y = G.ROOM.T.y + 29
     end
     if G.shop and not G.shop.alignment.offset.py then
-    if G.GAME.lapras_skip then G.shop.alignment.offset.y = -5.3 end
       G.shop.alignment.offset.py = G.shop.alignment.offset.y
       G.shop.alignment.offset.y = G.ROOM.T.y + 29
     end
@@ -2318,7 +2317,7 @@ end
                   prev_state == G.STATES.SMODS_BOOSTER_OPENED or
                   prev_state == G.STATES.BUFFOON_PACK) and G.booster_pack then
                   if nc and area == G.pack_cards and not select_to then G.pack_cards:remove_card(card); G.consumeables:emplace(card) end
-                  if area == G.consumeables or area == G.jokers then
+                  if area == G.consumeables then
                     G.booster_pack.alignment.offset.y = G.booster_pack.alignment.offset.py
                     G.booster_pack.alignment.offset.py = nil
                   elseif G.GAME.pack_choices and G.GAME.pack_choices > 1 then

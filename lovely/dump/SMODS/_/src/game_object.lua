@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '6b09ab013be936d5b3c511c7b2907170c9d613cc198cc84eb4c475b467a96951'
+LOVELY_INTEGRITY = 'c7a97e419c24c92ac0884c8a94e39a48644afafce4dd45c83acc5057d008d784'
 
 --- STEAMODDED CORE
 --- MODULE API
@@ -1536,10 +1536,7 @@ Set `prefix_config.key = false` on your object instead.]]):format(obj.key), obj.
         end,
         create_card = function(self, card, i)
             local _card
-            if next(find_joker("xatu")) then
-                local _planet = G.P_CENTER_POOLS.Planet[i].key
-                _card = create_card("Planet", G.pack_cards, nil, nil, true, true, _planet, 'pl1')
-            elseif G.GAME.used_vouchers.v_telescope and i == 1 then
+            if G.GAME.used_vouchers.v_telescope and i == 1 then
                 local _planet, _hand, _tally = nil, nil, 0
                 for k, v in ipairs(G.handlist) do
                     if SMODS.is_poker_hand_visible(v) and G.GAME.hands[v].played > _tally then

@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '84ca06bb97bcbdb4bcf9c744091e466b6cc5bf3ef8f3fc0e6d23b95d37bfca23'
+LOVELY_INTEGRITY = 'f11efcc6e58abf6d3e9d305b183b490e4e024b3b48a1aa31c4f4f33e488f7cc6'
 
 --Class
 Game = Object:extend()
@@ -156,7 +156,6 @@ function Game:start_up()
     end
 
     self:load_profile(G.SETTINGS.profile or 1)
-    initBrainstorm()
 
     self.SETTINGS.QUEUED_CHANGE = {}
     self.SETTINGS.music_control = {desired_track = '', current_track = '', lerp = 1} 
@@ -1450,19 +1449,6 @@ function Game:splash_screen()
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.2,func = (function()
                 local SC_scale = 1.2
                 SC = Card(G.ROOM.T.w/2 - SC_scale*G.CARD_W/2, 10. + G.ROOM.T.h/2 - SC_scale*G.CARD_H/2, SC_scale*G.CARD_W, SC_scale*G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['j_joker'])
-                if pokermon_config.pokemon_splash then
-                  local pokemon = {}
-                  for k, v in pairs(G.P_CENTERS) do
-                    if v.set == 'Joker' and v.stage and v.discovered then
-                      table.insert(pokemon, v)
-                    end
-                  end
-                  if #pokemon > 0 then
-                    local chosen = math.random(#pokemon)
-                    local chosencard = pokemon[chosen]
-                    SC = Card(G.ROOM.T.w/2 - SC_scale*G.CARD_W/2, 10. + G.ROOM.T.h/2 - SC_scale*G.CARD_H/2, SC_scale*G.CARD_W, SC_scale*G.CARD_H, G.P_CARDS.empty, chosencard)
-                  end
-                end
                 SC.T.y = G.ROOM.T.h/2 - SC_scale*G.CARD_H/2
                 SC.ambient_tilt = 1
                 SC.states.drag.can = false
@@ -1618,13 +1604,6 @@ function Game:main_menu(change_context) --True if main menu is accessed from the
         13*SC_scale, 
         13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
         G.ASSET_ATLAS["balatro"], {x=0,y=0})
-        if pokermon_config.pokemon_title then
-          local poke_logo = pokermon_config.pokemon_aprilfools and "poke_smeargle_logo" or "poke_logo"
-          G.SPLASH_LOGO = Sprite(0, 0, 
-              13/333*389*SC_scale, 
-              13/333*389*SC_scale*(G.ASSET_ATLAS[poke_logo].py/G.ASSET_ATLAS[poke_logo].px),
-              G.ASSET_ATLAS[poke_logo], {x=0.0,y=0})
-        end
 
     G.SPLASH_LOGO:set_alignment({
         major = G.title_top,
@@ -1640,20 +1619,10 @@ function Game:main_menu(change_context) --True if main menu is accessed from the
     G.SPLASH_LOGO.dissolve = 1   
 
 
-    local replace_card = nil
-    if pokermon_config.pokemon_title then
-      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.empty, G.P_CENTERS.j_poke_unown)
-      replace_card.ability.extra.form = "R"
-      G.P_CENTERS.j_poke_unown:set_sprites(replace_card)
-    else
-      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
-    end
+    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
     self.title_top:emplace(replace_card)
 
     replace_card.states.visible = false
-    if pokermon_config.pokemon_title then
-      replace_card.seal = nil
-    end
     replace_card.no_ui = true
     replace_card.ambient_tilt = 0.0
 
@@ -1817,13 +1786,6 @@ function Game:demo_cta() --True if main menu is accessed from the splash screen,
         13*SC_scale, 
         13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
         G.ASSET_ATLAS["balatro"], {x=0,y=0})
-        if pokermon_config.pokemon_title then
-          local poke_logo = pokermon_config.pokemon_aprilfools and "poke_smeargle_logo" or "poke_logo"
-          G.SPLASH_LOGO = Sprite(0, 0, 
-              13/333*389*SC_scale, 
-              13/333*389*SC_scale*(G.ASSET_ATLAS[poke_logo].py/G.ASSET_ATLAS[poke_logo].px),
-              G.ASSET_ATLAS[poke_logo], {x=0.0,y=0})
-        end
 
     G.SPLASH_LOGO:set_alignment({
         major = G.title_top,
@@ -1838,20 +1800,10 @@ function Game:demo_cta() --True if main menu is accessed from the splash screen,
     G.SPLASH_LOGO.dissolve_colours = {G.C.WHITE, G.C.WHITE}
     G.SPLASH_LOGO.dissolve = 1   
 
-    local replace_card = nil
-    if pokermon_config.pokemon_title then
-      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.empty, G.P_CENTERS.j_poke_unown)
-      replace_card.ability.extra.form = "R"
-      G.P_CENTERS.j_poke_unown:set_sprites(replace_card)
-    else
-      replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
-    end
+    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
     self.title_top:emplace(replace_card)
 
     replace_card.states.visible = false
-    if pokermon_config.pokemon_title then
-      replace_card.seal = nil
-    end
     replace_card.no_ui = true
     replace_card.ambient_tilt = 0.0
 
@@ -2538,7 +2490,6 @@ function Game:update(dt)
     G.MAJORS = 0
     G.MINORS = 0
 
-    Brainstorm.update(dt)
     G.FRAMES.MOVE = G.FRAMES.MOVE + 1
                 timer_checkpoint('start->discovery', 'update')
     if not G.SETTINGS.tutorial_complete then G.FUNCS.tutorial_controller() end
@@ -3032,12 +2983,6 @@ function Game:draw()
 end
 love.graphics.pop()
     
-    if Brainstorm.SETTINGS.debug_mode == true then 
-      love.graphics.push()
-      love.graphics.setColor(G.C.DARK_EDITION[1],G.C.DARK_EDITION[2],G.C.DARK_EDITION[3],1)
-      love.graphics.print("BRAINSTORM DEBUG_MODE", 10, -40)
-      love.graphics.pop()
-    end
     love.graphics.setCanvas(G.AA_CANVAS)
     love.graphics.push()
         love.graphics.setColor(G.C.WHITE)
@@ -3161,11 +3106,6 @@ function Game:update_selecting_hand(dt)
         self.buttons.states.visible = true
     end
 
-    if not self.scry_view and type(create_scry_cardarea) == "function" then
-      self.scry_view = create_scry_cardarea()
-    elseif self.scry_view then
-      update_scry_cardarea(self.scry_view)
-    end
     if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 then
         end_round()
     end
@@ -3411,7 +3351,6 @@ function Game:update_blind_select(dt)
 end
 
 function Game:update_round_eval(dt)
-    if G.scry_view then hide_scry_cardarea() end
     if self.buttons then self.buttons:remove(); self.buttons = nil end
     if self.shop then self.shop:remove(); self.shop = nil end
 

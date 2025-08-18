@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'b79efda669413f71b58b0ba4734dc1fc83ed6468efbaa57318f05d8c24ef8882'
+LOVELY_INTEGRITY = '08970dcbfdfd37f085b9a9e08d72c6875c4714351a8511ee4d001c5cb3a9390a'
 
 function win_game()
     if (not G.GAME.seeded and not G.GAME.challenge) or SMODS.config.seeded_unlocks then
@@ -306,7 +306,7 @@ G.FUNCS.draw_from_deck_to_hand = function(e)
         local n = 0
         while n < #G.deck.cards do
             local card = G.deck.cards[#G.deck.cards-n]
-            limit = limit - 1 + (not card.debuff and (card.edition and card.edition.card_limit or card.ability and card.ability.card_limit) or 0)
+            limit = limit - 1 + (not card.debuff and card.edition and card.edition.card_limit or 0)
             if limit < 0 then break end
             n = n + 1
         end
@@ -401,9 +401,6 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
 
         G.GAME.round_scores.cards_discarded.amt = G.GAME.round_scores.cards_discarded.amt + #cards
         check_for_unlock({type = 'discard_custom', cards = cards})
-        if not hook then
-          SMODS.calculate_context({post_discard = true})
-        end
         if not hook then
             if G.GAME.modifiers.discard_cost then
                 ease_dollars(-G.GAME.modifiers.discard_cost)
@@ -552,7 +549,7 @@ G.FUNCS.evaluate_play = function(e)
 
     local final_scoring_hand = {}
     for i=1, #G.play.cards do
-        local splashed = SMODS.always_scores(G.play.cards[i]) or next(find_joker('Splash')) or next(SMODS.find_card('j_poke_magikarp')) or next(SMODS.find_card('j_poke_feebas'))
+        local splashed = SMODS.always_scores(G.play.cards[i]) or next(find_joker('Splash'))
         local unsplashed = SMODS.never_scores(G.play.cards[i])
         if not splashed then
             for _, card in pairs(scoring_hand) do
@@ -952,14 +949,6 @@ G.FUNCS.evaluate_round = function()
 
     pitch = pitch + 0.06
 
-    local jirachis = find_joker('jirachi_banker')
-    for i = 1, #jirachis do
-      add_round_eval_row({bonus = true, name='joker_jirachi'..i, pitch = pitch, dollars = dollars, card = jirachis[i]})
-      dollars = dollars + dollars
-    end
-    if G.GAME.modifiers.reset_no_interest then
-      G.GAME.modifiers.no_interest = nil
-    end
     if total_cashout_rows > 7 then
         local total_hidden = total_cashout_rows - 7
     

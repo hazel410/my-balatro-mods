@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'df368cff7b51c6c8344aa64f0f0fd7e558ab3efa7e1010a8f15dc33fd2f7bc73'
+LOVELY_INTEGRITY = '0109fd514e87be62e956ad0253afa4e7f60970a207b6c8e7d10c578f74f49eaf'
 
 --class
 Card = Moveable:extend()
@@ -330,15 +330,6 @@ function Card:set_ability(center, initial, delay_sprites)
     if self.ability and old_center and old_center.config.bonus then
         self.ability.bonus = self.ability.bonus - old_center.config.bonus
     end
-    if self.ability and old_center and old_center.config.card_limit and not self.from_quantum then
-        if self.area == G.hand and not self.debuff then
-          if G.hand.config.real_card_limit then
-            G.hand.config.real_card_limit = G.hand.config.real_card_limit - self.ability.card_limit
-          end
-          G.hand.config.card_limit = G.hand.config.card_limit - self.ability.card_limit
-        end
-        self.ability.card_limit = self.ability.card_limit - old_center.config.card_limit
-    end
     
     local new_ability = {
         name = center.name,
@@ -499,13 +490,8 @@ function Card:set_cost()
         self.cost = self.cost + 3
     end
     if (self.ability.set == 'Planet' or (self.ability.set == 'Booster' and self.ability.name:find('Celestial'))) and #find_joker('Astronomer') > 0 then self.cost = 0 end
-    if (self.ability.set == 'Planet' or (self.ability.set == 'Booster' and self.ability.name:find('Celestial'))) and #find_joker('gothita') > 0 then self.cost = math.max(0, self.cost - 2 * #find_joker('gothita')) end
-    if (self.ability.set == 'Planet' or (self.ability.set == 'Booster' and self.ability.name:find('Celestial'))) and #find_joker('gothorita') > 0 then self.cost = math.max(0, self.cost - 3 * #find_joker('gothorita')) end
-    if (self.ability.set == 'Planet' or (self.ability.set == 'Booster' and self.ability.name:find('Celestial'))) and #find_joker('gothitelle') > 0 then self.cost = 0 end
     if self.ability.rental then self.cost = 1 end
     self.sell_cost = math.max(1, math.floor(self.cost/2)) + (self.ability.extra_value or 0)
-    if self.sell_cost < 1 then self.sell_cost = 1 end
-    if self.ability.name == "unown" then self.sell_cost = 0 end
     if self.area and self.ability.couponed and (self.area == G.shop_jokers or self.area == G.shop_booster) then self.cost = 0 end
     self.sell_cost_label = self.facing == 'back' and '?' or self.sell_cost
 end
@@ -655,10 +641,8 @@ function Card:set_perishable(_perishable)
 end
 
 function Card:set_rental(_rental)
-    if self.config.center.rental_compat ~= false and not self.ability.rental then 
-        self.ability.rental = _rental
-        self:set_cost()
-    end
+    self.ability.rental = _rental
+    self:set_cost()
 end
 
 function Card:set_debuff(should_debuff)
@@ -695,13 +679,6 @@ function Card:set_debuff(should_debuff)
         end
         return
     end
-    if not should_debuff and self.area == G.hand and self.ability and self.ability.card_limit and self.debuff then
-      if G.hand.config.real_card_limit then
-        G.hand.config.real_card_limit = G.hand.config.real_card_limit + self.ability.card_limit
-      end
-      G.hand.config.card_limit = G.hand.config.card_limit + self.ability.card_limit
-      draw_card(G.deck,G.hand, nil,'up', true)
-    end
     if should_debuff ~= self.debuff then
         if self.area == G.jokers then if should_debuff then self:remove_from_deck(true) else self:add_to_deck(true) end end
         self.debuff = should_debuff
@@ -732,10 +709,6 @@ function Card:add_to_deck(from_debuff)
     end
     if not self.added_to_deck then
         self.added_to_deck = true
-        if self.config.shiny_on_add and not self.debuff then
-          self.config.shiny_on_add = false
-          SMODS.change_booster_limit(1)
-        end
         if self.ability.set == 'Enhanced' or self.ability.set == 'Default' then 
             if self.ability.name == 'Gold Card' and self.seal == 'Gold' and self.playing_card then 
                 check_for_unlock({type = 'double_gold'})
@@ -829,13 +802,6 @@ end
 function Card:remove_from_deck(from_debuff)
     if self.added_to_deck then
         self.added_to_deck = false
-        if self.edition and self.edition.poke_shiny and G.jokers then
-          if G.GAME.modifiers.poke_booster_packs then
-            G.GAME.modifiers.poke_booster_packs = G.GAME.modifiers.poke_booster_packs - 1
-          else
-            G.GAME.modifiers.poke_booster_packs = 0
-          end
-        end
         local obj = self.config.center
         if obj and obj.remove_from_deck and type(obj.remove_from_deck) == 'function' then
             obj:remove_from_deck(self, from_debuff)
@@ -921,7 +887,6 @@ function Card:generate_UIBox_ability_table(vars_only)
     elseif self.debuff then
         loc_vars = { debuffed = true, playing_card = not not self.base.colour, value = self.base.value, suit = self.base.suit, colour = self.base.colour }
     elseif card_type == 'Default' or card_type == 'Enhanced' then
-    poke_stabilize_chip_drain(self)
         local bonus_chips = self.ability.bonus + (self.ability.perma_bonus or 0)
         local total_h_dollars = self:get_h_dollars()
         loc_vars = { playing_card = not not self.base.colour, value = self.base.value, suit = self.base.suit, colour = self.base.colour,
@@ -938,12 +903,6 @@ function Card:generate_UIBox_ability_table(vars_only)
                     total_h_dollars = total_h_dollars ~= 0 and total_h_dollars or nil,
                     bonus_chips = bonus_chips ~= 0 and bonus_chips or nil,
                 }
-    if loc_vars.nominal_chips then
-      loc_vars.nominal_chips = loc_vars.nominal_chips - (self.ability.nominal_drain or 0)
-      if not loc_vars.bonus_chips and (self.ability.bonus ~= 0 or self.ability.perma_bonus ~= 0) then
-          loc_vars.bonus_chips = bonus_chips
-      end
-    end
     elseif self.ability.set == 'Joker' then -- all remaining jokers
         if self.ability.name == 'Joker' then loc_vars = {self.ability.mult}
         elseif self.ability.name == 'Jolly Joker' or self.ability.name == 'Zany Joker' or
@@ -1137,9 +1096,6 @@ function Card:generate_UIBox_ability_table(vars_only)
         elseif self.ability.name == 'Perkeo' then loc_vars = {self.ability.extra}
         end
     end
-    if vars_only and type(self.ability.loc_vars_replacement) == "table" then
-      loc_vars = self.ability.loc_vars_replacement
-    end
     if vars_only then return loc_vars, main_start, main_end end
     local badges = {}
     if (card_type ~= 'Locked' and card_type ~= 'Undiscovered' and card_type ~= 'Default') or self.debuff then
@@ -1204,7 +1160,6 @@ function Card:is_face(from_boss)
     if (id > 0 and rank and rank.face) or next(find_joker("Pareidolia")) then
         return true
     end
-    if next(SMODS.find_card('j_poke_probopass')) and self.ability.name == 'Stone Card' then return true end
 end
 
 function Card:get_original_rank()
@@ -1217,8 +1172,7 @@ function Card:get_chip_bonus()
     if self.ability.effect == 'Stone Card' or self.config.center.replace_base_card then
         return self.ability.bonus + (self.ability.perma_bonus or 0)
     end
-      poke_stabilize_chip_drain(self)
-      return self.base.nominal - self.ability.nominal_drain + self.ability.bonus + self.ability.perma_bonus
+    return self.base.nominal + self.ability.bonus + (self.ability.perma_bonus or 0)
 end
 
 function Card:get_chip_mult()
@@ -2008,11 +1962,6 @@ function Card:open()
             SMODS.OPENED_BOOSTER = self
         end
         G.GAME.pack_choices = self.ability.choose or self.config.center.config.choose or 1
-        if self.ability.name:find('Celestial') and next(find_joker("xatu")) then
-          self.ability.extra = #G.P_CENTER_POOLS.Planet
-        elseif G.GAME.extra_pocket_picks and G.GAME.extra_pocket_picks > 0 then
-          self.ability.extra = self.ability.extra + G.GAME.extra_pocket_picks
-        end
 
         if self.cost > 0 then 
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
@@ -2603,7 +2552,7 @@ end
 
 function Card:calculate_perishable()
     if self.ability.perishable and self.ability.perish_tally > 0 then
-        if self.ability.perish_tally and self.ability.perish_tally == 1 and not (self.ability and self.ability.extra and type(self.ability.extra) == 'table' and self.ability.extra.rounds and self.ability.extra.rounds <= 1) then
+        if self.ability.perish_tally == 1 then
             self.ability.perish_tally = 0
             card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize('k_disabled_ex'),colour = G.C.FILTER, delay = 0.45})
             self:set_debuff()
@@ -4901,10 +4850,6 @@ function Card:draw(layer)
                 end
                 if (self.edition and self.edition.negative) or (self.ability.name == 'Antimatter' and (self.config.center.discovered or self.bypass_discovery_center)) then
                     self.children.center:draw_shader('negative_shine', nil, self.ARGS.send_to_shader)
-                end
-                if (self.edition and self.edition.poke_shiny) and self.config.center and type(self.config.center) == "table" and not (self.config.center.stage or self.config.center.shiny) 
-                and self.label ~= "e_poke_shiny" then
-                    self.children.center:draw_shader('poke_shiny', nil, self.ARGS.send_to_shader)
                 end
                 if self.seal then
                     G.shared_seals[self.seal].role.draw_major = self

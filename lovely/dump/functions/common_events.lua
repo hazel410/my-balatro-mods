@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'fcb245c885b047f0c193503e24a8f9ffe206427be870c68117ebb06f02c46dbd'
+LOVELY_INTEGRITY = 'ca27384bc34f8f93cdfcb744a454257bf4f23b4af5c378930c768ee6b6ef68dc'
 
 function set_screen_positions()
     if G.STAGE == G.STAGES.RUN then
@@ -899,10 +899,6 @@ function card_eval_status_text(card, eval_type, amt, percent, dir, extra)
         y_off = -0.05*G.CARD_H
         card_aligned = 'tm'
     elseif card.jimbo  then
-        y_off = -0.05*G.CARD_H
-        card_aligned = 'tm'
-    end
-    if card.area == G.scry_view then
         y_off = -0.05*G.CARD_H
         card_aligned = 'tm'
     end
@@ -2235,10 +2231,6 @@ local rarity = _rarity or SMODS.poll_rarity("Joker", 'rarity'..G.GAME.round_rese
 
             if v.no_pool_flag and G.GAME.pool_flags[v.no_pool_flag] then add = nil end
             if v.yes_pool_flag and not G.GAME.pool_flags[v.yes_pool_flag] then add = nil end
-            if v.set == 'Joker' and not v.stage and pokermon_config and pokermon_config.pokemon_only then add = nil end
-            if v.set == 'Joker' and v.stage and not get_gen_allowed(v) then add = nil end
-            if v.set == 'Joker' and v.stage and pokermon_config and not pokermon_config.hazards_on and v.hazard_poke then add = nil end
-            if add and v.set == 'Joker' and v.stage and poke_family_present(v) then add = nil end
             
             if v.in_pool and type(v.in_pool) == 'function' then
                 add = in_pool and (add or pool_opts.override_base_checks)
@@ -2355,8 +2347,6 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
      discover = SMODS.bypass_create_card_discover or area==G.jokers or area==G.consumeables, 
      bypass_back = G.GAME.selected_back.pos})
     if card.ability.consumeable and not skip_materialize then card:start_materialize() end
-    if front and G.GAME.modifiers.poke_force_seal then card:set_seal(G.GAME.modifiers.poke_force_seal) end
-    if _type == 'Joker' and G.GAME.modifiers.apply_type then apply_type_sticker(card); energy_increase(card, type_sticker_applied(card)) end
     for k, v in ipairs(SMODS.Sticker.obj_buffer) do
         local sticker = SMODS.Stickers[v]
         if sticker.should_apply and type(sticker.should_apply) == 'function' and sticker:should_apply(card, center, area) then
@@ -2394,20 +2384,12 @@ function copy_card(other, new_card, card_scale, playing_card, strip_edition)
     new_card:set_ability(other.config.center)
     new_card.ability.type = other.ability.type
     new_card:set_base(other.config.card)
-    if other.config.center.name == "smeargle" then
-      other.ability.extra.copy_joker = nil
-      other.ability.extra.copy_pos = 0
-    end
     for k, v in pairs(other.ability) do
         if type(v) == 'table' then 
             new_card.ability[k] = copy_table(v)
         else
             new_card.ability[k] = v
         end
-    end
-    if other.config.center.name == "ruins_of_alph" then
-      new_card.ability.extra.forms = {}
-      new_card.ability.extra.merged = 0
     end
 
     if not strip_edition then 
@@ -2458,7 +2440,7 @@ function tutorial_info(args)
       }
     G.OVERLAY_TUTORIAL.step = G.OVERLAY_TUTORIAL.step or 1
     G.OVERLAY_TUTORIAL.step_complete = false
-    local row_dollars_chips = G.HUD and G.HUD:get_UIE_by_ID('row_dollars_chips')
+    local row_dollars_chips = G.HUD:get_UIE_by_ID('row_dollars_chips')
     local align = args.align or "tm"
     local step = args.step or 1
     local attach = args.attach or {major = row_dollars_chips, type = 'tm', offset = {x=0, y=-0.5}}
@@ -3087,9 +3069,6 @@ function generate_card_ui(_c, full_UI_table, specific_vars, card_type, badges, h
 
     if main_end then 
         desc_nodes[#desc_nodes+1] = main_end 
-    end
-    if (_c.set == 'Item' or _c.set == 'Energy') and _c.poke_add_desc then
-      localize{type = 'descriptions', key = _c.key, set = _c.set, nodes = desc_nodes, vars = loc_vars}
     end
 
    if card_type == 'Default' or card_type == 'Enhanced' and not _c.replace_base_card and card and card.base then

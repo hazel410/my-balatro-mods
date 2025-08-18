@@ -1,14 +1,10 @@
-LOVELY_INTEGRITY = '121c519dbc0705cd6c27b761df2a14c8088d875aa28feb1921668cebed43fd56'
+LOVELY_INTEGRITY = '9233856989c2cde28f2cc497381bc62ec6d5860fa94182bb264eaf2d97556418'
 
 ---@class Controller
 Controller = Object:extend()
 
 --The controller contains all engine logic for how human input interacts with any game objects.
 function Controller:init()
-    -- Double-click detection variables
-    self.last_click_target = nil
-    self.last_click_time = 0
-    self.DOUBLE_CLICK_WINDOW = 0.3
 
 --Each of these are calculated per frame to pass along to the corresponding nodes for input handling
 self.clicked = {target = nil, handled = true, prev_target = nil} --The node that was clicked this frame
@@ -195,10 +191,6 @@ end
 
 --Called every game logic update frame
 function Controller:update(dt)
-    -- 每一帧都调用触发检查函数 (替代SMODS.register_hook)
-    if G.FUNCS.check_double_click_trigger then
-        G.FUNCS.check_double_click_trigger()
-    end
 
     --parse all locks and set
     self.locked = false
@@ -794,7 +786,6 @@ function Controller:key_press_update(key, dt)
     if string.sub(key, 1, 2) == 'kp' then key = string.sub(key, 3) end
     if key == 'enter' then key = 'return' end
 
-    Brainstorm.key_press_update(key)
     if self.text_input_hook then
         if key == "escape" then
             self.text_input_hook = nil
@@ -1118,45 +1109,22 @@ function Controller:L_cursor_press(x, y)
 
     if ((self.locked) and (not G.SETTINGS.paused or G.screenwipe)) or (self.locks.frame) then return end
 
-    -- 双击检测逻辑开始
-    local current_time = love.timer.getTime() -- 使用引擎计时器
-    local press_node = (self.HID.touch and self.cursor_hover.target) or self.hovering.target or self.focused.target
-
-    if self.last_click_target and
-       self.last_click_target == press_node and
-       current_time - self.last_click_time <= self.DOUBLE_CLICK_WINDOW and
-       press_node and press_node.is and press_node:is(Card)
-    then
-        -- 条件满足，确认为双击！
-        G.double_clicked_card = press_node
-
-        -- 重置状态并阻止后续的单击/拖拽
-        self.last_click_target = nil
-        self.last_click_time = 0
-        return
-    else
-        -- 记录为第一次单击
-        self.last_click_target = press_node
-        self.last_click_time = current_time
-    end
-    -- 双击检测逻辑结束
-
-    -- 如果不是双击，则执行游戏原有的单击按下逻辑
-    self.cursor_down.T = {x = x / (G.TILESCALE * G.TILESIZE), y = y / (G.TILESCALE * G.TILESIZE)}
+    self.cursor_down.T = {x = x/(G.TILESCALE*G.TILESIZE), y = y/(G.TILESCALE*G.TILESIZE)}
     self.cursor_down.time = G.TIMERS.TOTAL
     self.cursor_down.handled = false
     self.cursor_down.target = nil
     self.is_cursor_down = true
 
-    if press_node then
+    local press_node =  (self.HID.touch and self.cursor_hover.target) or self.hovering.target or self.focused.target
+
+    if press_node then 
         self.cursor_down.target = press_node.states.click.can and press_node or press_node:can_drag() or nil
     end
 
-    if self.cursor_down.target == nil then
+    if self.cursor_down.target == nil then 
         self.cursor_down.target = G.ROOM
     end
 end
-
 
 function Controller:L_cursor_release(x, y)
     x = x or self.cursor_position.x

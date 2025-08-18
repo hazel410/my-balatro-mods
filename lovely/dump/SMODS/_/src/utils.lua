@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = 'ebdfdd6f146af1ee8c12e915fedf9c7d280256fe57898551a7c9d06148e27d69'
+LOVELY_INTEGRITY = 'b28025fc20cf92f8452fb762153f62ed84877ed38c1c2a11ae2c75e3115ff1a5'
 
 --- STEAMODDED CORE
 --- UTILITY FUNCTIONS
@@ -2040,9 +2040,6 @@ function SMODS.get_card_areas(_type, _context)
         if SMODS.optional_features.cardareas.deck then t[#t+1] = G.deck end
         if SMODS.optional_features.cardareas.discard then t[#t+1] = G.discard end
         -- TARGET: add your own CardAreas for playing card evaluation
-        if G.scry_view and G.scry_view.cards then
-            t[#t+1] = G.scry_view
-        end
         return t
     end
     if _type == 'jokers' then

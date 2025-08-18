@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '6d9017a9b1d54cfe181899a8edbb0146edb6a245fc943187249904aef2d30ff6'
+LOVELY_INTEGRITY = 'f7094aac25b5a9d789ce59be6eb4e09241a538993a14f5af02b125d4b8e396ff'
 
 --Create a global UIDEF that contains all UI definition functions\
 --As a rule, these contain functions that return a table T representing the definition for a UIBox
@@ -374,18 +374,9 @@ function G.UIDEF.card_focus_ui(card)
   end
   if ((card.area == G.consumeables and G.consumeables) or (card.area == G.pack_cards and G.pack_cards)) and
   card.ability.consumeable then --Add a use button
-    local reserve_and_use = nil
-    if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.label:find("Pocket")) or (G.GAME.poke_save_all and not SMODS.OPENED_BOOSTER.label:find("Wish")) 
-    or (card.ability.name == 'megastone') then
-      base_attach.children.reserve = G.UIDEF.card_focus_button{
-        card = card, parent = base_attach, type = 'reserve',
-        func = 'can_reserve_card', button = 'Can Reserve', card_width = card_width
-      }
-      reserve_and_use = true
-    end
     base_attach.children.use = G.UIDEF.card_focus_button{
       card = card, parent = base_attach, type = 'use',
-      func = 'can_use_consumeable', button = 'use_card', card_width = card_width, reserve_and_use = reserve_and_use
+      func = 'can_use_consumeable', button = 'use_card', card_width = card_width
     }
   end
   if (card.area == G.pack_cards and G.pack_cards) and not card.ability.consumeable then --Add a use button
@@ -427,13 +418,6 @@ function G.UIDEF.card_focus_button(args)
     button_contents = {n=G.UIT.T, config={text = localize('b_redeem'),colour = G.C.WHITE, scale = 0.5}}
   elseif args.type == 'use' then
     button_contents = {n=G.UIT.T, config={text = localize('b_use'),colour = G.C.WHITE, scale = 0.5}}
-    elseif args.type == 'reserve' then
-      button_contents = 
-      {n=G.UIT.C, config={align = "cr"}, nodes={
-        {n=G.UIT.R, config={align = "cr", maxw = 1}, nodes={
-          {n=G.UIT.T, config={text = localize('b_save'),colour = G.C.UI.TEXT_LIGHT, scale = 0.4, shadow = true}}
-        }},
-      }}
   elseif args.type == 'buy_and_use' then
     button_contents = 
     {n=G.UIT.C, config={align = "cr"}, nodes={
@@ -452,7 +436,7 @@ function G.UIDEF.card_focus_button(args)
       {n=G.UIT.ROOT, config = {align = 'cm', colour = G.C.CLEAR}, nodes={
         {n=G.UIT.R, config={id = args.type == 'buy_and_use' and 'buy_and_use' or nil, ref_table = args.card, ref_parent = args.parent, align =  args.type == 'sell' and 'cl' or 'cr', colour = G.C.BLACK, shadow = true, r = 0.08, func = args.func, one_press = true, button = args.button, focus_args = {type = 'none'}, hover = true}, nodes={
           {n=G.UIT.R, config={align = args.type == 'sell' and 'cl' or 'cr', minw = 1 + (args.type == 'select' and 0.1 or 0), minh = args.type == 'sell' and 1.5 or 1, padding = 0.08,
-              focus_args = {button = args.type == 'sell' and 'leftshoulder' or args.type == 'buy_and_use' and 'leftshoulder' or args.type == 'reserve' and 'leftshoulder' or 'rightshoulder', scale = 0.55, orientation = args.type == 'sell' and 'tli' or 'tri', offset = {x = args.type == 'sell' and 0.1 or -0.1, y = 0}, type = 'none'},
+              focus_args = {button = args.type == 'sell' and 'leftshoulder' or args.type == 'buy_and_use' and 'leftshoulder' or 'rightshoulder', scale = 0.55, orientation = args.type == 'sell' and 'tli' or 'tri', offset = {x = args.type == 'sell' and 0.1 or -0.1, y = 0}, type = 'none'},
               func = 'set_button_pip'}, nodes={
             {n=G.UIT.R, config={align = "cm", minh = 0.3}, nodes={}},
             {n=G.UIT.R, config={align = "cm"}, nodes={
@@ -467,7 +451,7 @@ function G.UIDEF.card_focus_button(args)
       }}, 
     config = {
         align = args.type == 'sell' and 'cl' or 'cr',
-        offset = {x=(args.type == 'sell' and -1 or 1)*((args.card_width or 0) - 0.17 - args.card.T.w/2),y=args.type == 'buy_and_use' and 0.6 or (args.buy_and_use) and -0.6 or args.type == 'reserve' and 0.6 or (args.reserve_and_use) and -0.6 or 0}, 
+        offset = {x=(args.type == 'sell' and -1 or 1)*((args.card_width or 0) - 0.17 - args.card.T.w/2),y=args.type == 'buy_and_use' and 0.6 or (args.buy_and_use) and -0.6 or 0}, 
         parent = args.parent,
       }
   }
@@ -2463,7 +2447,21 @@ end
 function G.UIDEF.settings_tab(tab)
   if tab == 'Game' then
     return {n=G.UIT.ROOT, config={align = "cm", padding = 0.05, colour = G.C.CLEAR}, nodes={
-      create_option_cycle({label = localize('b_set_gamespeed'),scale = 0.8, options = {0.5, 1, 2, 4, 8, 16, 32}, opt_callback = 'change_gamespeed', current_option = (G.SETTINGS.GAMESPEED == 0.5 and 1 or G.SETTINGS.GAMESPEED == 4 and 4 or G.SETTINGS.GAMESPEED == 8 and 5 or G.SETTINGS.GAMESPEED == 16 and 6 or G.SETTINGS.GAMESPEED == 32 and 7 or G.SETTINGS.GAMESPEED + 1)}),
+      create_option_cycle({
+            label = localize("b_set_gamespeed"),
+            scale = 0.8,
+            options = { 0.5, 1, 2, 4, 8, 16 },
+            opt_callback = "change_gamespeed",
+            current_option = (
+              G.SETTINGS.GAMESPEED == 0.5 and 1
+              or G.SETTINGS.GAMESPEED == 1 and 2
+              or G.SETTINGS.GAMESPEED == 2 and 3
+              or G.SETTINGS.GAMESPEED == 4 and 4
+              or G.SETTINGS.GAMESPEED == 8 and 5
+              or G.SETTINGS.GAMESPEED == 16 and 6
+              or 4
+            ),
+          }),
       create_option_cycle({w = 5, label = localize('b_set_play_discard_pos'),scale = 0.8, options = localize('ml_play_discard_pos_opt'), opt_callback = 'change_play_discard_position', current_option = (G.SETTINGS.play_button_pos)}),
       G.F_RUMBLE and create_toggle({label = localize('b_set_rumble'), ref_table = G.SETTINGS, ref_value = 'rumble'}) or nil,
       create_slider({label = localize('b_set_screenshake'),w = 4, h = 0.4, ref_table = G.SETTINGS, ref_value = 'screenshake', min = 0, max = 100}),

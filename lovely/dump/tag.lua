@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '2092b22b52b3c055a0cedcbb0777504d290646682d00741b44450831da3d4799'
+LOVELY_INTEGRITY = '60da46619652e6e1c645c6e7113d3740cf8c1c1080cc5e9ade809a3159a22691'
 
 --Class
 Tag = Object:extend()
@@ -334,7 +334,7 @@ function Tag:apply_to_run(_context)
                 self.triggered = true
             end
         elseif _context.type == 'tag_add' then 
-            if self.name == 'Double Tag' and _context.tag.key ~= 'tag_double' and _context.tag.key ~= 'tag_poke_jirachi_tag' then
+            if self.name == 'Double Tag' and _context.tag.key ~= 'tag_double' then
                 local lock = self.ID
                 G.CONTROLLER.locks[lock] = true
                 self:yep('+', G.C.BLUE,function()

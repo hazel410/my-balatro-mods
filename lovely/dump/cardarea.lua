@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '16b8a627bde76ddc76e0f11ede6a065735f4159910457c7e7744a0f7bba93054'
+LOVELY_INTEGRITY = '3f76e8bd3c93d6ed6da7485bcd34e1c5985d64a537a8815ee285cb5f67b47370'
 
 --Class
 CardArea = Moveable:extend()
@@ -35,10 +35,6 @@ function CardArea:emplace(card, location, stay_flipped)
 if self == G.jokers then
     Cartomancer.handle_joker_added(card)
 end
-    if not card.debuff and card.ability and card.ability.card_limit and (self == G.hand) then
-        self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) + card.ability.card_limit
-        self.config.card_limit = math.max(0, self.config.real_card_limit)
-    end
     if not card.debuff and card.edition and card.edition.card_limit and (self == G.hand) then
         self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) + card.edition.card_limit
         self.config.card_limit = math.max(0, self.config.real_card_limit)
@@ -46,12 +42,7 @@ end
     if location == 'front' or self.config.type == 'deck' then 
         table.insert(self.cards, 1, card)
     else
-          
-        if type(location) == "number" then
-          table.insert(self.cards, location, card)
-        else
-          self.cards[#self.cards+1] = card
-        end
+        self.cards[#self.cards+1] = card
     end
     if card.facing == 'back' and self.config.type ~= 'discard' and self.config.type ~= 'deck' and not stay_flipped then
         card:flip()
@@ -100,10 +91,6 @@ function CardArea:remove_card(card, discarded_only)
         if self.cards[i] == card then
             if not card.debuff and card.edition and card.edition.card_limit and (self == G.hand) then
                 self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) - card.edition.card_limit
-                self.config.card_limit = math.max(0, self.config.real_card_limit)
-            end
-            if not card.debuff and card.ability and card.ability.card_limit and (self == G.hand) then
-                self.config.real_card_limit = (self.config.real_card_limit or self.config.card_limit) - card.ability.card_limit
                 self.config.card_limit = math.max(0, self.config.real_card_limit)
             end
             card:remove_from_area()
@@ -385,7 +372,7 @@ function CardArea:draw()
             end
         end
 
-        if self.config.type == 'hand' or self.config.type == 'scry' or self.config.type == 'play' or self.config.type == 'title' or self.config.type == 'voucher' then
+        if self.config.type == 'hand' or self.config.type == 'play' or self.config.type == 'title' or self.config.type == 'voucher' then 
             for i = 1, #self.cards do 
                 if self.cards[i] ~= G.CONTROLLER.focused.target or self == G.hand then
                     if G.CONTROLLER.dragging.target ~= self.cards[i] then self.cards[i]:draw(v) end
@@ -506,7 +493,9 @@ function CardArea:align_cards()
         end
         table.sort(self.cards, function (a, b) return a.T.x + a.T.w/2 < b.T.x + b.T.w/2 end)
     end  
-    if self.config.type == 'scry' or self.config.type == 'hand' and not (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+    if self.config.type == 'hand' and not (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+        local max_cards_override = (Cartomancer.SETTINGS.dynamic_hand_align and self.config.temp_limit - #self.cards > 5) and math.max(#self.cards, math.min(10, self.config.temp_limit))
+
 
         for k, card in ipairs(self.cards) do
             if not card.states.drag.is then 
