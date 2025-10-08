@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '5de8c5f5eee43e4ba9c50f712d14acd44a35382b535d42ecf34d8f90684294cf'
+LOVELY_INTEGRITY = '0109fd514e87be62e956ad0253afa4e7f60970a207b6c8e7d10c578f74f49eaf'
 
 --class
 Card = Moveable:extend()
@@ -492,8 +492,7 @@ function Card:set_cost()
     if (self.ability.set == 'Planet' or (self.ability.set == 'Booster' and self.ability.name:find('Celestial'))) and #find_joker('Astronomer') > 0 then self.cost = 0 end
     if self.ability.rental then self.cost = 1 end
     self.sell_cost = math.max(1, math.floor(self.cost/2)) + (self.ability.extra_value or 0)
-    if self.area and self.ability.couponed and (self.area == G.shop_jokers or self.area == G.shop_booster) then self.cost = 0 end  if self.edition and self.edition.type == 'mp_phantom' then self.sell_cost = 0 end
-  if self.ability.name == 'j_mp_lets_go_gambling' then self.sell_cost = -1 end
+    if self.area and self.ability.couponed and (self.area == G.shop_jokers or self.area == G.shop_booster) then self.cost = 0 end
     self.sell_cost_label = self.facing == 'back' and '?' or self.sell_cost
 end
 
@@ -1679,11 +1678,7 @@ function Card:use_consumeable(area, copier)
         for k, v in pairs(G.jokers.cards) do
             if not SMODS.is_eternal(v, self) then deletable_jokers[#deletable_jokers + 1] = v end
         end
-        local copyable_jokers = {}
-            for i, v in ipairs(G.jokers.cards) do
-              if not G.jokers.cards[i].edition or G.jokers.cards[i].edition.type ~= "mp_phantom" then copyable_jokers[#copyable_jokers + 1] = v end
-            end
-            local chosen_joker = pseudorandom_element(copyable_jokers, pseudoseed('ankh_choice'))
+        local chosen_joker = pseudorandom_element(G.jokers.cards, pseudoseed('ankh_choice'))
         local _first_dissolve = nil
         G.E_MANAGER:add_event(Event({trigger = 'before', delay = 0.75, func = function()
             for k, v in pairs(deletable_jokers) do
@@ -1790,11 +1785,7 @@ function Card:can_use_consumeable(any_state, skip_check)
         end
         if self.ability.name == 'Ankh' then
             --if there is at least one joker
-             local copyable_jokers = {}
-      for i, v in ipairs(G.jokers.cards) do
-        if not G.jokers.cards[i].edition or G.jokers.cards[i].edition.type ~= "mp_phantom" then copyable_jokers[#copyable_jokers + 1] = v end
-      end
-      for k, v in pairs(copyable_jokers) do
+            for k, v in pairs(G.jokers.cards) do
                 if v.ability.set == 'Joker' and G.jokers.config.card_limit > 1 then 
                     return true
                 end
@@ -1910,9 +1901,6 @@ function Card:sell_card()
 end
 
 function Card:can_sell_card(context)
-if self.config.center.key == "j_mp_hanging_bad" and is_pvp_boss() then
-  return false
-end
     if (G.play and #G.play.cards > 0) or
         (G.CONTROLLER.locked) or 
         (G.GAME.STOP_USE and G.GAME.STOP_USE > 0) --or 
@@ -2673,7 +2661,7 @@ function Card:calculate_joker(context)
                                     juice_card_until(self, eval, true)
                 local jokers = {}
                 for i=1, #G.jokers.cards do 
-                    if G.jokers.cards[i] ~= self and (not G.jokers.cards[i].edition or G.jokers.cards[i].edition.type ~= "mp_phantom") then
+                    if G.jokers.cards[i] ~= self then
                         jokers[#jokers+1] = G.jokers.cards[i]
                     end
                 end

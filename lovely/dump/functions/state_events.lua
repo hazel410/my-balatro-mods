@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '2496b18142f80731d7ac4b5ad7665035dbb8d086a097015cc05857a2258141eb'
+LOVELY_INTEGRITY = '08970dcbfdfd37f085b9a9e08d72c6875c4714351a8511ee4d001c5cb3a9390a'
 
 function win_game()
     if (not G.GAME.seeded and not G.GAME.challenge) or SMODS.config.seeded_unlocks then
@@ -90,7 +90,7 @@ function end_round()
     G.E_MANAGER:add_event(Event({
       trigger = 'after',
       delay = 0.2,
-       func = G.LOBBY.code and G.MULTIPLAYER.end_round or function()
+      func = function()
         G.GAME.blind.in_blind = false
         local game_over = true
         local game_won = false
@@ -946,16 +946,6 @@ G.FUNCS.evaluate_round = function()
         check_for_unlock({type = 'interest_streak'})
         dollars = dollars + G.GAME.interest_amount*math.min(math.floor(G.GAME.dollars/5), G.GAME.interest_cap/5)
     end
-  if not G.MULTIPLAYER_GAME.comeback_bonus_given then
-		G.MULTIPLAYER_GAME.comeback_bonus_given = true
-		add_round_eval_row({
-			bonus = true,
-			name = "comeback",
-			pitch = pitch,
-			dollars = 4 * G.MULTIPLAYER_GAME.comeback_bonus,
-		})
-		dollars = dollars + 4 * G.MULTIPLAYER_GAME.comeback_bonus
-	end
 
     pitch = pitch + 0.06
 

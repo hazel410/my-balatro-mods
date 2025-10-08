@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '67f20bd9308658c3d374c9d85d5312283d29a47a736c27c3dac12dace4f31ac3'
+LOVELY_INTEGRITY = '07038140e94c06a187eecf7cab1d8189b9b5a3d436a3a3a19f9eb8f4fd2071ee'
 
 --Class
 Game = Object:extend()
@@ -156,6 +156,7 @@ function Game:start_up()
     end
 
     self:load_profile(G.SETTINGS.profile or 1)
+    initBrainstorm()
 
     self.SETTINGS.QUEUED_CHANGE = {}
     self.SETTINGS.music_control = {desired_track = '', current_track = '', lerp = 1} 
@@ -2258,14 +2259,7 @@ function Game:start_run(args)
         CAI.consumeable_H, 
         {card_limit = self.GAME.starting_params.consumable_slots, type = 'joker', highlight_limit = 1})
 
-    if G.LOBBY.code then 
-      self.shared = CardArea(
-        0, CAI.consumeable_H + 0.3,
-        CAI.consumeable_W / 2,
-        CAI.consumeable_H, 
-        {card_limit = 0, type = 'joker', highlight_limit = 1})
-    end
-self.jokers = CardArea(
+    self.jokers = CardArea(
         0, 0,
         CAI.joker_W,
         CAI.joker_H, 
@@ -2497,6 +2491,7 @@ function Game:update(dt)
     G.MAJORS = 0
     G.MINORS = 0
 
+    Brainstorm.update(dt)
     G.FRAMES.MOVE = G.FRAMES.MOVE + 1
                 timer_checkpoint('start->discovery', 'update')
     if not G.SETTINGS.tutorial_complete then G.FUNCS.tutorial_controller() end
@@ -2990,6 +2985,12 @@ function Game:draw()
 end
 love.graphics.pop()
     
+    if Brainstorm.SETTINGS.debug_mode == true then 
+      love.graphics.push()
+      love.graphics.setColor(G.C.DARK_EDITION[1],G.C.DARK_EDITION[2],G.C.DARK_EDITION[3],1)
+      love.graphics.print("BRAINSTORM DEBUG_MODE", 10, -40)
+      love.graphics.pop()
+    end
     love.graphics.setCanvas(G.AA_CANVAS)
     love.graphics.push()
         love.graphics.setColor(G.C.WHITE)
@@ -3361,8 +3362,7 @@ function Game:update_round_eval(dt)
     if self.buttons then self.buttons:remove(); self.buttons = nil end
     if self.shop then self.shop:remove(); self.shop = nil end
 
-     if not G.STATE_COMPLETE and not G.MULTIPLAYER_GAME.prevent_eval then
-        G.MULTIPLAYER_GAME.prevent_eval = true
+    if not G.STATE_COMPLETE then
         stop_use()
         G.STATE_COMPLETE = true
         G.E_MANAGER:add_event(Event({

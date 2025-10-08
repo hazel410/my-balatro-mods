@@ -1,4 +1,4 @@
-LOVELY_INTEGRITY = '830e673d44b8242b9281ccb33ff40f6f84b5b188290f77a89cec4dd40a4b3737'
+LOVELY_INTEGRITY = 'ca27384bc34f8f93cdfcb744a454257bf4f23b4af5c378930c768ee6b6ef68dc'
 
 function set_screen_positions()
     if G.STAGE == G.STAGES.RUN then
@@ -13,10 +13,6 @@ function set_screen_positions()
 
         G.consumeables.T.x = G.jokers.T.x + G.jokers.T.w + 0.2
         G.consumeables.T.y = 0
-        if G.shared then
-          G.shared.T.x = G.consumeables.T.x + (G.consumeables.T.w / 2)
-          G.shared.T.y = G.consumeables.T.y + G.consumeables.T.h + 0.4
-        end
 
         G.deck.T.x = G.TILE_W - G.deck.T.w - 0.5
         G.deck.T.y = G.TILE_H - G.deck.T.h
@@ -1117,32 +1113,6 @@ function add_round_eval_row(config)
                     blind_sprite:juice_up()
                     table.insert(left_text, {n=G.UIT.O, config={w=0.7,h=0.7 , object = blind_sprite, hover = true, can_collide = false}})
                     table.insert(left_text, {n=G.UIT.O, config={object = DynaText({string = {config.condition}, colours = {G.C.UI.TEXT_LIGHT}, shadow = true, pop_in = 0, scale = 0.4*scale, silent = true})}})                   
-                elseif config.name == "comeback" then
-                  table.insert(left_text, {
-                    n = G.UIT.T,
-                    config = {
-                      text = G.MULTIPLAYER_GAME.comeback_bonus,
-                      scale = 0.8 * scale,
-                      colour = G.C.PURPLE,
-                      shadow = true,
-                      juice = true,
-                    },
-                  })
-                  table.insert(left_text, {
-                    n = G.UIT.O,
-                    config = {
-                      object = DynaText({
-                        string = {
-                          localize("total_lives_lost"),
-                        },
-                        colours = { G.C.UI.TEXT_LIGHT },
-                        shadow = true,
-                        pop_in = 0,
-                        scale = 0.4 * scale,
-                        silent = true,
-                      }),
-                    },
-                  })
                 elseif config.name == 'hands' then
                     table.insert(left_text, {n=G.UIT.T, config={text = config.disp or config.dollars, scale = 0.8*scale, colour = G.C.BLUE, shadow = true, juice = true}})
                     table.insert(left_text, {n=G.UIT.O, config={object = DynaText({string = {" "..localize{type = 'variable', key = 'remaining_hand_money', vars = {G.GAME.modifiers.money_per_hand or 1}}}, colours = {G.C.UI.TEXT_LIGHT}, shadow = true, pop_in = 0, scale = 0.4*scale, silent = true})}})
