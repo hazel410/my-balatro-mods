@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Ora",
 			['sysclock_settings_tab'] = "Orologio",
 			['sysclock_name'] = "Orologio di Sistema",
+			['sysclock_right_click_tooltip'] = {
+				"Click destro per",
+				"aprire le impostazioni"
+			},
 			['sysclock_visibility_setting'] = "Mostra orologio",
+			['sysclock_persistent_setting'] = "Mostra nei menu",
 			['sysclock_draggable_setting'] = "Consenti trascinamento",
 			['sysclock_preset_setting'] = 'Preimpostazione',
 			['sysclock_preset_default_button'] = 'Ripristina predefinito',
@@ -40,8 +46,9 @@ return {
 				"Semplice",
 				"Ombra",
 				"Traslucido",
+				"Rilievo",
 				"Pannello",
-				"Rilievo"
+				"Rilancio"
 			},
 			['sysclock_colours'] = {
 				"Bianco",
@@ -61,9 +68,12 @@ return {
 				"Viola",
 				"Lavanda",
 				"Rosa",
-				"Arcobaleno",
-				"Dinamico",
-				"Dinamico scuro"
+				"Edizione",
+				"Edizione scuro",
+				"Buio",
+				"Buio scuro",
+				"Boss",
+				"Boss scuro"
 			}
 		}
 	}

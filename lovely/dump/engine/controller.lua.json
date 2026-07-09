@@ -1,0 +1,122 @@
+{
+  "buffer_name": "engine/controller.lua",
+  "entries": [
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\ui.toml",
+        "pattern": "function Controller:key_press_update(key, dt)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 780,
+          "end_line": 782
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\ui_overflow.toml",
+        "pattern": "if v:collides_with_point(cursor_trans) and not v.REMOVED then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 1042,
+          "end_line": 1042
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\edition.toml",
+        "pattern": "(?<indent>[\\t ]*)local _edition = \\{\n[\\t ]*foil = not _card\\.edition,\n[\\t ]*holo = _card\\.edition and _card\\.edition\\.foil,\n[\\t ]*polychrome = _card\\.edition and _card\\.edition\\.holo,\n[\\t ]*negative = _card\\.edition and _card\\.edition\\.polychrome,\n[\\t ]*\\}",
+        "patch_type": "regex"
+      },
+      "regions": [
+        {
+          "start_line": 874,
+          "end_line": 885
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\keybind.toml",
+        "pattern": "if not _RELEASE_MODE then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 821,
+          "end_line": 834
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\keybind.toml",
+        "pattern": "function Controller:key_release_update(key, dt)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 977,
+          "end_line": 990
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\keybind.toml",
+        "pattern": "if key == \"r\"",
+        "patch_type": "regex"
+      },
+      "regions": [
+        {
+          "start_line": 932,
+          "end_line": 950
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Brainstorm\\lovely.toml",
+        "pattern": "if self.text_input_hook then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 787,
+          "end_line": 787
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Saturn-alpha-0.2.2-E-qf3\\lovely\\core.toml",
+        "pattern": "self.cursor_down = {T = {x=0, y=0}, target = nil, time = 0, handled = true}",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 17,
+          "end_line": 21
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\keybinds.toml",
+        "pattern": "function Controller:key_press_update(key, dt)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 774,
+          "end_line": 779
+        }
+      ]
+    }
+  ]
+}

@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Tijd",
 			['sysclock_settings_tab'] = "Klok",
 			['sysclock_name'] = "Systeemklok",
+			['sysclock_right_click_tooltip'] = {
+				"Rechtsklik om",
+				"instellingen te openen"
+			},
 			['sysclock_visibility_setting'] = "Toon klok",
+			['sysclock_persistent_setting'] = "Weergeven in menu's",
 			['sysclock_draggable_setting'] = "Slepen toestaan",
 			['sysclock_preset_setting'] = 'Voorinstelling',
 			['sysclock_preset_default_button'] = 'Standaard herstellen',
@@ -40,8 +46,9 @@ return {
 				"Eenvoudig",
 				"Schaduw",
 				"Transparant",
+				"Preg",
 				"Paneel",
-				"Geëmbosseerd"
+				"Terugworp"
 			},
 			['sysclock_colours'] = {
 				"Wit",
@@ -61,9 +68,12 @@ return {
 				"Paars",
 				"Lavendel",
 				"Roze",
-				"Regenboog",
-				"Dynamisch",
-				"Dynamisch donker"
+				"Editie",
+				"Editie donker",
+				"Blind",
+				"Blind donker",
+				"Baas",
+				"Baas donker"
 			}
 		}
 	}

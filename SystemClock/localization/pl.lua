@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Czas",
 			['sysclock_settings_tab'] = "Zegar",
 			['sysclock_name'] = "Zegar Systemowy",
+			['sysclock_right_click_tooltip'] = {
+				"Prawy klik, aby",
+				"otworzyć ustawienia"
+			},
 			['sysclock_visibility_setting'] = "Pokaż zegar",
+			['sysclock_persistent_setting'] = "Pokaż w menu",
 			['sysclock_draggable_setting'] = "Zezwól na przeciąganie",
 			['sysclock_preset_setting'] = 'Ustawienie wstępne',
 			['sysclock_preset_default_button'] = 'Przywróć domyślny',
@@ -40,8 +46,9 @@ return {
 				"Prosty",
 				"Cień",
 				"Przezroczysty",
+				"Wyryć",
 				"Panel",
-				"Wytłoczony"
+				"Odrzut"
 			},
 			['sysclock_colours'] = {
 				"Biały",
@@ -61,9 +68,12 @@ return {
 				"Fioletowy",
 				"Lawendowy",
 				"Różowy",
-				"Tęczowy",
-				"Dynamiczny",
-				"Dynamiczny ciemny"
+				"Wersja",
+				"Wersja ciemny",
+				"Przeszkadzajkę",
+				"Przeszkadzajkę ciemny",
+				"Bossa",
+				"Bossa ciemny"
 			}
 		}
 	}

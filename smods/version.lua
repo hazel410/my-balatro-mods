@@ -1,1 +1,0 @@
-return "1.0.0~BETA-0725a-STEAMODDED"

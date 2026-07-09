@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Время",
 			['sysclock_settings_tab'] = "Часы",
 			['sysclock_name'] = "Системные часы",
+			['sysclock_right_click_tooltip'] = {
+				"ПКМ, чтобы",
+				"открыть настройки"
+			},
 			['sysclock_visibility_setting'] = "Показать часы",
+			['sysclock_persistent_setting'] = "Показывать в меню",
 			['sysclock_draggable_setting'] = "Перетаскивание",
 			['sysclock_preset_setting'] = 'Предустановка',
 			['sysclock_preset_default_button'] = 'Восстановить',
@@ -40,8 +46,9 @@ return {
 				"Простой",
 				"Тень",
 				"Полупрозрачный",
+				"Тиснение",
 				"Панель",
-				"Рельефный"
+				"Отброс"
 			},
 			['sysclock_colours'] = {
 				"Белый",
@@ -61,9 +68,12 @@ return {
 				"Фиолетовый",
 				"Лаванда",
 				"Розовый",
-				"Радужный",
-				"Динамический",
-				"Тёмный динамический"
+				"Выпуск",
+				"Выпуск тёмный",
+				"Блайнд",
+				"Блайнд тёмный",
+				"Босс",
+				"Босс тёмный"
 			}
 		}
 	}

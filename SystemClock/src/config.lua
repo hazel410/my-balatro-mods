@@ -4,75 +4,76 @@ local logger = require('systemclock.logger')
 local utilities = require('systemclock.utilities')
 
 local DEFAULTS = {
-	['config_version'] = 4,
+	['config_version'] = 5,
 	['clock_visible'] = true,
+	['clock_persistent'] = true,
+	['clock_right_click_tutorial'] = true,
 	['clock_allow_drag'] = true,
-	['hour_offset'] = 0,
 	['clock_preset_index'] = 1,
 	['clock_presets'] = {
 		[1] = {
 			['format'] = 4,
-			['style'] = 5,
-			['size'] = 0.6,
-			['colours'] = {
-				['text'] = 'WHITE',
-				['back'] = 'DYN_UI.MAIN'
-			},
-			['position'] = {
-				['x'] = 0.44356,
-				['y'] = -0.65719
-			}
-		},
-		[2] = {
-			['format'] = 1,
-			['style'] = 2,
-			['size'] = 0.4,
-			['colours'] = {
-				['text'] = 'WHITE',
-				['back'] = 'GREEN'
-			},
-			['position'] = {
-				['x'] = -0.45227,
-				['y'] = 11.55784
-			}
-		},
-		[3] = {
-			['format'] = 6,
-			['style'] = 1,
-			['size'] = 0.3,
-			['colours'] = {
-				['text'] = 'WHITE',
-				['back'] = 'DYN_UI.MAIN'
-			},
-			['position'] = {
-				['x'] = 13.51127,
-				['y'] = 2.50993
-			}
-		},
-		[4] = {
-			['format'] = 1,
-			['style'] = 3,
+			['style'] = 'panel',
 			['size'] = 0.5,
 			['colours'] = {
 				['text'] = 'WHITE',
 				['back'] = 'DYN_UI.MAIN'
 			},
 			['position'] = {
-				['x'] = 17.52411,
-				['y'] = 7.88492
+				['x'] = 0.580,
+				['y'] = -0.622
 			}
 		},
-		[5] = {
-			['format'] = 2,
-			['style'] = 1,
+		[2] = {
+			['format'] = 5,
+			['style'] = 'emboss',
+			['size'] = 0.4,
+			['colours'] = {
+				['text'] = 'WHITE',
+				['back'] = 'GREEN'
+			},
+			['position'] = {
+				['x'] = -0.382,
+				['y'] = 11.653
+			}
+		},
+		[3] = {
+			['format'] = 6,
+			['style'] = 'simple',
 			['size'] = 0.3,
 			['colours'] = {
 				['text'] = 'WHITE',
 				['back'] = 'DYN_UI.MAIN'
 			},
 			['position'] = {
-				['x'] = 17.34843,
-				['y'] = 11.39360
+				['x'] = 13.660,
+				['y'] = 2.660
+			}
+		},
+		[4] = {
+			['format'] = 1,
+			['style'] = 'translucent',
+			['size'] = 0.5,
+			['colours'] = {
+				['text'] = 'WHITE',
+				['back'] = 'DYN_UI.MAIN'
+			},
+			['position'] = {
+				['x'] = 17.574,
+				['y'] = 8.035
+			}
+		},
+		[5] = {
+			['format'] = 3,
+			['style'] = 'throwback',
+			['size'] = 0.6,
+			['colours'] = {
+				['text'] = 'ORANGE',
+				['back'] = 'DYN_UI.BOSS_MAIN'
+			},
+			['position'] = {
+				['x'] = 2.936,
+				['y'] = 10.394
 			}
 		}
 	}
@@ -116,7 +117,7 @@ end
 
 function config.save()
 	if not love.filesystem.getInfo(SAVE_DIR) then
-		logger.log_info("Creating config folder...", "SystemClock")
+		logger.log_info("Creating config folder...")
 		local success = love.filesystem.createDirectory(SAVE_DIR)
 		if not success then
 			logger.log_error("Failed to create config folder")
@@ -134,7 +135,7 @@ end
 
 local function update_config_version()
 	if not config then
-		logger.log_error("Config not loaded", 'SystemClock')
+		logger.log_error("Config not loaded")
 		return
 	end
 
@@ -199,6 +200,21 @@ local function update_config_version()
 		config.config_version = 4
 	end
 
+	if config.config_version == 4 then
+		logger.log_info("Transferring config settings (v4 -> v5)")
+
+		local v4_style_names = { 'simple', 'shadow', 'translucent', 'panel', 'emboss', 'throwback' }
+		for _, preset in ipairs(config.clock_presets) do
+			local style_index = preset.style
+			preset.style = v4_style_names[style_index] or 'simple'
+			if preset.position then
+				preset.position.x = preset.position.x + 0.13
+				preset.position.y = preset.position.y + 0.15
+			end
+		end
+		config.config_version = 5
+	end
+
 	config.save()
 end
 
@@ -218,8 +234,8 @@ function config.load()
 		end
 	end
 
-	utilities.table_deep_merge(loaded_config, config)
-	utilities.table_deep_merge(DEFAULTS, config)
+	utilities.deep_merge(loaded_config, config)
+	utilities.deep_merge(DEFAULTS, config)
 
 	update_config_version()
 
@@ -227,8 +243,12 @@ function config.load()
 end
 
 function config.reset_preset(preset_index)
-	config.clock_presets[preset_index] = utilities.table_deep_copy(DEFAULTS.clock_presets[preset_index])
+	config.clock_presets[preset_index] = utilities.deep_copy(DEFAULTS.clock_presets[preset_index])
 	config.save()
+end
+
+function config.get_preset_default(preset_index)
+	return DEFAULTS.clock_presets[preset_index]
 end
 
 return config

@@ -1,0 +1,235 @@
+{
+  "buffer_name": "main.lua",
+  "entries": [
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\crash_handler.toml",
+        "patch_type": "copy"
+      },
+      "regions": [
+        {
+          "start_line": 1,
+          "end_line": 888
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\core.toml",
+        "patch_type": "copy"
+      },
+      "regions": [
+        {
+          "start_line": 1286,
+          "end_line": 1332
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Brainstorm\\lovely.toml",
+        "patch_type": "copy"
+      },
+      "regions": [
+        {
+          "start_line": 1333,
+          "end_line": 1351
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Saturn-alpha-0.2.2-E-qf3\\lovely\\core.toml",
+        "patch_type": "copy"
+      },
+      "regions": [
+        {
+          "start_line": 1352,
+          "end_line": 1563
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "SystemClock\\lovely\\modules.toml",
+        "patch_type": "copy"
+      },
+      "regions": [
+        {
+          "start_line": 1564,
+          "end_line": 1565
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely.toml",
+        "patch_type": "copy"
+      },
+      "regions": [
+        {
+          "start_line": 1566,
+          "end_line": 1647
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\crash_handler.toml",
+        "pattern": "function love.errhand(msg)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 1093,
+          "end_line": 1093
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\preflight.toml",
+        "pattern": "if (love.system.getOS() == 'OS X' ) and (jit.arch == 'arm64' or jit.arch == 'arm') then jit.off() end",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 889,
+          "end_line": 889
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\fixes.toml",
+        "pattern": "--To control when steam communication happens, make sure to send updates to steam as little as possible",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 983,
+          "end_line": 984
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\fixes.toml",
+        "pattern": "--Set up the render window and the stage for the splash screen, then enter the gameloop with :update",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 1005,
+          "end_line": 1005
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\fixes.toml",
+        "pattern": "if os == 'OS X' or os == 'Windows' then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 980,
+          "end_line": 980
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\fixes.toml",
+        "pattern": "if os == 'OS X' then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 985,
+          "end_line": 985
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\fixes.toml",
+        "pattern": "st = require 'luasteam'",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 989,
+          "end_line": 990
+        },
+        {
+          "start_line": 993,
+          "end_line": 994
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\mobile_patches.toml",
+        "pattern": "local os = love.system.getOS()",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 979,
+          "end_line": 979
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\fixes.toml",
+        "pattern": "(?<indent>[\t ]*)if not \\(st.init and st:init\\(\\)\\) then\n[\t ]*(?<quit>love.event.quit\\(\\))",
+        "patch_type": "regex"
+      },
+      "regions": [
+        {
+          "start_line": 1003,
+          "end_line": 1003
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\screenshader_rendering.toml",
+        "pattern": "G.CANVAS = love.graphics.newCanvas(w*G.CANV_SCALE, h*G.CANV_SCALE, {type = '2d', readable = true})\nG.CANVAS:setFilter('linear', 'linear')\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 1283,
+          "end_line": 1284
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\saturn-compat.toml",
+        "pattern": "assert(load(nfs.read(Saturn.PATH .. \"/core/logic/hide_played.lua\")))()",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 1529,
+          "end_line": 1530
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\stackable-deck-steamodded-0.9.8.toml",
+        "pattern": "modded and {",
+        "patch_type": "pattern"
+      },
+      "regions": [],
+      "warnings": [
+        "Pattern 'modded and {' on target 'main.lua' for pattern patch from Cartomancer-v4.17c\\lovely\\stackable-deck-steamodded-0.9.8.toml resulted in no matches"
+      ]
+    }
+  ]
+}

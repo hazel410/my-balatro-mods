@@ -1,5 +1,12 @@
 local utilities = {}
 
+local DYN_UI_INITIAL_COLOURS = {
+	['DYN_UI.MAIN'] = mix_colours(G.C.BLUE, G.C.BLACK, 0.6),
+	['DYN_UI.DARK'] = mix_colours(G.C.BLUE, G.C.BLACK, 0.24),
+	['DYN_UI.BOSS_MAIN'] = darken(G.C.BLACK, 0.05),
+	['DYN_UI.BOSS_DARK'] = lighten(G.C.BLACK, 0.07)
+}
+
 function utilities.index_of(table, val)
 	if not val then return nil end
 	for i, v in ipairs(table) do
@@ -9,30 +16,32 @@ function utilities.index_of(table, val)
 	return nil
 end
 
-function utilities.table_deep_copy(source)
+function utilities.deep_copy(source, destination)
 	if type(source) ~= 'table' then return source end
 
-	local copy = {}
+	destination = destination or {}
 	if #source > 0 then
 		for i, v in ipairs(source) do
-			copy[i] = utilities.table_deep_copy(v)
+			destination[i] = utilities.deep_copy(v)
 		end
 	else
 		for k, v in pairs(source) do
-			copy[k] = utilities.table_deep_copy(v)
+			destination[k] = utilities.deep_copy(v)
 		end
 	end
 
-	return copy
+	return destination
 end
 
-function utilities.table_deep_merge(source, destination, replace)
+function utilities.deep_merge(source, destination, replace)
+	destination = destination or {}
+
 	for k, v in pairs(source) do
 		if type(v) == 'table' then
 			if replace or destination[k] == nil then
 				destination[k] = {}
 			end
-			utilities.table_deep_merge(v, destination[k], replace)
+			utilities.deep_merge(v, destination[k], replace)
 		else
 			if replace or destination[k] == nil then
 				destination[k] = v
@@ -45,7 +54,7 @@ function utilities.table_deep_merge(source, destination, replace)
 			if replace or destination[i] == nil then
 				destination[i] = {}
 			end
-			utilities.table_deep_merge(v, destination[i], replace)
+			utilities.deep_merge(v, destination[i], replace)
 		else
 			if replace or destination[i] == nil then
 				destination[i] = v
@@ -56,20 +65,49 @@ function utilities.table_deep_merge(source, destination, replace)
 	return destination
 end
 
-function utilities.get_colour_from_ref(ref)
-	if not ref then return nil end
+function utilities.shallow_copy(source, destination)
+	destination = destination or {}
+	for i, v in ipairs(source) do
+		destination[i] = v
+	end
+	return destination
+end
 
+function utilities.get_colour_from_ref(ref)
+	if not ref or type(ref) ~= 'string' then return nil end
+	local colour
+
+	if G.STAGE == G.STAGES.MAIN_MENU then
+		colour = DYN_UI_INITIAL_COLOURS[ref]
+		if colour then return colour end
+	end
+
+	colour = G.C
 	local depth = 0
-	local colour = G.C
 	for obj_name in ref:gmatch("[^%.]+") do
 		colour = colour[obj_name]
 		depth = depth + 1
-		if depth > 2 or not colour then
-			return nil
-		end
+		if depth > 2 or not colour then return nil end
 	end
 
-	return type(colour) == 'table' and colour
+	return type(colour) == 'table' and colour or nil
+end
+
+function utilities.parse_colour(colour_ref)
+	if not colour_ref then return nil end
+
+	local ref_type = type(colour_ref)
+	if ref_type == 'table' and #colour_ref >= 3 then
+		return { colour_ref[1] or 1, colour_ref[2] or 1, colour_ref[3] or 1, colour_ref[4] or 1 }
+	elseif ref_type ~= 'string' then
+		return nil
+	end
+
+	if string.len(colour_ref) > 6 and colour_ref:sub(1, 1) == "#" then
+		return HEX(colour_ref:sub(2))
+	end
+
+	return utilities.get_colour_from_ref(colour_ref)
 end
 
 return utilities

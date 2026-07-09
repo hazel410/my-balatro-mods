@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Waktu",
 			['sysclock_settings_tab'] = "Jam",
 			['sysclock_name'] = "Jam Sistem",
+			['sysclock_right_click_tooltip'] = {
+				"Klik kanan untuk",
+				"membuka pengaturan"
+			},
 			['sysclock_visibility_setting'] = "Tampilkan jam",
+			['sysclock_persistent_setting'] = "Tampilkan di menu",
 			['sysclock_draggable_setting'] = "Izinkan penarikan",
 			['sysclock_preset_setting'] = 'Prasetel',
 			['sysclock_preset_default_button'] = 'Pulihkan default',
@@ -40,8 +46,9 @@ return {
 				"Sederhana",
 				"Bayangan",
 				"Transparan",
+				"Emboss",
 				"Panel",
-				"Embossed"
+				"Baliklempar"
 			},
 			['sysclock_colours'] = {
 				"Putih",
@@ -61,9 +68,12 @@ return {
 				"Ungu",
 				"Lavender",
 				"Merah muda",
-				"Pelangi",
-				"Dinamika",
-				"Dinamika gelap"
+				"Edisi",
+				"Edisi gelap",
+				"Blind",
+				"Blind gelap",
+				"Boss",
+				"Boss gelap"
 			}
 		}
 	}

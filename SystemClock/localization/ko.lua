@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "시간",
 			['sysclock_settings_tab'] = "시계",
 			['sysclock_name'] = "시스템 클럭",
+			['sysclock_right_click_tooltip'] = {
+				"우클릭하여",
+				"설정 열기"
+			},
 			['sysclock_visibility_setting'] = "시계 표시",
+			['sysclock_persistent_setting'] = "메뉴에 표시",
 			['sysclock_draggable_setting'] = "드래그 허용",
 			['sysclock_preset_setting'] = '프리셋',
 			['sysclock_preset_default_button'] = '기본값 복원',
@@ -40,8 +46,9 @@ return {
 				"단순",
 				"그림자",
 				"반투명",
+				"양각",
 				"패널",
-				"양각"
+				"되던짐"
 			},
 			['sysclock_colours'] = {
 				"흰색",
@@ -61,9 +68,12 @@ return {
 				"보라색",
 				"라벤더",
 				"분홍색",
-				"무지개",
-				"동적",
-				"어두운 동적"
+				"에디션",
+				"에디션 어두운",
+				"블라인드",
+				"블라인드 어두운",
+				"보스",
+				"보스 어두운"
 			}
 		}
 	}

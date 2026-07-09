@@ -1,0 +1,13 @@
+{
+	"id": "luigicasinocards",
+	"name": "Luigi's Casino Cards",
+	"display_name": "Luigi's Casino",
+	"author": ["V--R, Al3x234"],
+	"description": "Luigi's Casino Card Skins",
+	"prefix": "luigicasinocards",
+	"main_file": "luigicasinocards.lua",
+	"priority": 0,
+	"badge_colour": "81B622",
+	"version": "2.1.0",
+	"dependencies": ["malverk"],
+}

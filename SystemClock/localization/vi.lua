@@ -13,18 +13,24 @@ return {
 					" ",
 					" ",
 					" ",
-					"{C:green}Bản dịch của {C:gold}HuayTheLocFixer{}",
+					"{C:green}Bản dịch của {C:gold}HuyTheKiller{}",
 					" ",
-            		"Đừng để rơi vào {C:purple,E:1}Hố Đen{} nhé."
+					"Đừng để rơi vào {C:purple,E:1}Hố Đen{} nhé."
 				}
 			}
 		}
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Thời gian",
 			['sysclock_settings_tab'] = "Đồng hồ",
 			['sysclock_name'] = "Đồng Hồ Hệ Thống",
+			['sysclock_right_click_tooltip'] = {
+				"Nhấp chuột phải để",
+				"mở cài đặt"
+			},
 			['sysclock_visibility_setting'] = "Hiện đồng hồ",
+			['sysclock_persistent_setting'] = "Xem trong menu",
 			['sysclock_draggable_setting'] = "Cho phép kéo thả",
 			['sysclock_preset_setting'] = 'Cài đặt sẵn',
 			['sysclock_preset_default_button'] = 'Khôi phục mặc định',
@@ -40,8 +46,9 @@ return {
 				"Đơn giản",
 				"Dổ bóng",
 				"Trong suốt",
+				"Dập nổi",
 				"Thêm viền",
-				"Dập nổi"
+				"Némlại"
 			},
 			['sysclock_colours'] = {
 				"Trắng",
@@ -61,9 +68,12 @@ return {
 				"Tím",
 				"Tím oải hương",
 				"Hồng",
-				"Cầu vồng",
-				"Năng động",
-				"Tối năng động"
+				"Ấn bản",
+				"Ấn bản tối",
+				"Blind",
+				"Blind tối",
+				"Boss",
+				"Boss tối"
 			}
 		}
 	}

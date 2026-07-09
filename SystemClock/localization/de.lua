@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Zeit",
 			['sysclock_settings_tab'] = "Uhr",
 			['sysclock_name'] = "Systemuhr",
+			['sysclock_right_click_tooltip'] = {
+				"Rechtsklick, um",
+				"Einstellungen zu öffnen"
+			},
 			['sysclock_visibility_setting'] = "Uhr anzeigen",
+			['sysclock_persistent_setting'] = "In Menüs anzeigen",
 			['sysclock_draggable_setting'] = "Verschieben erlauben",
 			['sysclock_preset_setting'] = 'Voreinstellung',
 			['sysclock_preset_default_button'] = 'Standard wiederherstellen',
@@ -40,8 +46,9 @@ return {
 				"Einfach",
 				"Schatten",
 				"Durchscheinend",
+				"Prägen",
 				"Panel",
-				"Geprägt"
+				"Zurückwurf"
 			},
 			['sysclock_colours'] = {
 				"Weiß",
@@ -61,9 +68,12 @@ return {
 				"Lila",
 				"Lavendel",
 				"Rosa",
-				"Regenbogen",
-				"Dynamisch",
-				"Dynamisch dunkel"
+				"Edition",
+				"Edition dunkel",
+				"Blind",
+				"Blind dunkel",
+				"Boss",
+				"Boss dunkel"
 			}
 		}
 	}

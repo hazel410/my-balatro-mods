@@ -1,0 +1,42 @@
+{
+  "buffer_name": "=[SMODS _ \"src/game_object.lua\"]",
+  "entries": [
+    {
+      "patch_source": {
+        "file": "Malverk-1.1.4a\\lovely\\ui.toml",
+        "pattern": "assert(o.mod == nil, \"Created object should not have \\\"mod\\\" field defined.\")\no.mod = SMODS.current_mod\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 26,
+          "end_line": 28
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Saturn-alpha-0.2.2-E-qf3\\lovely\\stack.toml",
+        "pattern": "x_mult = card.ability.extra",
+        "patch_type": "pattern"
+      },
+      "regions": [],
+      "warnings": [
+        "Pattern 'x_mult = card.ability.extra' on target '=[SMODS _ \"src/game_object.lua\"]' for pattern patch from Saturn-alpha-0.2.2-E-qf3\\lovely\\stack.toml resulted in no matches"
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\peek-shop.toml",
+        "pattern": "{n=G.UIT.C,config={align = \"tm\", padding = 0.05, minw = 2.4}, nodes={}},",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 1585,
+          "end_line": 1602
+        }
+      ]
+    }
+  ]
+}

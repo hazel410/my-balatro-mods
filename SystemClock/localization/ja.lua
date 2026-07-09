@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "時間",
 			['sysclock_settings_tab'] = "時計",
 			['sysclock_name'] = "システムクロック",
+			['sysclock_right_click_tooltip'] = {
+				"右クリックで",
+				"設定を開く"
+			},
 			['sysclock_visibility_setting'] = "時計を表示",
+			['sysclock_persistent_setting'] = "メニューに表示",
 			['sysclock_draggable_setting'] = "ドラッグを許可",
 			['sysclock_preset_setting'] = 'プリセット',
 			['sysclock_preset_default_button'] = 'デフォルトに戻す',
@@ -40,8 +46,9 @@ return {
 				"シンプル",
 				"シャドウ",
 				"半透明",
+				"エンボス",
 				"パネル",
-				"エンボス"
+				"投げ戻し"
 			},
 			['sysclock_colours'] = {
 				"白",
@@ -61,9 +68,12 @@ return {
 				"紫",
 				"藤色",
 				"桃色",
-				"虹色",
-				"動的",
-				"動的暗い"
+				"エディション",
+				"エディションダーク",
+				"ブラインド",
+				"ブラインドダーク",
+				"ボス",
+				"ボスダーク"
 			}
 		}
 	}

@@ -1,0 +1,18 @@
+{
+  "buffer_name": "=[SMODS _ \"src/utils.lua\"]",
+  "entries": [
+    {
+      "patch_source": {
+        "file": "Saturn-alpha-0.2.2-E-qf3\\lovely\\rem_anim.toml",
+        "pattern": "if effect.juice_card",
+        "patch_type": "regex"
+      },
+      "regions": [
+        {
+          "start_line": 1529,
+          "end_line": 1529
+        }
+      ]
+    }
+  ]
+}

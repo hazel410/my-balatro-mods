@@ -1,0 +1,397 @@
+{
+  "buffer_name": "cardarea.lua",
+  "entries": [
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\better_calc.toml",
+        "pattern": "self:emplace(card, nil, stay_flipped)\nreturn true\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 699,
+          "end_line": 700
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\blind.toml",
+        "pattern": "local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 692,
+          "end_line": 693
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\booster.toml",
+        "pattern": "(self.config.type == 'deck' and self ~= G.deck) or",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 317,
+          "end_line": 317
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\booster.toml",
+        "pattern": "if self.config.type == 'hand' and (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK  or G.STATE == G.STATES.PLANET_PACK) then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 504,
+          "end_line": 506
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\booster.toml",
+        "pattern": "if self.config.type == 'hand' and not (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.PLANET_PACK) then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 521,
+          "end_line": 523
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\card_limit.toml",
+        "pattern": "self.config = config or {}\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 13,
+          "end_line": 30
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\card_limit.toml",
+        "pattern": "self.config = cardAreaTable.config\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 732,
+          "end_line": 755
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\card_limit.toml",
+        "pattern": "function CardArea:change_size(delta)\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 115,
+          "end_line": 119
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\card_limit.toml",
+        "pattern": "if self == G.deck and self.config.card_limit > #G.playing_cards then self.config.card_limit = #G.playing_cards end\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 300,
+          "end_line": 303
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\card_limit.toml",
+        "pattern": "self.config.temp_limit = math.max(#self.cards, self.config.card_limit)\nself.config.card_count = #self.cards\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 304,
+          "end_line": 305
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\card_limit.toml",
+        "pattern": "{n=G.UIT.T, config={ref_table = self.config, ref_value = 'card_limit', scale = 0.3, colour = G.C.WHITE}},\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 326,
+          "end_line": 326
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\card_limit.toml",
+        "pattern": "if #self.cards > self.config.card_limit then\n    if self == G.deck then\n        self.config.card_limit = #self.cards\n    end\nend\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 65,
+          "end_line": 69
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\cardarea.toml",
+        "pattern": "{n=G.UIT.R, config={minw = self.T.w,minh = self.T.h,align = \"cm\", padding = 0.1, mid = true, r = 0.1, colour = self ~= G.shop_vouchers and {0,0,0,0.1} or nil, ref_table = self}, nodes={",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 333,
+          "end_line": 333
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\cardarea.toml",
+        "pattern": "local card_count = self ~= G.shop_vouchers and {n=G.UIT.R, config={align = self == G.jokers and 'cl' or self == G.hand and 'cm' or 'cr', padding = 0.03, no_fill = true}, nodes={\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 322,
+          "end_line": 322
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\fixes.toml",
+        "pattern": "self:set_ranks()\nif self == G.deck then check_for_unlock({type = 'modify_deck', deck = self}) end",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 109,
+          "end_line": 110
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\scoring_calculation.toml",
+        "pattern": "update_hand_text({immediate = true, nopulse = true, delay = 0}, {mult = 0, chips = 0, level = '', handname = ''})\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 192,
+          "end_line": 194
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\scoring_calculation.toml",
+        "pattern": "update_hand_text({immediate = true, nopulse = nil, delay = 0}, {handname=disp_text, level=G.GAME.hands[text].level, mult = G.GAME.hands[text].mult, chips = G.GAME.hands[text].chips})\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 213,
+          "end_line": 216
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\scoring_calculation.toml",
+        "pattern": "update_hand_text({immediate = true, nopulse = nil, delay = 0}, {handname='????', level='?', mult = '?', chips = '?'})\n",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 209,
+          "end_line": 211
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\sticker.toml",
+        "pattern": "table.sort(self.cards, function (a, b) return a.T.x + a.T.w/2 - 100*(a.pinned and a.sort_id or 0) < b.T.x + b.T.w/2 - 100*(b.pinned and b.sort_id or 0) end)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 617,
+          "end_line": 617
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "smods-1.0.0-beta-1620a\\lovely\\ui_elements.toml",
+        "pattern": "if self.highlighted[1] then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 159,
+          "end_line": 159
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\dynamic-hand-align.toml",
+        "pattern": "local max_cards = math.max(#self.cards, self.config.temp_limit)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 511,
+          "end_line": 511
+        },
+        {
+          "start_line": 529,
+          "end_line": 529
+        },
+        {
+          "start_line": 545,
+          "end_line": 545
+        },
+        {
+          "start_line": 561,
+          "end_line": 561
+        },
+        {
+          "start_line": 576,
+          "end_line": 576
+        },
+        {
+          "start_line": 602,
+          "end_line": 602
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\hidden-jokers.toml",
+        "pattern": "self.children.area_uibox:draw()",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 353,
+          "end_line": 355
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\hidden-jokers.toml",
+        "pattern": "function CardArea:emplace(card, location, stay_flipped)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 50,
+          "end_line": 52
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\limit-deck-size.toml",
+        "pattern": "local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card*)",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 689,
+          "end_line": 691
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\limit-deck-size.toml",
+        "pattern": "(self.config.type == 'deck' and self ~= G.deck) or",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 318,
+          "end_line": 318
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\limit-deck-size.toml",
+        "pattern": "            local deck_height = (self.config.deck_height or 0.15)/52\n            for k, card in ipairs(self.cards) do\n                if card.facing == 'front' then card:flip() end\n\n                if not card.states.drag.is then\n                    card.T.x = self.T.x + 0.5*(self.T.w - card.T.w) + self.shadow_parrallax.x*deck_height*(#self.cards/(self == G.deck and 1 or 2) - k) + 0.9*self.shuffle_amt*(1 - k*0.01)*(k%2 == 1 and 1 or -0)\n                    card.T.y = self.T.y + 0.5*(self.T.h - card.T.h) + self.shadow_parrallax.y*deck_height*(#self.cards/(self == G.deck and 1 or 2) - k)\n                    card.T.r = 0 + 0.3*self.shuffle_amt*(1 + k*0.05)*(k%2 == 1 and 1 or -0)\n                    card.T.x = card.T.x + card.shadow_parrallax.x/30\n                end\n            end",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 455,
+          "end_line": 491
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\zoom-jokers.toml",
+        "pattern": "if self.config.type == 'joker' or self.config.type == 'title_2' then",
+        "patch_type": "pattern"
+      },
+      "regions": [
+        {
+          "start_line": 586,
+          "end_line": 597
+        }
+      ]
+    },
+    {
+      "patch_source": {
+        "file": "Cartomancer-v4.17c\\lovely\\dynamic-hand-align.toml",
+        "pattern": "if self\\.config\\.type == \\'hand\\' and [^\\n]*then",
+        "patch_type": "regex"
+      },
+      "regions": [
+        {
+          "start_line": 504,
+          "end_line": 505
+        },
+        {
+          "start_line": 521,
+          "end_line": 522
+        },
+        {
+          "start_line": 749,
+          "end_line": 750
+        }
+      ]
+    }
+  ]
+}

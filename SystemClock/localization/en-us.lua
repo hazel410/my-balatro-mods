@@ -22,9 +22,15 @@ return {
 	},
 	['misc'] = {
 		['dictionary'] = {
+			['sysclock_time_heading'] = "Time",
 			['sysclock_settings_tab'] = "Clock",
 			['sysclock_name'] = "SystemClock",
+			['sysclock_right_click_tooltip'] = {
+				"Right click to",
+				"open settings"
+			},
 			['sysclock_visibility_setting'] = "Show clock",
+			['sysclock_persistent_setting'] = "Show in menus",
 			['sysclock_draggable_setting'] = "Allow dragging",
 			['sysclock_preset_setting'] = 'Preset',
 			['sysclock_preset_default_button'] = 'Restore default',
@@ -40,8 +46,9 @@ return {
 				"Simple",
 				"Shadow",
 				"Translucent",
+				"Emboss",
 				"Panel",
-				"Embossed"
+				"Throwback"
 			},
 			['sysclock_colours'] = {
 				"White",
@@ -61,9 +68,12 @@ return {
 				"Purple",
 				"Lavender",
 				"Pink",
-				"Rainbow",
-				"Dynamic",
-				"Dynamic dark"
+				"Edition",
+				"Edition dark",
+				"Blind",
+				"Blind dark",
+				"Boss",
+				"Boss dark"
 			}
 		}
 	}
