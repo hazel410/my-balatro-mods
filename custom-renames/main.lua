@@ -1,5 +1,5 @@
 --- STEAMODDED HEADER
---- MOD_NAME: Hazel renames
+--- MOD_NAME: silly renames
 --- MOD_ID: GayPenis
 --- MOD_AUTHOR: [Original code by FosterBarnes, modified by hazel410]
 --- MOD_DESCRIPTION: Renames "Straight" to "Gay" and "Baron" to "Baroness"
